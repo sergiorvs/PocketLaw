@@ -1,0 +1,9 @@
+[
+{
+  "model": "laws.tag",
+  "pk": 1,
+  "fields": {
+    "tag": "Empresa"
+  }
+}
+]

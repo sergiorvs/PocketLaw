@@ -1,0 +1,11 @@
+[
+{
+  "model": "laws.question",
+  "pk": 1,
+  "fields": {
+    "question": "¿Cómo puedo registrar mi marca?",
+    "answer": "Para poder hacerlo vas a tener que llenar un formulario de solicitud, donde señalaras tus datos. Si eres una persona vas a consignar tu número de DNI, pasaporte o Carné de Extranjería.\r\nEn caso de que fueras una persona jurídica, es decir una empresa, startup u otro, deberás consignar el número del Registro Único de Contribuyente o como lo llaman comúnmente tu RUC.\r\nSi fueras a registrar a nombre de otra persona, es decir, si fueras un representante, deberás indicar tus datos de identificación y un documento de poder.",
+    "law": 1
+  }
+}
+]

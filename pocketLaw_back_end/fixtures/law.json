@@ -1,0 +1,12 @@
+[
+{
+  "model": "laws.law",
+  "pk": 1,
+  "fields": {
+    "title": "Marca",
+    "description": "Es todo aquel signo que nos va a permitir reconocer un producto o servicio de otros en el mercado, gracias a sus características podremos diferenciarlo de otros. Ello quiere decir que vamos a poder usar juegos de palabras, números, imágenes, símbolos, colores, incluso sonidos y los olores.",
+    "image": "marca__logo-generica_YVMmq8Q.jpg",
+    "tag": 1
+  }
+}
+]

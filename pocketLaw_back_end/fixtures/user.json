@@ -1,0 +1,22 @@
+[
+{
+  "model": "account.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$8KOAzPS37wDB$Gd8bs/7u9/ZcZTKf8zIQ5VSv37vkaUtmig9HLipkpuY=",
+    "last_login": "2021-02-27T07:35:59.768Z",
+    "is_superuser": true,
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-02-27T07:35:27.985Z",
+    "email": "admin@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "delete_account_date": null,
+    "profile_picture": "",
+    "groups": [],
+    "user_permissions": [],
+    "favorites": []
+  }
+}
+]
