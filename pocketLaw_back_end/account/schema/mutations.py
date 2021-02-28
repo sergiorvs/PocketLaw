@@ -30,6 +30,7 @@ from account.schema.inputs import ActivateAccountInput
 from account.serializers import RegisterSerializer
 from account.tasks import (
     sign_up_email_confirmation,
+    send_success_confirmation_email,
 )
 from core.constants import (
     SUCCESS_MESSAGE_TYPE,
@@ -101,12 +102,10 @@ class ActivateAccount(Mutation):
             if account_activation_token.check_token(user, token):
                 user.is_active = True
 
-                # send_success_confirmation_email.delay(
-                #     email=user.email,
-                #     subject=ACTIVATION_ACCOUNT_SUBJECT,
-                #     message=ACTIVATION_ACCOUNT_MESSAGE,
-                #     domain=domain,
-                # )
+                send_success_confirmation_email.delay(
+                    email=user.email,
+                    domain=domain,
+                )
                 user.save()
 
                 return ActivateAccount(message=MessageType(
