@@ -61,3 +61,15 @@ export const CREATE_USER = gql`
     }
   }
 `;
+
+export const ACTIVATE_ACCOUNT = gql`
+  mutation activateAccount ($activateData: ActivateAccountInput!){
+    activateAccount(activateData: $activateData){
+      message{
+        title
+        description
+        type
+      }
+    }
+  }
+`;

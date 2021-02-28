@@ -4,7 +4,7 @@ export const useStyles = makeStyles(theme => ({
   baseContainer: {
     backgroundColor: '#eff5f8',
     width: '100%',
-    minHeight: '100vh',
+    minHeight: '100%',
     flexGrow: 2,
     alignContent: 'flex-start',
     [theme.breakpoints.down('sm')]: {
@@ -24,7 +24,7 @@ export const useStyles = makeStyles(theme => ({
   lawsDescriptionContainer: {
     // background: 'blue',
     width: '20px',
-    padding: '2rem 0 0',
+    padding: '2rem 0',
     margin: '0 2rem 0 14rem',
     justifyContent: 'center',
   },

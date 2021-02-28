@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles(theme => ({
   lawsDescription: {
     width: '100%',
-    height: '7rem',
+    minHeight: '7rem',
     marginBottom: '3rem',
     cursor: 'pointer',
   },

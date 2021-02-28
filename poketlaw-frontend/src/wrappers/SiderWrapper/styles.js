@@ -46,6 +46,6 @@ export const useStyles = makeStyles(theme => ({
   },
   logoutContainer: {
     marginTop: 'auto',
-    marginBottom: 0
+    marginBottom: '2rem'
   }
 }));
