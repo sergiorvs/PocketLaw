@@ -134,6 +134,3 @@ Dump data
 Load Fixtures to share apps
 
     $ python manage.py loaddata fixtures/public/.json
-
-
-###### Developed by Dekoding S.R.L
