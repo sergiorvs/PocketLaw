@@ -1,0 +1,23 @@
+{% extends 'email/base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans 'Su cuenta ha sido activada exitosamente' %}
+{% endblock %}
+
+{% block content %}
+  <p>
+    {% trans 'Saludos,' %}
+  </p>
+  <p>
+    {% trans 'Su email ha sido activado y ahora cuenta con los siguientes beneficios:' %}
+  </p>
+  <table class="user_inputs">
+    <tr>
+      <th>{% trans 'Guardar sus leyes favoritas' %}</th>
+    </tr>
+    <tr>
+      <th>{% trans 'Editar leyes' %}</th>
+    </tr>
+  </table>
+{% endblock %}

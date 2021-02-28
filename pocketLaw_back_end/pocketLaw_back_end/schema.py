@@ -11,8 +11,9 @@ from graphql_jwt import (
     Refresh,
 )
 
-from account.schema import Mutation as AccountMutations
 from account.schema.types import UserType
+from account.schema import Mutation as AccountMutations
+from account.schema import Query as AccountQueries
 from laws.schema import Query as LawsQueries
 
 
@@ -24,7 +25,7 @@ class ObtainJSONWebToken(JSONWebTokenMutation):
         return cls(user=info.context.user)
 
 
-class Query(LawsQueries, ObjectType):
+class Query(LawsQueries, AccountQueries):
     hello = String(default_value="Hi!")
 
 

@@ -3,6 +3,8 @@ Success messages for account
 """
 from django.utils.translation import ugettext_lazy as _
 
-SUCCESSFULLY_REGISTER = _('Register successfully')
+SUCCESSFULLY_REGISTER = _('Registro exitoso')
 SUCCESSFULLY_REGISTER_DESCRIPTION = _(
-    'We have sent you an email to confirm your account')
+    'Hemos enviado un link de confirmación a su correo')
+ACTIVATE_ACCOUNT_TITLE = _('Activación exitosa!')
+ACTIVATE_ACCOUNT = _('Cuenta activada exitosamente!')

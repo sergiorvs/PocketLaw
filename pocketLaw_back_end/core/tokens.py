@@ -28,7 +28,7 @@ class TokenResetPasswordGenerator(PasswordResetTokenGenerator):
 
         return (
                 text_type(user.pk) + text_type(timestamp) +
-                text_type(user.is_influencer) + text_type(num) +
+                text_type(num) +
                 text_type(user.email)
         )
 
