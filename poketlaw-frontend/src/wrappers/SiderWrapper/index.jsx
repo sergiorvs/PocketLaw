@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Divider,
-  Grid, Typography,
-  withStyles,
-} from '@material-ui/core';
+import { Avatar, Divider, Grid, Typography, } from '@material-ui/core';
 
 import Sider from '../../Components/Sider';
-import styles from './styles';
-import LOGO from "../../media/logo.png";
+import LOGO from '../../media/logo.png';
+import { Header } from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
+import routesDictionary from '../../routes/routesDict';
+import { useHistory } from 'react-router-dom';
+import { useStyles } from './styles';
+
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
@@ -20,70 +21,55 @@ const propTypes = {
   setLoginState: PropTypes.func.isRequired,
 };
 
-class SiderWrapper extends Component {
-  constructor(props) {
-    super(props);
+export default function SiderWrapper({children, setLoginState}) {
+  const classes = useStyles();
+  const history = useHistory();
 
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    const { setLoginState } = this.props;
+  const logout = () => {
     localStorage.clear();
     setLoginState(false);
-  }
+    history.push(routesDictionary.login);
+  };
 
-  render() {
-    const { classes, children } = this.props;
-
-    return (
-      <Grid container className={classes.wrapperContent}>
-        <Grid item xs={2} className={classes.siderBackground}>
-          <Grid
-            item
-            container
-            alignContent={"center"}
-            justify={"center"}
-          >
-            <Grid item container className={classes.siderHeader}>
+  return (
+    <Grid container className={classes.wrapperContent}>
+      <Header />
+      <Grid item xs={2} className={classes.siderBackground}>
+        <Grid
+          item
+          container
+          alignContent={'center'}
+          justify={'center'}
+        >
+          <Grid item container className={classes.siderHeader}>
             <Grid item xs={12} className={classes.logoContainer}>
-              <img alt={"Logo"} src={LOGO} className={classes.logo}/>
+              <Avatar alt="Remy Sharp" src={LOGO} className={classes.avatar} />
             </Grid>
             <Grid item xs={12}>
-              <Typography variant={"h6"} color={"primary"} align={"center"}>
-                Mario Florez R.
+              <Typography variant={'h6'} align={'center'}>
+                Maria Flores
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography color={"primary"} align={"center"}>
-                Prueba@gmail.com
+              <Typography align={'center'}>
+                prueba@gmail.com
               </Typography>
             </Grid>
-            </Grid>
-            <Divider orientation="horizontal" className={classes.divider} />
-            <Sider logout={this.logout} />
-            {/*<Grid item container className={classes.siderHeader}>*/}
-            {/*  <Grid item xs={12}>*/}
-            {/*    <Typography align={"center"} className={classes.menuList}>*/}
-            {/*      Agenda Semanal*/}
-            {/*    </Typography>*/}
-            {/*  </Grid>*/}
-            {/*  <Grid item xs={12}>*/}
-            {/*    <Typography align={"center"} className={classes.menuList}>*/}
-            {/*      Agenda Semanal*/}
-            {/*    </Typography>*/}
-            {/*  </Grid>*/}
-            {/*</Grid>*/}
           </Grid>
+          <Divider orientation="horizontal" className={classes.divider} />
+          <Sider />
         </Grid>
-        <Grid item xs={10} className={classes.content}>
-          {children}
+        <Divider orientation="horizontal" className={classes.divider} />
+        <Grid item xs={12} className={classes.logoutContainer}>
+          <Typography align={'center'} onClick={logout} className={classes.logout}>
+            Logout
+          </Typography>
         </Grid>
       </Grid>
-    );
-  }
+      <Grid item xs={10} className={classes.content}>
+        {children}
+      </Grid>
+      <Footer />
+    </Grid>
+  );
 }
-
-SiderWrapper.propTypes = propTypes;
-
-export default withStyles(styles)(SiderWrapper);

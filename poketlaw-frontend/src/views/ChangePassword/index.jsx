@@ -37,7 +37,6 @@ function ChangePassword() {
   };
 
   const submit = () => {
-    console.log(uid, token)
     changePassword({
       variables: {
         input,

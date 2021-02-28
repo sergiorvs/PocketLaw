@@ -13,6 +13,7 @@ export const LOGIN_VERIFICATION = gql`
       refreshExpiresIn
       user{
         email
+        profilePicture
       }
     }
 }
@@ -41,6 +42,22 @@ export const PASSWORD_RESET = gql`
         type
       }
       success
+    }
+  }
+`;
+
+export const CREATE_USER = gql`
+  mutation createUser($input: CreateUserInput!){
+    createUser(input: $input){
+      message{
+        title
+        description
+        type
+      }
+      errors{
+        field
+        messages
+      }
     }
   }
 `;

@@ -20,6 +20,7 @@ import {
   setLoginTokens
 } from '../../utils/tools';
 import { LOGIN_VERIFICATION } from '../../graphql/mutations/Users';
+import createTypography from '@material-ui/core/styles/createTypography';
 
 
 const propTypes = {
@@ -29,7 +30,7 @@ const propTypes = {
 };
 
 
-function Login(props) {
+function Login({setLoginState}) {
   const classes = useStyles();
   const history = useHistory();
   const [errorLogin, setErrorLogin] = useState(false);
@@ -54,7 +55,7 @@ function Login(props) {
         setErrorForm(true);
       } else {
         setLoginTokens(tokenAuth.token);
-        // setLogin(tokenAuth.token);
+        setLoginState(tokenAuth.token);
         history.push(routesDictionary.dashboard);
       }
     });
@@ -113,7 +114,6 @@ function Login(props) {
                   },
                 }}
                 autoComplete='no'
-                error={errorForm}
                 helperText={errorForm ? "Error" : ''}
                 className={classes.textField}
                 InputLabelProps={{
@@ -149,6 +149,14 @@ function Login(props) {
                 onClick={() => history.push(routesDictionary.passwordReset)}
               >
                 Forget your Password ?
+              </Typography>
+              <Typography
+                variant={"body1"}
+                align={"center"}
+                className={classes.link}
+                onClick={() => history.push(routesDictionary.register)}
+              >
+                Register Now
               </Typography>
             </form>
           </Grid>

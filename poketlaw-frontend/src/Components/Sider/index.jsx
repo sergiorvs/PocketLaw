@@ -1,65 +1,125 @@
-import React from 'react';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  withStyles,
-  Grid,
-  ListItemIcon,
-} from '@material-ui/core';
-import {
-  Link,
-  withRouter,
-} from 'react-router-dom';
-import menuList from './constants';
+import React, { useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Collapse, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import clsx from 'clsx';
+import { menuList } from './constants';
+import { useStyles } from './styles';
+import { useApolloClient } from '@apollo/client';
 
-import styles from './styles';
 
-const Sider = (
-  {
-    classes,
-    logout,
-    location,
-  }) => {
-  const { pathname } = location;
-  const menu = menuList(logout);
-  const indexSelected = menu.findIndex((item) => pathname === item.link);
-  const postIndexSelected = indexSelected + 1;
-  const preIndexSelected = indexSelected - 1;
+function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
+  const classes = useStyles();
+  const history = useHistory();
+  const client = useApolloClient();
+  const {location = {}} = history;
+
+  const [nestedList, setNestedList] = useState({
+    laws: true
+  });
+  const [subNestedList, setSubNestedList] = useState(() => {
+    const {state = {}} = location;
+    const {subItem = null} = state;
+
+    return subItem ? {[subItem]: true} : {};
+  });
+
+  const handleClick = (e) => {
+    setNestedList({[e]: !nestedList[e]});
+  };
+
+  const handleSubMenuClick = (e) => {
+    if (!subNestedList[e])
+      setSubNestedList({[e]: !subNestedList[e]});
+  };
+
+  const drawer = <List
+    component="nav"
+    className={classes.root}
+  >
+    {menuList.map(item => {
+      const CustomIcon = item.img;
+
+      return (
+        <React.Fragment key={`list-item-${item.id}`}>
+          <ListItem
+            button
+            onClick={() => {
+              handleClick(item.id);
+            }}
+            className={clsx(nestedList[item.id] && classes.activeItem, classes.itemList)}
+          >
+            <ListItemText primary={item.title} className={classes.text} />
+            {CustomIcon &&
+            <CustomIcon className={classes.icon} />
+            }
+            {item.submenu && (<div>
+                {nestedList[item.id] ? <ExpandLess /> : <ExpandMore />}
+              </div>
+            )}
+          </ListItem>
+          {item.submenu && (
+            <Collapse in={nestedList[item.id]} timeout="auto" unmountOnExit>
+              {item.submenu && item.submenu.map(subitem => {
+                  const SubCustomIcon = subitem.img;
+
+                  return (
+                    <List
+                      key={`list-sub-item-${subitem.id}`}
+                      component="div"
+                      disablePadding
+                      onClick={() => {
+                        handleSubMenuClick(subitem.id);
+                        history.push(`${subitem.link}#${subitem.id}`, {
+                          item: item.id,
+                          subItem: subitem.id,
+                        });
+                      }}
+                    >
+                      <ListItem button className={classes.nested}>
+                        {subitem.img && <ListItemIcon>
+                          <SubCustomIcon className={classes.icon} />
+                        </ListItemIcon>}
+                        <ListItemText
+                          disableTypography
+                          primary={subitem.title}
+                          className={clsx(classes.text, subNestedList[subitem.id] && classes.activeSubItem)}
+                        />
+                      </ListItem>
+                    </List>
+                  );
+                }
+              )}
+            </Collapse>
+          )}
+        </React.Fragment>
+      );
+    })}
+  </List>;
 
   return (
-    <List className={classes.siderContent}>
-      {menu.map((item, index) => (
-        <Grid
-          key={item.name}
-          className={(index === indexSelected)
-            ? classes.selectedBackground
-            : classes.normalBackground}
-        >
-          <Link to={item.link} className={classes.siderLink}>
-            <ListItem
-              selected={index === indexSelected}
-              button
-              className={
-                `${classes.siderItems}
-              ${index === postIndexSelected ? classes.postSelected : ''}
-              ${index === preIndexSelected ? classes.preSelected : ''}`
-              }
-            >
-              <ListItemIcon className={classes.siderIcon}>
-                {item.icon}
-              </ListItemIcon>
-
-              <ListItemText
-                className={classes.siderText}
-                primary={item.name}
-              />
-            </ListItem>
-          </Link>
-        </Grid>
-      ))}
-    </List>
+    <React.Fragment>
+      {!openDrawer && <div className={classes.siderContainer}>
+        <div className={classes.siderMenu}>
+          {drawer}
+        </div>
+      </div>}
+      <Drawer
+        variant="temporary"
+        anchor={'left'}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        classes={{
+          paper: classes.siderMenuDrawer,
+        }}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </React.Fragment>
   );
-}
+};
 
-export default withRouter(withStyles(styles)(Sider));
+export default Sider;
