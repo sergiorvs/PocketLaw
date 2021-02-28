@@ -1,6 +1,7 @@
 """
 Core utils
 """
+from django.core.handlers.wsgi import WSGIRequest
 from django.core.paginator import (
     Paginator,
     PageNotAnInteger,
@@ -22,6 +23,15 @@ def get_model_by_id(model, pk: int):
     except model.DoesNotExist:
 
         return None
+
+
+def get_domain(request: WSGIRequest) -> str:
+    """
+    Get domain from request
+    :param request: request
+    :return: current domain
+    """
+    return request.META.get('HTTP_ORIGIN', '') + '/'
 
 
 def get_paginator(

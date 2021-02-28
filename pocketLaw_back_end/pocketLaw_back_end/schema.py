@@ -11,6 +11,7 @@ from graphql_jwt import (
     Refresh,
 )
 
+from account.schema import Mutation as AccountMutations
 from account.schema.types import UserType
 from laws.schema import Query as LawsQueries
 
@@ -27,7 +28,7 @@ class Query(LawsQueries, ObjectType):
     hello = String(default_value="Hi!")
 
 
-class Mutation(ObjectType):
+class Mutation(AccountMutations):
     token_auth = ObtainJSONWebToken.Field()
     verify_token = Verify.Field()
     refresh_token = Refresh.Field()

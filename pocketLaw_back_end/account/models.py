@@ -24,6 +24,8 @@ class User(AbstractUser):
         _('nombres'), max_length=20, blank=True)
     last_name = models.CharField(
         _('apellidos'), max_length=20, blank=True)
+    terms_and_conditions = models.BooleanField(
+        _("Terms and Conditions"), default=False)
     delete_account_date = models.DateTimeField(
         _('fecha en que se eliminó la cuenta'), null=True, blank=True)
     favorites = models.ManyToManyField(
@@ -52,3 +54,19 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+
+
+class TokenAux(models.Model):
+    """
+    Model to create a new token every time is called
+    """
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        verbose_name=_('user')
+    )
+    counter = models.IntegerField(_('counter'))
+
+    def __str__(self):
+        return self.user.email

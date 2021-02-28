@@ -18,6 +18,7 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_('El usuario debe tener un email'))
 
+        extra_fields.setdefault('is_active', False)
         user = self.model(
             email=self.normalize_email(email),
             **extra_fields
