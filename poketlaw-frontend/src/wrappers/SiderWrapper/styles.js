@@ -1,11 +1,12 @@
-// eslint-disable-next-line
-export default (theme) => ({
+import { makeStyles } from '@material-ui/core';
+
+export const useStyles = makeStyles(theme => ({
   wrapperContent: {
     backgroundColor: theme.palette.general.dark,
     borderRadius: '0 19px 19px 19px',
   },
   siderBackground: {
-    backgroundColor: theme.palette.general.dark,
+    backgroundColor: theme.palette.general.main,
   },
   siderHeader: {
     padding: '1rem',
@@ -20,6 +21,7 @@ export default (theme) => ({
   },
   logoContainer: {
     textAlign: 'center',
+    padding: theme.spacing(3)
   },
   logo: {
     width: '70px',
@@ -35,4 +37,15 @@ export default (theme) => ({
   menuList: {
     color: theme.palette.secondary.light,
   },
-});
+  avatar: {
+    width: '100%',
+    height: '100%',
+  },
+  logout: {
+    cursor: 'pointer',
+  },
+  logoutContainer: {
+    marginTop: 'auto',
+    marginBottom: 0
+  }
+}));

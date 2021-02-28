@@ -4,7 +4,7 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
-import {ReactComponent as LOGO} from '../../media/1.svg'
+import {ReactComponent as LOGO} from '../../media/1.svg';
 
 
 const propTypes = {

@@ -1,14 +1,14 @@
-import {makeStyles} from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 
 export const useStyles = makeStyles(theme => ({
   lawsDescription: {
-    width: '90%',
+    width: '100%',
     height: '7rem',
-    marginBottom: '5rem',
+    marginBottom: '3rem',
     cursor: 'pointer',
   },
-  imageLaw:{
+  imageLaw: {
     background: 'yellow',
     width: 'fit-content',
   },
@@ -20,6 +20,7 @@ export const useStyles = makeStyles(theme => ({
     // background: 'red',
     lineHeight: '40px',
     letterSpacing: '1px',
+    padding: '0 1rem',
   },
   lawTitle: {
     fontWeight: 'bold',
@@ -31,6 +32,7 @@ export const useStyles = makeStyles(theme => ({
   },
   divider: {
     background: '#000',
+    marginRight: '1rem',
     [theme.breakpoints.up('sm')]: {
       width: '1px',
       height: '100%',
@@ -43,7 +45,13 @@ export const useStyles = makeStyles(theme => ({
   },
   descriptionLaw: {
     marginLeft: '7px',
-    overflow: 'auto',
-    maxHeight:'100%',
+    maxHeight: '100%',
   },
+  icon: {
+    cursor: 'pointer',
+  },
+  disabled: {
+    pointerEvents: 'none',
+    opacity: .5
+  }
 }));

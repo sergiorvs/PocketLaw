@@ -4,7 +4,7 @@ export const useStyles = makeStyles(theme => ({
   baseContainer: {
     backgroundColor: '#eff5f8',
     width: '100%',
-    height: '100vh',
+    minHeight: '100vh',
     flexGrow: 2,
     alignContent: 'flex-start',
     [theme.breakpoints.down('sm')]: {
@@ -19,14 +19,13 @@ export const useStyles = makeStyles(theme => ({
     alignContent: 'center',
   },
   lawsContainer:{
-    height: 'calc(100% - 12vh)',
+    height: '100%',
   },
   lawsDescriptionContainer: {
     // background: 'blue',
     width: '20px',
+    padding: '2rem 0 0',
     margin: '0 2rem 0 14rem',
-    height: '70%',
-    overflow: 'auto',
     justifyContent: 'center',
   },
   filtersContainer: {

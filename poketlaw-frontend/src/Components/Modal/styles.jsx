@@ -15,6 +15,11 @@ export const useStyles = makeStyles(theme => ({
     paddingBottom: 0,
     fontSize: '28px'
   },
+  alertDialogTextTitleOk: {
+    color: 'green',
+    paddingBottom: 0,
+    fontSize: '28px'
+  },
   alertDialogDescription: {
     fontSize: '14px',
     margin: 0,

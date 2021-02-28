@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 export default (theme) => ({
   baseContainer: {
-    height: '100%',
+    minHeight: '100%',
   },
   baseContainerLogin: {
     // minHeight: 'calc(100vh - 16.3rem)',

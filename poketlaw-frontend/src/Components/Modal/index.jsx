@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, } from '@material-ui/core';
 import { useStyles } from './styles';
 
 
@@ -18,7 +11,7 @@ const propTypes = {
 };
 
 
-function Modal({message, setErrorSubmit}) {
+function Modal({type, message, setErrorSubmit, title}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -34,10 +27,13 @@ function Modal({message, setErrorSubmit}) {
       classes={{paper: classes.paper}}
     >
       <DialogTitle id="alert-dialog-title" className={classes.alertDialogTitle}>
-        <div className={classes.alertDialogTextTitle}>¡ Alerta !</div>
+        <div
+          className={type === 'success' ? classes.alertDialogTextTitleOk : classes.alertDialogTextTitle}>
+          {type === 'success' ? title : '¡ Alerta !'}
+        </div>
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description"  className={classes.alertDialogDescription}>
+        <DialogContentText id="alert-dialog-description" className={classes.alertDialogDescription}>
           {message}
         </DialogContentText>
       </DialogContent>
