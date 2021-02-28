@@ -65,7 +65,7 @@ And now you can run the functional tests:
     
 ### Run celery (another terminal for dev)
 
-    $ celery worker -A kardian_backend.celery --loglevel=info
+    $ celery worker -A pocketLaw_back_end.celery --loglevel=info
     
 ### Run beat for cronjobs (another terminal for dev)
 
