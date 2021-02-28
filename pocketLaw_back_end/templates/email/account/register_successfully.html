@@ -1,0 +1,19 @@
+{% extends 'email/base.html' %}
+{% load i18n %}
+
+{% block title %}
+  Confirmación de email
+{% endblock title %}
+{% block content %}
+  <p>Estimado {{ user.first_name }} {{ user.last_name }}, </p>
+  <p>
+    Su usuario ha sido creado correctamente!, por favor de click en el siguiente boton para activar su cuenta
+  </p>
+  <div class="button-section">
+    <a href="{{ link }}">
+      <button style="cursor: pointer; width: 226px" class="cursor-pointer">
+        {% trans 'Confirmar email' %}
+      </button>
+    </a>
+  </div>
+{% endblock %}

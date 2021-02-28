@@ -1,0 +1,27 @@
+{% load inlinecss %}
+{% inlinecss "email/base.css" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body class="body-test">
+<div class="main">
+  <div class="body-style">
+    <article>
+      <section class="mb-50 title-message">
+        {% block title %}
+        {% endblock %}
+      </section>
+      <section class="mb-50 content">
+        {% block content %}
+        {% endblock %}
+      </section>
+    </article>
+  </div>
+</div>
+</body>
+</html>
+{% endinlinecss %}

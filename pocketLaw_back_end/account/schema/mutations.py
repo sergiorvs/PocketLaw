@@ -11,6 +11,9 @@ from account.messages.success_messages import (
     SUCCESSFULLY_REGISTER,
 )
 from account.serializers import RegisterSerializer
+from account.tasks import (
+    sign_up_email_confirmation,
+)
 from core.constants import (
     SUCCESS_MESSAGE_TYPE,
 )
@@ -36,13 +39,12 @@ class CreateUser(SerializerMutation):
         email = user.email
         domain = get_domain(info.context)
 
-        # # celery task
-        # sign_up_email_confirmation.delay(
-        #     user_id=user.pk,
-        #     email=email,
-        #     subject=REGISTER_USER_SUBJECT,
-        #     domain=domain,
-        # )
+        # celery task
+        sign_up_email_confirmation.delay(
+            user_id=user.pk,
+            email=email,
+            domain=domain,
+        )
 
         return cls(errors=None, message=MessageType(
             title=SUCCESSFULLY_REGISTER,

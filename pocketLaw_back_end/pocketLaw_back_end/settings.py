@@ -10,8 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import environ
+
 from datetime import timedelta
 from pathlib import Path
+
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOST=(list, []),
+    ENVIRONMENTS=(dict, {})
+)
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +37,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# EMAIL
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_SSL = env.bool('EMAIL_USE_SSL')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 
 # Application definition
 
@@ -41,6 +58,7 @@ INSTALLED_APPS = [
     'django_cleanup',
     'graphene_django',
     'graphql_playground',
+    'django_inlinecss',
     'laws',
     'account',
     'core',
@@ -62,7 +80,9 @@ ROOT_URLCONF = 'pocketLaw_back_end.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,6 +147,7 @@ AUTH_USER_MODEL = 'account.User'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
