@@ -40,7 +40,7 @@ class Query(ObjectType):
         LawType,
         id_law=ID(required=True, description=_('Get questions by id of law'))
     )
-    get_favorites = List(
+    get_favorites = Field(
         LawsPageType,
         page=Int(),
         search_filter=String(),
@@ -61,13 +61,11 @@ class Query(ObjectType):
 
     @login_required
     def resolve_get_favorites(self, info, **kwargs):
+        user = info.context.user
         page = kwargs.get('page', 1)
         search_filter = kwargs.get('search_filter', '')
-        user = info.context.user
 
-        query_set = user.favorites
-
-        query_set = query_set.filter(
+        query_set = user.favorites.filter(
             Q(title__icontains=search_filter)
             | Q(description__icontains=search_filter)
         ).order_by('title')
