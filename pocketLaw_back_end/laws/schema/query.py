@@ -52,6 +52,6 @@ class Query(ObjectType):
     def resolve_get_questions_by_law(self, info, **kwargs):
         id_law = kwargs.get('id')
 
-        return Question.objects.filter(id_law=id_law)
+        return Question.objects.filter(law=id_law)
 
 
