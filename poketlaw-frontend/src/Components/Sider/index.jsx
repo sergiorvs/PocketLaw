@@ -25,7 +25,9 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
   });
 
   const handleClick = (e) => {
-    setNestedList({[e]: !nestedList[e]});
+    if(!nestedList[e]) {
+      setNestedList({[e]: !nestedList[e]});
+    }
   };
 
   const handleSubMenuClick = (e) => {
@@ -46,6 +48,9 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
             button
             onClick={() => {
               handleClick(item.id);
+              if(!item.submenu) {
+                history.push(item.link);
+              }
             }}
             className={clsx(nestedList[item.id] && classes.activeItem, classes.itemList)}
           >

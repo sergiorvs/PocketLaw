@@ -10,11 +10,13 @@ export const menuList = [
     id: 'about-us',
     title: 'About Us',
     img: PeopleIcon,
+    link: routesDictionary.dashboard,
   },
   {
     id: 'laws',
     title: 'Laws',
     img: GavelIcon,
+    link: routesDictionary.dashboard,
   },
   {
     id: 'pocket-bag',

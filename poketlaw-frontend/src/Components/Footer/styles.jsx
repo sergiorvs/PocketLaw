@@ -12,6 +12,6 @@ export const useStyles = makeStyles(theme => ({
   },
   logoContainer:{
     objectFit: 'contain',
-    height: '18rem',
+    height: '28rem',
   },
 }));

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useStyles } from './styles';
-import { Grid } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { Container, Grid } from '@material-ui/core';
 import SearchBar from '../../Components/SearchBar';
 import LawsList from '../../Components/LawsList';
 
@@ -12,8 +11,7 @@ function Dashboard() {
   const [searchFilter, setSearchFilter] = useState('');
 
   return (
-    <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>
-
+    <Container className={classes.baseContainer}>
       <Grid item container className={classes.lawsContainer}>
         <SearchBar
           searchFilter={searchFilter}
@@ -22,12 +20,13 @@ function Dashboard() {
         <Grid
           item container sm={12}
           alignItems={'flex-start'}
+          justify={'center'}
           className={classes.lawsDescriptionContainer}
         >
           <LawsList searchFilter={searchFilter} />
         </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 }
 

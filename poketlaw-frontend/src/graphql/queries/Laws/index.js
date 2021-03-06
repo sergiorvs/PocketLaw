@@ -26,3 +26,27 @@ query getAllLaws($page: Int, $searchFilter: String){
   }
 }
 `;
+
+
+export const GET_LAW_DETAIL = gql`
+  query getQuestionsByLaw($idLaw: ID!){
+    getQuestionsByLaw(idLaw: $idLaw){
+      id
+      title
+      description
+      questionsNumber
+      tag{
+        id
+        tag
+      }
+      image
+      questionSet{
+        id
+        question
+        answer
+        simpleAnswer
+        status
+      }
+    }
+  }
+`;

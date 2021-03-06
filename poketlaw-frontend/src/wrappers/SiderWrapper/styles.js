@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   wrapperContent: {
-    backgroundColor: theme.palette.general.dark,
+    backgroundColor: '#eff5f8',
     borderRadius: '0 19px 19px 19px',
   },
   siderBackground: {

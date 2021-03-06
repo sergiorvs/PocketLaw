@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: '80%',
+        width: '100%',
     },
     input: {
         marginLeft: theme.spacing(1),
@@ -20,6 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     searchBarContainer: {
         height: 'fit-content',
-        margin: '2.5rem 2rem 0 0',
+        margin: '2.5rem 3rem 0',
+        marginLeft: 'auto',
     },
 }));

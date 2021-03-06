@@ -7,9 +7,16 @@ const AsyncPasswordReset = asyncComponent(() => import('../views/PasswordReset')
 const AsyncLogin = asyncComponent(() => import('../views/Login'));
 const AsyncRegister = asyncComponent(() => import('../views/Register'));
 const AsyncDashboard = asyncComponent(() => import('../views/DashBoard'));
+const AsyncLaw = asyncComponent(() => import('../views/LawDetail'));
 
 
 const routes = [
+  {
+    path: routesDictionary.law,
+    component: AsyncLaw,
+    type: 'private',
+    title: 'Law',
+  },
   {
     path: routesDictionary.dashboard,
     component: AsyncDashboard,
