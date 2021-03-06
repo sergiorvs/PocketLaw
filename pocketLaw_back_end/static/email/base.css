@@ -123,6 +123,7 @@ footer .footer-content p {
 
 .user_inputs {
     text-align: left;
+    margin-left: 5px;
 }
 th {
     font-weight: normal;
