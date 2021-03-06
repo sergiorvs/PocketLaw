@@ -12,6 +12,7 @@ from graphene import (
 )
 
 from django.utils.translation import ugettext_lazy as _
+from graphql_jwt.decorators import login_required
 
 from core.constants import PAGE_SIZE
 from core.utils import (
@@ -21,6 +22,7 @@ from laws.models import Law, Question
 from laws.schema.types import (
     LawsPageType,
     QuestionType,
+    LawType,
 )
 
 
@@ -34,10 +36,15 @@ class Query(ObjectType):
         search_filter=String(),
         description=_('Gets all laws')
     )
-
     get_questions_by_law = List(
-        QuestionType,
+        LawType,
         id_law=ID(required=True, description=_('Get questions by id of law'))
+    )
+    get_favorites = List(
+        LawsPageType,
+        page=Int(),
+        search_filter=String(),
+        description=_('Get favorites laws')
     )
 
     @staticmethod
@@ -52,10 +59,25 @@ class Query(ObjectType):
 
         return get_paginator(query_set, PAGE_SIZE, page, LawsPageType)
 
+    @login_required
+    def resolve_get_favorites(self, info, **kwargs):
+        page = kwargs.get('page', 1)
+        search_filter = kwargs.get('search_filter', '')
+        user = info.context.user
+
+        query_set = user.favorites
+
+        query_set = query_set.filter(
+            Q(title__icontains=search_filter)
+            | Q(description__icontains=search_filter)
+        ).order_by('title')
+
+        return get_paginator(query_set, PAGE_SIZE, page, LawsPageType)
+
     @staticmethod
     def resolve_get_questions_by_law(self, info, **kwargs):
         id_law = kwargs.get('id_law')
-        query_set = Question.objects.filter(law=id_law)
+        query_set = Law.objects.filter(pk=id_law)
 
         return query_set
 
