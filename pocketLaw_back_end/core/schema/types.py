@@ -7,7 +7,8 @@ from graphene import (
     ObjectType,
     Int,
     Boolean,
-    String)
+    String,
+)
 
 
 class BasePaginationType(ObjectType):

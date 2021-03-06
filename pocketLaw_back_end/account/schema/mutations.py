@@ -9,18 +9,25 @@ from django.utils.http import (
     urlsafe_base64_decode,
 )
 
-from graphene import Field, ObjectType, Mutation
+from graphene import (
+    Field,
+    ObjectType,
+    Mutation,
+    ID,
+)
 from graphene_django.rest_framework.mutation import SerializerMutation
+from graphql_jwt.decorators import login_required
 
 from account.messages.error_messages import (
-    INVALID_TOKEN_ERROR
+    INVALID_TOKEN_ERROR,
+    LAW_DOES_NOT_EXIST,
 )
 from account.messages.success_messages import (
     SUCCESSFULLY_REGISTER_DESCRIPTION,
     SUCCESSFULLY_REGISTER,
     ACTIVATE_ACCOUNT_TITLE,
     ACTIVATE_ACCOUNT,
-)
+    ADDED_FAVORITE_TITLE, ADDED_FAVORITE)
 from account.messages.warning_messages import (
     ALREADY_ACTIVATE_ACCOUNT_TITLE,
     ALREADY_ACTIVATE_ACCOUNT,
@@ -35,10 +42,15 @@ from account.tasks import (
 from core.constants import (
     SUCCESS_MESSAGE_TYPE,
     WARNING_MESSAGE_TYPE,
+    ERROR_MESSAGE_TYPE,
 )
-from core.schema.types import MessageType
+from core.schema.mutations import BaseMutation
+from core.schema.types import (
+    MessageType,
+)
 from core.tokens import account_activation_token
-from core.utils import get_domain
+from core.utils import get_domain, get_model_by_id
+from laws.models import Law
 
 
 class CreateUser(SerializerMutation):
@@ -120,6 +132,40 @@ class ActivateAccount(Mutation):
         raise ValueError(INVALID_TOKEN_ERROR)
 
 
+class AddFavorites(BaseMutation):
+    """
+    Add law to favorites of the current user
+    """
+    class Arguments:
+        law_id = ID(required=True)
+
+    @login_required
+    def mutate(self, info, **kwargs):
+        user = info.context.user
+        law_id = kwargs.get('law_id')
+
+        law = get_model_by_id(Law, law_id)
+        if not law:
+
+            return AddFavorites(message=MessageType(
+                title=LAW_DOES_NOT_EXIST,
+                description=LAW_DOES_NOT_EXIST,
+                type=ERROR_MESSAGE_TYPE,
+            ))
+
+        user.favorites.add(law)
+        user.save()
+
+        return AddFavorites(
+            message=MessageType(
+                title=ADDED_FAVORITE_TITLE,
+                description=ADDED_FAVORITE,
+                type=SUCCESS_MESSAGE_TYPE
+            ),
+            success=True
+        )
+
+
 class Mutation(ObjectType):
     """
     All mutations methods
@@ -129,4 +175,7 @@ class Mutation(ObjectType):
     )
     activate_account = ActivateAccount.Field(
         description=_('activate account')
+    )
+    add_to_favorites = AddFavorites.Field(
+        description=_('add law to favorites')
     )

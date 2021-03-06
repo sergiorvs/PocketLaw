@@ -31,7 +31,7 @@ class User(AbstractUser):
     favorites = models.ManyToManyField(
         Law,
         blank=True,
-        verbose_name=_('favorites')
+        verbose_name=_('favoritos')
     )
     profile_picture = models.ImageField(
         _('foto de perfil'), null=True, blank=True)

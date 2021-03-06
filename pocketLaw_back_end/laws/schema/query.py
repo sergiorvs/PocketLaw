@@ -7,12 +7,16 @@ from graphene import (
     Int,
     String,
     Field,
-    List, ID)
+    List,
+    ID,
+)
 
 from django.utils.translation import ugettext_lazy as _
 
 from core.constants import PAGE_SIZE
-from core.utils import get_paginator
+from core.utils import (
+    get_paginator,
+)
 from laws.models import Law, Question
 from laws.schema.types import (
     LawsPageType,
@@ -50,8 +54,9 @@ class Query(ObjectType):
 
     @staticmethod
     def resolve_get_questions_by_law(self, info, **kwargs):
-        id_law = kwargs.get('id')
+        id_law = kwargs.get('id_law')
+        query_set = Question.objects.filter(law=id_law)
 
-        return Question.objects.filter(law=id_law)
+        return query_set
 
 

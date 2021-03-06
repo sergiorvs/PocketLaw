@@ -6,6 +6,12 @@ from django.contrib import admin
 
 from account.models import User
 from core.utils import get_model_by_id
+from laws.models import Law
+
+
+class LawsInLine(admin.TabularInline):
+    model = Law
+    extra = 1
 
 
 class CustomUserAdmin(admin.ModelAdmin):
@@ -13,11 +19,14 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('email', 'is_active',)
     list_filter = ('is_active',)
     fieldsets = (
-        (_('Primary Information'), {'fields': ('email', 'password')}),
-        (_('User information'), {
+        (_('Información primaria'), {'fields': ('email', 'password')}),
+        (_('Información del usuario'), {
             'fields': ('first_name', 'last_name', 'profile_picture', )
         }),
-        (_('Permissions'), {'fields': ('is_staff', 'is_active')}),
+        (_('Favoritos'), {
+            'fields': ('favorites', )
+        }),
+        (_('Permisos'), {'fields': ('is_staff', 'is_active')}),
     )
 
     search_fields = ('email',)
