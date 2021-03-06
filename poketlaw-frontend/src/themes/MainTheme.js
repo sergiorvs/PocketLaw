@@ -82,6 +82,7 @@ const CreateTheme = () => {
         main: SECONDARY_COLOR,
         light: 'rgb(118, 248, 241)',
         dark: 'rgb(20, 41, 78)',
+        error: '#cc6054',
         contrastText: '#fefeff',
       },
       ternary: {
@@ -183,7 +184,7 @@ const CreateTheme = () => {
         root: {
           color: 'rgb(118, 248, 241)',
           '&$error': {
-            color: 'rgb(118, 248, 241)'
+            color: '#cc6054'
           }
         }
       },
