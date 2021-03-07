@@ -69,7 +69,7 @@ And now you can run the functional tests:
     
 ### Run beat for cronjobs (another terminal for dev)
 
-    $ celery beat -A kardian_backend.celery --loglevel=info -S django
+    $ celery beat -A pocketLaw_back_end.celery --loglevel=info -S django
 
 ## Internationalization
 
