@@ -10,3 +10,7 @@ PASSWORDS_DOES_NOT_MATCH = _('Las contraseñas no coinciden!')
 INVALID_TOKEN_ERROR = _('El link es inválido')
 
 LAW_DOES_NOT_EXIST = _('No existe una ley con este id')
+CANNOT_UPLOAD_IMAGE = _('El archivo que intentó subir no es una imágen')
+
+EMAIL_ADDRESS_DOES_NOT_EXIST = _('El correo ingresado no existe!')
+INCORRECT_PASSWORD = _('La contraseña no es correcta')

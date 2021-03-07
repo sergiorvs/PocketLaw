@@ -1,4 +1,9 @@
+"""
+Account Serializers
+"""
 import django.contrib.auth.password_validation as validators
+from django.utils.encoding import force_text
+from django.utils.http import urlsafe_base64_decode
 
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
@@ -7,8 +12,10 @@ from account.messages.error_messages import (
     TERMS_AND_CONDITIONS,
     ACCOUNT_ALREADY_EXIST,
     PASSWORDS_DOES_NOT_MATCH,
-)
+    INCORRECT_PASSWORD,
+    INVALID_TOKEN_ERROR)
 from account.models import User
+from core.tokens import reset_password_token
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -92,5 +99,83 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=password,
             **data
         )
+
+        return user
+
+
+class UserChangePasswordSerializer(serializers.ModelSerializer):
+    """
+    Change Password Serializer
+    """
+    uidb64 = serializers.CharField(required=True)
+    token = serializers.CharField(required=True)
+    password1 = serializers.CharField(required=True)
+    password2 = serializers.CharField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('uidb64', 'token', 'password1', 'password2')
+
+    @staticmethod
+    def validate_password1(password):
+        """
+        Validate is password is correct
+        :param password: password input
+        :return: password
+        """
+        try:
+            validators.validate_password(password)
+
+            return password
+
+        except Exception:
+
+            raise serializers.ValidationError(INCORRECT_PASSWORD)
+
+    def validate(self, attrs):
+        """
+        Validate if password1 and password2 are the same
+        :param attrs: input serializer data
+        :return: attrs
+        """
+        uidb64 = attrs['uidb64']
+        token = attrs['token']
+        uid = force_text(urlsafe_base64_decode(uidb64))
+
+        try:
+            user = User.objects.get(pk=uid, delete_account_date__isnull=True)
+            if not reset_password_token.check_token(user, token):
+
+                raise serializers.ValidationError(
+                    INVALID_TOKEN_ERROR
+                )
+
+        except User.DoesNotExist:
+            raise serializers.ValidationError(
+                INVALID_TOKEN_ERROR
+            )
+
+        if attrs['password1'] != attrs['password2']:
+            raise serializers.ValidationError(
+                {
+                    'password1': PASSWORDS_DOES_NOT_MATCH,
+                    'password2': PASSWORDS_DOES_NOT_MATCH,
+                }
+            )
+
+        return attrs
+
+    def save(self):
+        """
+        Create new user
+        """
+        data = self.validated_data
+        password = data['password1']
+        uidb64 = data['uidb64']
+        uid = force_text(urlsafe_base64_decode(uidb64))
+
+        user = User.objects.get(pk=uid)
+        user.set_password(password)
+        user.save()
 
         return user

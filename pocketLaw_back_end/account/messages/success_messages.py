@@ -11,3 +11,8 @@ ACTIVATE_ACCOUNT = _('Cuenta activada exitosamente!')
 
 ADDED_FAVORITE_TITLE = _('Ley guardada')
 ADDED_FAVORITE = _('Ley guardada en favoritos con éxito')
+
+PROFILE_IMAGE_UPLOADED = _('Foto de perfil actualizada con éxito')
+
+RESTORE_PASSWORD_CHANGE_TITLE = _('Contraseña cambiada con éxito!')
+RESTORE_PASSWORD_CHANGE = _('Su contraseña ha sido cambiada con éxito!')

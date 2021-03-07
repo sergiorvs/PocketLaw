@@ -18,10 +18,9 @@ from core.constants import PAGE_SIZE
 from core.utils import (
     get_paginator,
 )
-from laws.models import Law, Question
+from laws.models import Law
 from laws.schema.types import (
     LawsPageType,
-    QuestionType,
     LawType,
 )
 
