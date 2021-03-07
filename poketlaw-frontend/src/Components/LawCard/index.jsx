@@ -9,14 +9,22 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import routesDictionary from '../../routes/routesDict';
 import { useHistory } from 'react-router-dom';
+import {useMutation} from "@apollo/client";
+import {ADD_TO_FAVORITES} from "../../graphql/mutations/Laws";
 
 const LawCard = ({law}) => {
   const classes = useStyles();
   const history = useHistory();
   const [favorite, setFavorite] = useState(false);
+  const [addToFavorites] = useMutation(ADD_TO_FAVORITES)
 
-  const handleFavorite = () => {
+  const handleFavorite = (lawId) => {
     setFavorite(!favorite);
+    addToFavorites({
+      variables: {
+        lawId: lawId
+      }
+    })
   };
 
   return (
@@ -65,7 +73,11 @@ const LawCard = ({law}) => {
           </Typography>
         </Grid>
         <Grid item xs={1} container alignItems={'center'} justify={'center'}>
-          {favorite ? <FavoriteIcon onClick={handleFavorite} /> : <FavoriteBorderIcon onClick={handleFavorite} />}
+          {favorite
+            ? <FavoriteIcon
+              onClick={()=>handleFavorite(law.id)}
+            /> :
+            <FavoriteBorderIcon onClick={()=>handleFavorite(law.id)} />}
         </Grid>
       </CardContent>
     </Card>

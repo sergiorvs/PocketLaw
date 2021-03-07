@@ -37,7 +37,8 @@ from account.messages.success_messages import (
     ADDED_FAVORITE_TITLE,
     ADDED_FAVORITE,
     PROFILE_IMAGE_UPLOADED,
-    RESTORE_PASSWORD_CHANGE_TITLE, RESTORE_PASSWORD_CHANGE)
+    RESTORE_PASSWORD_CHANGE_TITLE, RESTORE_PASSWORD_CHANGE, DELETED_FAVORITE,
+    DELETED_FAVORITE_TITLE)
 from account.messages.warning_messages import (
     ALREADY_ACTIVATE_ACCOUNT_TITLE,
     ALREADY_ACTIVATE_ACCOUNT,
@@ -240,6 +241,9 @@ class AddFavorites(BaseMutation):
         user = info.context.user
         law_id = kwargs.get('law_id')
 
+        description = ADDED_FAVORITE
+        title = ADDED_FAVORITE_TITLE
+
         law = get_model_by_id(Law, law_id)
         if not law:
 
@@ -249,13 +253,18 @@ class AddFavorites(BaseMutation):
                 type=ERROR_MESSAGE_TYPE,
             ))
 
-        user.favorites.add(law)
+        if law in user.favorites.all():
+            user.favorites.remove(law)
+            title = DELETED_FAVORITE_TITLE
+            description = DELETED_FAVORITE
+        else:
+            user.favorites.add(law)
         user.save()
 
         return AddFavorites(
             message=MessageType(
-                title=ADDED_FAVORITE_TITLE,
-                description=ADDED_FAVORITE,
+                title=title,
+                description=description,
                 type=SUCCESS_MESSAGE_TYPE
             ),
             success=True

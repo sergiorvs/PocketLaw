@@ -11,6 +11,8 @@ ACTIVATE_ACCOUNT = _('Cuenta activada exitosamente!')
 
 ADDED_FAVORITE_TITLE = _('Ley guardada')
 ADDED_FAVORITE = _('Ley guardada en favoritos con éxito')
+DELETED_FAVORITE_TITLE = _('Ley borrada de favoritos')
+DELETED_FAVORITE = _('Ley borrada de favoritos')
 
 PROFILE_IMAGE_UPLOADED = _('Foto de perfil actualizada con éxito')
 
