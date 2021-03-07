@@ -28,7 +28,7 @@ const LawsList = ({searchFilter, favorites}) => {
 
       setPages(pages);
     }
-  }, [objects]);
+  }, [objects, data]);
 
   return (
     <>

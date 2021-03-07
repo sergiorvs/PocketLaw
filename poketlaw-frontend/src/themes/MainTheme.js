@@ -2,8 +2,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const CreateTheme = () => {
   const PRIMARY_COLOR = '#FFFFFF';
-  const SECONDARY_COLOR = '#76f8f1';
-  const TERNARY_COLOR = '#040826';
+  const SECONDARY_COLOR = '#A17EDE';
+  const TERNARY_COLOR = '#87ABF7';
 
   return createMuiTheme({
 
@@ -18,6 +18,7 @@ const CreateTheme = () => {
     },
     typography: {
       fontFamily: 'Baloo Chettan 2',
+      color: 'black',
 
       h1: {
         fontSize: 40.8,
@@ -26,26 +27,32 @@ const CreateTheme = () => {
       },
       h2: {
         fontSize: 34,
+        color: 'black',
       },
       h3: {
         fontSize: 32,
+        color: 'black',
       },
       h4: {
         fontSize: 27,
         fontWeight: 300,
+        color: 'black',
       },
       h5: {
         fontSize: 22,
         fontWeight: 300,
+        color: 'black',
       },
       h6: {
         fontSize: 20,
         fontWeight: 'normal',
+        color: 'black',
       },
       subtitle1: {
         fontSize: 24,
         fontWeight: 300,
         lineHeight: 'normal',
+        color: 'black',
       },
       subtitle2: {
         fontSize: 16,
@@ -54,10 +61,12 @@ const CreateTheme = () => {
       },
       body1: {
         fontSize: '16px',
+        color: 'black',
       },
       body2: {
         fontSize: 15.5,
         fontWeight: 300,
+        color: 'black',
       },
       caption: {
         fontSize: 12.8,
@@ -68,9 +77,9 @@ const CreateTheme = () => {
       general: {
         main: '#ffffff',
         light: '#ededed',
-        dark: 'rgb(20, 41, 78)',
+        dark: '#555555',
         contrastText: '#5e5e5e',
-        contrastTextLess: 'rgba(94, 94, 94, 0.5)',
+        contrastTextLess: '#000000',
       },
       primary: {
         main: PRIMARY_COLOR,
@@ -80,8 +89,8 @@ const CreateTheme = () => {
       },
       secondary: {
         main: SECONDARY_COLOR,
-        light: 'rgb(118, 248, 241)',
-        dark: 'rgb(20, 41, 78)',
+        light: '#C999D1',
+        dark: '#87ABF7',
         error: '#cc6054',
         contrastText: '#fefeff',
       },

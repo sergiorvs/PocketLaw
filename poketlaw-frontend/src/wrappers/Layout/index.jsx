@@ -1,16 +1,13 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  Grid,
-  withStyles,
-} from '@material-ui/core';
+import { Grid, withStyles, } from '@material-ui/core';
 import MakeRouteWithSubRoutes from '../../routes';
 import routes from '../../routes/routeList';
 import styles from './styles';
 
 function LayoutView(props) {
-  const { classes, isLogin } = props;
+  const {classes, isLogin} = props;
 
   return (
     [
@@ -48,4 +45,6 @@ LayoutView.defaultProps = {
 };
 
 export default withStyles(styles)(React.memo(LayoutView,
-  (prevProps, nextProps) => prevProps.isLogin === nextProps.isLogin));
+  (prevProps, nextProps) =>
+    (prevProps.isLogin === nextProps.isLogin) && (prevProps.userSession === nextProps.userSession)
+));

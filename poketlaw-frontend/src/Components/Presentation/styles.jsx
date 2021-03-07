@@ -4,6 +4,7 @@ export const useStyles = makeStyles(theme => ({
   logoContainer: {
     alignSelf: 'center',
     paddingBottom: '1rem',
+    cursor: 'pointer',
   },
   logo: {
     width: '70px',

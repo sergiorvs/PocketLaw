@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes, { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 import { useStyles } from './styles';
 import {
   Button,
@@ -287,9 +287,9 @@ function Register({setLoginState}) {
           </Grid>
         </Grid>
         {Boolean(Object.keys(errorLogin).length) &&
-        <Modal setErrorSubmit={()=> {
+        <Modal setErrorSubmit={() => {
           setErrorLogin({});
-          history.push(routesDictionary.login)
+          history.push(routesDictionary.login);
         }} message={errorLogin.description} title={errorLogin.title}
                type={errorLogin.type} />}
       </Grid>

@@ -63,5 +63,8 @@ export const useStyles = makeStyles(theme => ({
   disabled: {
     pointerEvents: 'none',
     opacity: .5
+  },
+  lawTag: {
+    color: theme.palette.general.contrastText,
   }
 }));

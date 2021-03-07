@@ -7,11 +7,18 @@ const AsyncPasswordReset = asyncComponent(() => import('../views/PasswordReset')
 const AsyncLogin = asyncComponent(() => import('../views/Login'));
 const AsyncRegister = asyncComponent(() => import('../views/Register'));
 const AsyncDashboard = asyncComponent(() => import('../views/DashBoard'));
+const AsyncAboutUs = asyncComponent(() => import('../views/AboutUs'));
 const AsyncLaw = asyncComponent(() => import('../views/LawDetail'));
 const AsyncFavorites = asyncComponent(() => import('../views/Favorites'))
 
 
 const routes = [
+  {
+    path: routesDictionary.aboutUs,
+    component: AsyncAboutUs,
+    type: 'persistent',
+    title: 'Law',
+  },
   {
     path: routesDictionary.law,
     component: AsyncLaw,

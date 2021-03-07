@@ -73,3 +73,20 @@ export const ACTIVATE_ACCOUNT = gql`
     }
   }
 `;
+
+export const UPDATE_ACCOUNT = gql`
+  mutation uploadProfileImage($imageProfile: Upload!){
+    uploadProfileImage(profileImage: $imageProfile){
+      message{
+        title
+        description
+        type
+      }
+      success
+      fieldErrors{
+        field
+        messages
+      }
+    }
+  }
+`;

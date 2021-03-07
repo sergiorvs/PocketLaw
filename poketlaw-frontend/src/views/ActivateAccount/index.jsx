@@ -16,10 +16,6 @@ function ActivateAccount() {
   const [activateAccount] = useMutation(ACTIVATE_ACCOUNT);
 
   const {uid, token} = useParams();
-  const input = {
-    uid,
-    token,
-  };
 
   useEffect(()=> {
     activateAccount({

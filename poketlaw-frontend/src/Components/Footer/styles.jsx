@@ -4,7 +4,7 @@ export const useStyles = makeStyles(theme => ({
   footerContainer: {
     backgroundImage: theme.palette.banner.background,
     width: '100%',
-    maxHeight: '12vh',
+    maxHeight: '10rem',
     padding: '1rem',
     alignContent: 'center',
     justifyContent: 'center',
@@ -12,6 +12,6 @@ export const useStyles = makeStyles(theme => ({
   },
   logoContainer:{
     objectFit: 'contain',
-    height: '28rem',
+    width: '28rem',
   },
 }));

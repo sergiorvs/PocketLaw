@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from './styles';
-import {
-  Button,
-  Divider,
-  Grid,
-  TextField,
-  Typography
-} from '@material-ui/core';
+import { Button, Divider, Grid, TextField, Typography } from '@material-ui/core';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { useHistory } from 'react-router-dom';
@@ -15,12 +9,8 @@ import { useMutation } from '@apollo/client';
 import Modal from '../../Components/Modal';
 import Presentation from '../../Components/Presentation';
 import routesDictionary from '../../routes/routesDict';
-import {
-  isNull,
-  setLoginTokens
-} from '../../utils/tools';
+import { isNull, setLoginTokens } from '../../utils/tools';
 import { LOGIN_VERIFICATION } from '../../graphql/mutations/Users';
-import createTypography from '@material-ui/core/styles/createTypography';
 
 
 const propTypes = {
@@ -47,10 +37,10 @@ function Login({setLoginState}) {
         password,
       }
     }).then(response => {
-      const { data } = response;
-      const { tokenAuth } = data;
+      const {data} = response;
+      const {tokenAuth} = data;
 
-      if(isNull(tokenAuth)) {
+      if (isNull(tokenAuth)) {
         setErrorLogin(true);
         setErrorForm(true);
       } else {
@@ -59,22 +49,22 @@ function Login({setLoginState}) {
         history.push(routesDictionary.dashboard);
       }
     });
-  }
+  };
 
   return (
-    <Grid container justify={"center"} alignContent={"center"} className={classes.baseContainer}>
-      <Grid item container justify={"center"} alignContent={"center"}>
+    <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>
+      <Grid item container justify={'center'} alignContent={'center'}>
         <Grid
           item
           container
           sm={5}
           md={5}
-          justify={"flex-end"}
-          alignContent={"center"}
+          justify={'flex-end'}
+          alignContent={'center'}
           className={classes.presentationContainer}>
           <Presentation />
         </Grid>
-        <Grid item sm={1} md={2} container justify={"center"}>
+        <Grid item sm={1} md={2} container justify={'center'}>
           <Divider orientation="vertical" className={classes.divider} />
         </Grid>
         <Grid
@@ -82,12 +72,12 @@ function Login({setLoginState}) {
           container
           sm={5}
           md={5}
-          justify={"flex-start"}
-          alignContent={"center"}
+          justify={'flex-start'}
+          alignContent={'center'}
           className={classes.loginContainer}
         >
           <Grid item sm={10} md={6}>
-            <Typography color={"primary"} align={"center"} variant={"h3"} className={classes.marginBottom}>
+            <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
               Log in
             </Typography>
             <form
@@ -98,7 +88,7 @@ function Login({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={"User"}
+                placeholder={'User'}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -106,7 +96,7 @@ function Login({setLoginState}) {
                 }}
                 InputProps={{
                   startAdornment: (
-                    <PermIdentityOutlinedIcon color={"primary"} className={classes.inputIcon} />
+                    <PermIdentityOutlinedIcon color={'primary'} className={classes.inputIcon} />
                   ),
                   autocomplete: 'new-password',
                   form: {
@@ -114,7 +104,7 @@ function Login({setLoginState}) {
                   },
                 }}
                 autoComplete='no'
-                helperText={errorForm ? "Error" : ''}
+                helperText={errorForm ? 'Error' : ''}
                 className={classes.textField}
                 InputLabelProps={{
                   shrink: true,
@@ -125,9 +115,9 @@ function Login({setLoginState}) {
                 type="password"
                 required
                 value={password}
-                placeholder={"Password"}
+                placeholder={'Password'}
                 error={errorForm}
-                helperText={errorForm ? "Error" : ''}
+                helperText={errorForm ? 'Error' : ''}
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setErrorForm(false);
@@ -135,24 +125,24 @@ function Login({setLoginState}) {
                 className={classes.textField}
                 InputProps={{
                   startAdornment: (
-                    <LockOutlinedIcon color={"primary"} className={classes.inputIcon} />
+                    <LockOutlinedIcon color={'primary'} className={classes.inputIcon} />
                   ),
                 }}
               />
-              <Button variant={"contained"} className={classes.button} onClick={() => submit()}>
+              <Button variant={'contained'} className={classes.button} onClick={() => submit()}>
                 Log in
               </Button>
               <Typography
-                variant={"body1"}
-                align={"center"}
+                variant={'body1'}
+                align={'center'}
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.passwordReset)}
               >
                 Forget your Password ?
               </Typography>
               <Typography
-                variant={"body1"}
-                align={"center"}
+                variant={'body1'}
+                align={'center'}
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.register)}
               >

@@ -1,22 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Collapse, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import clsx from 'clsx';
 import { menuList } from './constants';
 import { useStyles } from './styles';
-import { useApolloClient } from '@apollo/client';
 
 
-function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
+function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
   const classes = useStyles();
   const history = useHistory();
-  const client = useApolloClient();
   const {location = {}} = history;
 
   const [nestedList, setNestedList] = useState({
-    laws: true
-  });
+      laws: true
+    });
   const [subNestedList, setSubNestedList] = useState(() => {
     const {state = {}} = location;
     const {subItem = null} = state;
@@ -24,8 +22,25 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
     return subItem ? {[subItem]: true} : {};
   });
 
+  useEffect(() => {
+    const {pathname, hash} = location;
+    if(pathname=== '/') {
+
+    } else {
+      const path = pathname.replace(/\//g, '');
+      const hashPath = hash.replace('#', '');
+
+      setNestedList({[path]: true});
+      if (!hashPath) {
+        setSubNestedList({'inicio': true});
+      } else {
+        setSubNestedList({[hashPath]: true});
+      }
+    }
+  }, [location]);
+
   const handleClick = (e) => {
-    if(!nestedList[e]) {
+    if (!nestedList[e]) {
       setNestedList({[e]: !nestedList[e]});
     }
   };
@@ -35,11 +50,11 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
       setSubNestedList({[e]: !subNestedList[e]});
   };
 
-  const drawer = <List
+  const drawer = (isLogin) => <List
     component="nav"
     className={classes.root}
   >
-    {menuList.map(item => {
+    {menuList(isLogin).map(item => {
       const CustomIcon = item.img;
 
       return (
@@ -48,7 +63,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
             button
             onClick={() => {
               handleClick(item.id);
-              if(!item.submenu) {
+              if (!item.submenu) {
                 history.push(item.link);
               }
             }}
@@ -106,7 +121,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
     <React.Fragment>
       {!openDrawer && <div className={classes.siderContainer}>
         <div className={classes.siderMenu}>
-          {drawer}
+          {drawer(isLogin)}
         </div>
       </div>}
       <Drawer
@@ -121,7 +136,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState}) {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        {drawer}
+        {drawer(isLogin)}
       </Drawer>
     </React.Fragment>
   );

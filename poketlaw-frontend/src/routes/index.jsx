@@ -1,11 +1,8 @@
 import React from 'react';
-import {
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Redirect, Route, } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import routesDictionary from './routesDict';
-import SiderWrapper from "../wrappers/SiderWrapper";
+import SiderWrapper from '../wrappers/SiderWrapper';
 
 
 const routeTypes = {
@@ -14,7 +11,7 @@ const routeTypes = {
       renderProps, component: Component,
       isLogin, setLoginState,
     } = props;
-    if(isLogin) {
+    if (isLogin) {
       return (
         <Redirect
           to={routesDictionary.dashboard}
@@ -30,9 +27,11 @@ const routeTypes = {
       component: Component,
       setLoginState,
       isLogin,
+      userSession,
+      setUserSession,
     } = props;
 
-    if(!isLogin) {
+    if (!isLogin) {
       return (
         <Redirect
           to={routesDictionary.login}
@@ -41,19 +40,21 @@ const routeTypes = {
     }
 
     return (
-    <SiderWrapper setLoginState={setLoginState}>
-      <Component setLoginState={setLoginState} {...renderProps} />
-    </SiderWrapper>
+      <SiderWrapper setLoginState={setLoginState} isLogin={isLogin} userSession={userSession}
+                    setUserSession={setUserSession}>
+        <Component setLoginState={setLoginState} {...renderProps} />
+      </SiderWrapper>
     );
   },
   persistent: (props) => {
     const {
-      renderProps, component: Component,
-      setLoginState,
+      renderProps, component: Component, isLogin,
+      setLoginState, setUserSession, userSession
     } = props;
 
     return (
-      <SiderWrapper setLoginState={setLoginState}>
+      <SiderWrapper setLoginState={setLoginState} isLogin={isLogin} userSession={userSession}
+                    setUserSession={setUserSession}>
         <Component setLoginState={setLoginState} {...renderProps} />
       </SiderWrapper>
     );
@@ -64,7 +65,8 @@ function MakeRouteWithSubRoutes(props) {
   const {
     path, exact, title,
     component: Component, type,
-    isLogin, setLoginState,
+    isLogin, setLoginState, userSession,
+    setUserSession,
   } = props;
 
   return (
@@ -83,6 +85,8 @@ function MakeRouteWithSubRoutes(props) {
             setLoginState,
             component: Component,
             isLogin,
+            userSession,
+            setUserSession,
           })
         );
       }}

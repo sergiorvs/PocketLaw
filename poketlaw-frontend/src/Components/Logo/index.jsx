@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { ReactComponent as LOGO } from '../../media/1.svg';
+import LOGO from '../../media/1.png';
 import { useHistory } from 'react-router-dom';
 import routesDictionary from '../../routes/routesDict';
 
@@ -9,6 +9,6 @@ export function Logo() {
   const history = useHistory();
 
   return (
-    <LOGO className={classes.logo} onClick={() => history.push(routesDictionary.dashboard)} />
+    <img src={LOGO} className={classes.logo} onClick={() => history.push(routesDictionary.dashboard)} alt={'logo'} />
   );
 }
