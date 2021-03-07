@@ -13,6 +13,7 @@ query getAllLaws($page: Int, $searchFilter: String){
       description
       image
       questionsNumber
+      isFavorite
       tag{
         id
         tag
@@ -40,6 +41,7 @@ export const GET_LAW_DETAIL = gql`
         tag
       }
       image
+      isFavorite
       questionSet{
         id
         question
@@ -50,3 +52,27 @@ export const GET_LAW_DETAIL = gql`
     }
   }
 `;
+
+
+export const GET_FAVORITES = gql`
+query getFavorites($page: Int, $searchFilter: String){
+  getFavorites(page: $page, searchFilter: $searchFilter){
+    page
+    pages
+    hasNext
+    hasPrev
+    objects{
+      id
+      title
+      description
+      image
+      isFavorite
+      questionsNumber
+      tag{
+        id
+        tag
+      }
+    }
+  }
+}
+`

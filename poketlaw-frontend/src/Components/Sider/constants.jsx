@@ -41,6 +41,6 @@ export const menuList = [
     id: 'favorites',
     title: 'Favorites',
     img: StarsIcon,
-    link: routesDictionary.dashboard,
+    link: routesDictionary.favorites,
   },
 ];

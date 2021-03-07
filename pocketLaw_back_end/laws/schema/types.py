@@ -1,7 +1,11 @@
 """
 Types for laws
 """
-from graphene import List, Int
+from graphene import (
+    List,
+    Int,
+    Boolean,
+)
 from graphene_django import DjangoObjectType
 from django.utils.translation import ugettext_lazy as _
 
@@ -22,6 +26,7 @@ class LawType(DjangoObjectType):
         description = _('Law type')
 
     questions_number = Int()
+    is_favorite = Boolean()
 
     def resolve_image(self, info):
         if not self.image:
@@ -32,6 +37,14 @@ class LawType(DjangoObjectType):
 
     def resolve_questions_number(self, info):
         return len(self.question_set.all())
+
+    def resolve_is_favorite(self, info):
+        user = info.context.user
+        if not user.is_anonymous and (self in user.favorites.all()):
+
+            return True
+
+        return False
 
 
 class QuestionType(DjangoObjectType):

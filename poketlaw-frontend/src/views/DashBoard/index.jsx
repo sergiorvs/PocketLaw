@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useStyles } from './styles';
-import { Container, Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import {Container, Grid} from '@material-ui/core';
 import SearchBar from '../../Components/SearchBar';
 import LawsList from '../../Components/LawsList';
 
-function Dashboard() {
+const propTypes = {
+  favorites: PropTypes.bool,
+};
+
+function Dashboard(props) {
   const classes = useStyles();
 
   // States
@@ -23,11 +28,16 @@ function Dashboard() {
           justify={'center'}
           className={classes.lawsDescriptionContainer}
         >
-          <LawsList searchFilter={searchFilter} />
+          <LawsList searchFilter={searchFilter} favorites={props.favorites}/>
         </Grid>
       </Grid>
     </Container>
   );
 }
+
+Dashboard.propTypes = propTypes;
+Dashboard.defaultProps = {
+  favorites: false,
+};
 
 export default Dashboard;

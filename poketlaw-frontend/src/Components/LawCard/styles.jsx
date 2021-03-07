@@ -17,8 +17,9 @@ export const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
   },
   imageLaw: {
-    background: 'yellow',
+    background: 'transparent',
     width: 'fit-content',
+    height: '100%',
   },
   lawImage: {
     width: '100%',

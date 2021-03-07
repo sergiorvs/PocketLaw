@@ -29,21 +29,33 @@ const routeTypes = {
       renderProps,
       component: Component,
       setLoginState,
+      isLogin,
     } = props;
 
-    // if(!isLogin) {
-      // return (
-        // <Redirect
-        //   to={routesDictionary.login}
-        // />
-        //   console.log('no se logeo!')
-      // );
-    // }
+    if(!isLogin) {
+      return (
+        <Redirect
+          to={routesDictionary.login}
+        />
+      );
+    }
 
     return (
     <SiderWrapper setLoginState={setLoginState}>
       <Component setLoginState={setLoginState} {...renderProps} />
     </SiderWrapper>
+    );
+  },
+  persistent: (props) => {
+    const {
+      renderProps, component: Component,
+      setLoginState,
+    } = props;
+
+    return (
+      <SiderWrapper setLoginState={setLoginState}>
+        <Component setLoginState={setLoginState} {...renderProps} />
+      </SiderWrapper>
     );
   },
 };

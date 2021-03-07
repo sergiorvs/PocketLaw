@@ -8,20 +8,21 @@ const AsyncLogin = asyncComponent(() => import('../views/Login'));
 const AsyncRegister = asyncComponent(() => import('../views/Register'));
 const AsyncDashboard = asyncComponent(() => import('../views/DashBoard'));
 const AsyncLaw = asyncComponent(() => import('../views/LawDetail'));
+const AsyncFavorites = asyncComponent(() => import('../views/Favorites'))
 
 
 const routes = [
   {
     path: routesDictionary.law,
     component: AsyncLaw,
-    type: 'private',
+    type: 'persistent',
     title: 'Law',
   },
   {
-    path: routesDictionary.dashboard,
-    component: AsyncDashboard,
+    path: routesDictionary.favorites,
+    component: AsyncFavorites,
     type: 'private',
-    title: 'Home',
+    title: 'Homeworks',
   },
   {
     path: routesDictionary.activateAccount,
@@ -52,6 +53,12 @@ const routes = [
     component: AsyncLogin,
     type: 'public',
     title: 'Login',
+  },
+  {
+    path: routesDictionary.dashboard,
+    component: AsyncDashboard,
+    type: 'persistent',
+    title: 'Home',
   },
 ];
 
