@@ -1,4 +1,4 @@
-# Kardian
+# PocketLaw
 
 ## System Requirements
 There is the complete list of packages required by the project. Update your system before start.
