@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export const useStyles = makeStyles(theme => ({
   baseContainer: {
@@ -9,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: '3rem 4rem',
+    padding: '5rem 4rem',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-end',
     },
@@ -19,14 +20,12 @@ export const useStyles = makeStyles(theme => ({
     height: '35rem',
     width: '35rem',
     padding: '2.8em', /*= 2em * 1.4 (2em = half the width of an img, 1.4 = sqrt(2))*/
-    border: 'dashed 1px',
     borderRadius: '50%',
     margin: '1.75em auto 0',
   },
   item: {
-    backgroundColor: '#BAB4E2',
+    backgroundColor: '#D5D5D5',
     borderRadius: '50%',
-    display: 'block',
     overflow: 'hidden',
     position: 'absolute',
     top: '50%',
@@ -34,6 +33,10 @@ export const useStyles = makeStyles(theme => ({
     width: '8em',
     height: '8em',
     margin: '-4em', /* 2em = 4em/2 */ /* half the width */
+    display: 'flex',
+    '&:hover': {
+      backgroundColor: fade('#BAB4E2', 0.5),
+    },
   },
   deg0: {transform: 'translate(18em)',}, /* 12em = half the width of the wrapper */
   deg25: {transform: 'rotate(90deg) translate(18em) rotate(-90deg)',},
@@ -44,10 +47,26 @@ export const useStyles = makeStyles(theme => ({
   deg225: {transform: 'rotate(225deg) translate(18em) rotate(-225deg)',},
   deg315: {transform: 'rotate(315deg) translate(18em) rotate(-315deg)',},
   logoContainer: {
-    width: '21rem',
-    height: '7rem',
+    width: '27rem',
+    height: '27rem',
     position: 'absolute',
-    top: '38%',
-    left: '21%',
+    top: '12%',
+    left: '12%',
+  },
+  logo: {
+    width: '100%',
+    height: '100%',
+  },
+  icon: {
+    width: '80%',
+    height: '80%',
+    margin: 'auto'
+  },
+  people: {
+    width: '165%',
+    height: '130%',
+    margin: '-7rem',
+    marginBottom: 0,
+    marginTop: 'auto',
   }
 }));

@@ -7,7 +7,6 @@ export const useStyles = makeStyles(theme => ({
     maxHeight: '10rem',
     padding: '1rem',
     alignContent: 'center',
-    justifyContent: 'flex-end',
   },
   logoContainer:{
     objectFit: 'contain',
