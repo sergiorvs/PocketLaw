@@ -90,3 +90,11 @@ export const UPDATE_ACCOUNT = gql`
     }
   }
 `;
+
+export const VERIFY_TOKEN = gql`
+mutation ($token: String!){
+  verifyToken(token: $token){
+    payload
+  }
+}
+`;

@@ -29,7 +29,7 @@ function ActivateAccount() {
       const { message} = data.activateAccount;
       setMessage(message);
     })
-  }, [uid, token])
+  }, [uid, token, activateAccount])
 
   return (
     <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>

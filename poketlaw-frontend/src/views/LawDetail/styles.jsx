@@ -14,6 +14,9 @@ export const useStyles = makeStyles(theme => ({
       justifyContent: 'flex-end',
     },
   },
+  goBackButton: {
+    cursor: 'pointer',
+  },
   lawsContainer:{
     height: '10rem',
   },
@@ -23,10 +26,31 @@ export const useStyles = makeStyles(theme => ({
   },
   lawsQuestionContainer: {
     height: '3rem',
-    margin: '1rem',
     width: '100%',
   },
   accordion: {
     width: '100%',
-  }
+    margin: '0.25rem',
+  },
+  simpleAnswerFab: {
+    background: theme.palette.ternary.neutral,
+    "&:hover": {
+      backgroundColor: theme.palette.ternary.neutral,
+      opacity: '0.65'
+    },
+  },
+  simpleAnswerFabPositive: {
+    background: theme.palette.ternary.positive,
+    "&:hover": {
+      backgroundColor: theme.palette.ternary.positive,
+      opacity: '0.65'
+    },
+  },
+  simpleAnswerFabNegative: {
+    background: theme.palette.ternary.bad,
+    "&:hover": {
+      backgroundColor: theme.palette.ternary.bad,
+      opacity: '0.65'
+    },
+  },
 }));

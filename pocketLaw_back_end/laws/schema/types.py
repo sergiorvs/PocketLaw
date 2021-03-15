@@ -55,6 +55,11 @@ class QuestionType(DjangoObjectType):
         model = Question
         description = _('Question Type')
 
+    status = Int(description=_('Status value'))
+
+    def resolve_status(self, info):
+        return self.status
+
 
 class TagType(DjangoObjectType):
     """

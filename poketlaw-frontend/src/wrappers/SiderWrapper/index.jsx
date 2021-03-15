@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { Avatar, Badge, Button, Divider, Grid, Typography, } from '@material-ui/core';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Sider from '../../Components/Sider';
@@ -9,21 +9,23 @@ import routesDictionary from '../../routes/routesDict';
 import { useHistory } from 'react-router-dom';
 import { useStyles } from './styles';
 import { useApolloClient } from '@apollo/client';
-import { UPDATE_ACCOUNT } from '../../graphql/mutations/Users';
-import { getAuthTokenName, getImageUrl } from '../../utils/tools';
+import {UPDATE_ACCOUNT, VERIFY_TOKEN} from '../../graphql/mutations/Users';
+import {getAuthTokenName, getImageUrl, isNull} from '../../utils/tools';
 import { GET_USER_SESSION } from '../../graphql/queries/User';
+import {AUTH_TOKEN} from "../../settings/constants";
 
 
 export default function SiderWrapper({children, setLoginState, isLogin, userSession, setUserSession}) {
   const classes = useStyles();
   const history = useHistory();
   const client = useApolloClient();
+  const token = localStorage.getItem(AUTH_TOKEN);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     localStorage.removeItem(getAuthTokenName());
     setLoginState(false);
     history.push(routesDictionary.dashboard);
-  };
+  }, [history, setLoginState]);
 
   const handleChangePhoto = (e) => {
     client.mutate({
@@ -33,14 +35,30 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
       client.query({
         query: GET_USER_SESSION,
         fetchPolicy: 'no-cache',
-      })
-        .then((response) => {
+      }).then((response) => {
           const {data} = response;
           const {me = {}} = data;
           setUserSession(me);
         });
     });
   };
+
+  useEffect(() => {
+    if(token){
+      client.mutate({
+        mutation: VERIFY_TOKEN,
+        fetchPolicy: 'no-cache',
+        variables: {
+          token: token,
+        },
+      }).then(({data}) => {
+        const {verifyToken = 0} = data?data:{};
+        if (isNull(verifyToken)){
+          logout();
+        }
+      });
+    }
+  }, [client, logout, token]);
 
   return (
     <Grid container alignItems={'flex-start'} className={classes.wrapperContent}>
@@ -79,7 +97,7 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
                 >
                   <Avatar
                     alt="User photo"
-                    src={getImageUrl(userSession.profilePicture) || LOGO}
+                    src={getImageUrl(userSession?.profilePicture) || LOGO}
                     className={classes.avatar}
                     imgProps={{className: classes.avatarImg}}
                   />
@@ -87,12 +105,12 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
               </Grid>
               <Grid item xs={12}>
                 <Typography variant={'h6'} align={'center'}>
-                  {`${userSession.firstName} ${userSession.lastName}`}
+                  {`${userSession?.firstName} ${userSession?.lastName}`}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography align={'center'}>
-                  {userSession.email}
+                  {userSession?.email}
                 </Typography>
               </Grid>
             </Grid>

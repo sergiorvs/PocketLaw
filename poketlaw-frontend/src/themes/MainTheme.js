@@ -98,6 +98,9 @@ const CreateTheme = () => {
         main: TERNARY_COLOR,
         light: 'rgb(118, 248, 241)',
         dark: 'rgb(20, 41, 78)',
+        neutral: '#FEF04A',
+        positive: '#36AA06',
+        bad: '#cc6054',
         contrastText: '#fefeff',
       },
       banner: {
