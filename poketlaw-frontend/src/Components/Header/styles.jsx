@@ -6,10 +6,12 @@ export const useStyles = makeStyles(theme => ({
     width: '100%',
     maxHeight: '10rem',
     padding: '1rem',
-    alignContent: 'center',
   },
   logoContainer:{
     objectFit: 'contain',
     width: '28rem',
   },
+  translateContainer: {
+    width: 'min-content'
+  }
 }));

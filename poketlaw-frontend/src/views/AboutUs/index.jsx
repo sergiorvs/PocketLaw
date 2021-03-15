@@ -11,6 +11,7 @@ import icon6 from '../../media/icon6.svg';
 import icon7 from '../../media/icon7.svg';
 import icon8 from '../../media/icon8.svg';
 import logo from '../../media/aboutUs.svg';
+import background from '../../media/background.svg';
 import { ReactComponent as People } from '../../media/people.svg';
 
 function AboutUs() {
@@ -26,6 +27,9 @@ function AboutUs() {
           <div className={classes.circleContainer}>
             <div className={classes.logoContainer}>
               <img src={logo} className={classes.logo} alt={'logo'} />
+            </div>
+            <div className={classes.backgroundContainer}>
+              <img src={background} className={classes.logo} alt={'logo'} />
             </div>
             <div className={clsx(classes.item, classes.deg0)}>
               <img src={icon3} className={classes.icon} alt={'icon'} />

@@ -7,7 +7,8 @@ export const useStyles = makeStyles(theme => ({
     background: theme.palette.primary.light,
     borderRadius: 25,
     border: `1px solid ${theme.palette.grey}`,
-    marginLeft: theme.spacing(3)
+    marginLeft: theme.spacing(3),
+    width: '10rem',
   },
   item: {
     textAlign: 'center',

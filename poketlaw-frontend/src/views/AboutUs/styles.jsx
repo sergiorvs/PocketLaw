@@ -53,6 +53,13 @@ export const useStyles = makeStyles(theme => ({
     top: '12%',
     left: '12%',
   },
+  backgroundContainer: {
+    position: 'absolute',
+    top: '-27%',
+    left: '-63%',
+    width: '80rem',
+    height: '55rem',
+  },
   logo: {
     width: '100%',
     height: '100%',

@@ -15,7 +15,7 @@ function TranslationSelector(props) {
   };
 
   return (
-    <Grid item container xs={12} justify={'center'} className={classes.container}>
+    <Grid item container justify={'center'} className={classes.container}>
       <Grid item
             className={classes.item}
             onClick={() => {

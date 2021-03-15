@@ -14,7 +14,7 @@ export function Header() {
       justify={'space-between'}
       className={classes.headerContainer}
     >
-      <Grid item container xs={1} justify={'center'}>
+      <Grid item xs={6} container>
         <TranslationSelector />
       </Grid>
       <Grid item container justify={'flex-end'} alignItems={'center'} md={4}>
