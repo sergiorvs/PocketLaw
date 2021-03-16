@@ -42,7 +42,7 @@ const routeTypes = {
     return (
       <SiderWrapper setLoginState={setLoginState} isLogin={isLogin} userSession={userSession}
                     setUserSession={setUserSession}>
-        <Component setLoginState={setLoginState} {...renderProps} />
+        <Component setLoginState={setLoginState} userSession={userSession} {...renderProps}/>
       </SiderWrapper>
     );
   },
@@ -55,7 +55,7 @@ const routeTypes = {
     return (
       <SiderWrapper setLoginState={setLoginState} isLogin={isLogin} userSession={userSession}
                     setUserSession={setUserSession}>
-        <Component setLoginState={setLoginState} {...renderProps} />
+        <Component setLoginState={setLoginState} userSession={userSession} {...renderProps} />
       </SiderWrapper>
     );
   },

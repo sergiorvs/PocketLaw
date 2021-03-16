@@ -71,7 +71,7 @@ function PasswordReset() {
       <Grid item container sm={5} justify={"flex-start"} alignContent={"center"} className={classes.resetPasswordContainer}>
         <Grid item sm={10} md={7}>
           <Typography color={"primary"} align={"center"} variant={"h3"} className={classes.marginBottom}>
-            Restore Password
+            Reestablecer Contraseña
           </Typography>
           <form className={classes.resetForm} noValidate autoComplete="off">
             <TextField
@@ -93,7 +93,7 @@ function PasswordReset() {
               className={classes.textField}
             />
             <Typography variant={"subtitle2"} className={classes.resetDescription}>
-              We are going to send a link to restore password to your email
+              Le enviaremos un link para reestablecer su contraseña
             </Typography>
             <Button variant={"contained"} className={classes.button} onClick={()=>submit()}>
               Enviar

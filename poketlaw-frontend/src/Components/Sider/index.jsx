@@ -13,7 +13,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
   const {location = {}} = history;
 
   const [nestedList, setNestedList] = useState({
-      laws: true
+      'about-us': true
     });
   const [subNestedList, setSubNestedList] = useState(() => {
     const {state = {}} = location;

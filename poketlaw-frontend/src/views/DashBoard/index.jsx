@@ -7,6 +7,7 @@ import LawsList from '../../Components/LawsList';
 
 const propTypes = {
   favorites: PropTypes.bool,
+  userSession: PropTypes.object,
 };
 
 function Dashboard(props) {
@@ -28,7 +29,7 @@ function Dashboard(props) {
           justify={'center'}
           className={classes.lawsDescriptionContainer}
         >
-          <LawsList searchFilter={searchFilter} favorites={props.favorites}/>
+          <LawsList searchFilter={searchFilter} favorites={props.favorites} userSession={props.userSession}/>
         </Grid>
       </Grid>
     </Container>
@@ -38,6 +39,7 @@ function Dashboard(props) {
 Dashboard.propTypes = propTypes;
 Dashboard.defaultProps = {
   favorites: false,
+  userSession: null,
 };
 
 export default Dashboard;

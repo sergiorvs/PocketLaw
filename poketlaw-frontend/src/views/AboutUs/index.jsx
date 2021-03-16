@@ -19,7 +19,7 @@ function AboutUs() {
 
   return (
     <Container className={classes.baseContainer}>
-      <Grid container xs={12}>
+      <Grid container>
         <Grid item sm={3} xs={12}>
           <People className={classes.people} />
         </Grid>

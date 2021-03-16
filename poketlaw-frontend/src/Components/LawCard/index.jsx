@@ -12,11 +12,11 @@ import { useHistory } from 'react-router-dom';
 import {useMutation} from "@apollo/client";
 import {ADD_TO_FAVORITES} from "../../graphql/mutations/Laws";
 
-const LawCard = ({law}) => {
+const LawCard = ({law, userSession}) => {
   const classes = useStyles();
   const history = useHistory();
   const [favorite, setFavorite] = useState(law.isFavorite);
-  const [addToFavorites] = useMutation(ADD_TO_FAVORITES)
+  const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
 
   useEffect(()=>{
     setFavorite(law.isFavorite)
@@ -78,13 +78,16 @@ const LawCard = ({law}) => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={1} container alignItems={'center'} justify={'center'}>
-          {favorite
-            ? <FavoriteIcon
-              onClick={()=>handleFavorite(law.id)}
-            /> :
-            <FavoriteBorderIcon onClick={()=>handleFavorite(law.id)} />}
-        </Grid>
+        {
+          userSession?.id &&
+          <Grid item xs={1} container alignItems={'center'} justify={'center'}>
+            {favorite
+              ? <FavoriteIcon
+                onClick={()=>handleFavorite(law.id)}
+              /> :
+              <FavoriteBorderIcon onClick={()=>handleFavorite(law.id)} />}
+          </Grid>
+        }
       </CardContent>
     </Card>
   );

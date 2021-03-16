@@ -1,5 +1,5 @@
 const routesDictionary = {
-  aboutUs: '/about-us/',
+  aboutUs: '/',
   lawDetail: (id) => `/law/${id}/`,
   law: '/law/:id/',
   activateAccount: '/activate/account/:uid/:token/',
@@ -10,7 +10,7 @@ const routesDictionary = {
   login: '/login/',
   error: '/404',
   laws: '/laws/',
-  dashboard: '/',
+  dashboard: '/laws/',
 };
 
 export default routesDictionary;

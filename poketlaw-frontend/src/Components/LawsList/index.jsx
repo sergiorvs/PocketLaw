@@ -8,7 +8,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import clsx from 'clsx';
 import LawCard from '../LawCard';
 
-const LawsList = ({searchFilter, favorites}) => {
+const LawsList = ({searchFilter, favorites, userSession}) => {
   const classes = useStyles();
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
@@ -34,7 +34,7 @@ const LawsList = ({searchFilter, favorites}) => {
     <>
       {objects?.map((law) => (
         <Grid item container key={law.id} className={classes.lawsDescription}>
-         <LawCard law={law} />
+         <LawCard law={law} userSession={userSession}/>
         </Grid>
       ))}
 

@@ -14,12 +14,6 @@ const AsyncFavorites = asyncComponent(() => import('../views/Favorites'))
 
 const routes = [
   {
-    path: routesDictionary.aboutUs,
-    component: AsyncAboutUs,
-    type: 'persistent',
-    title: 'Law',
-  },
-  {
     path: routesDictionary.law,
     component: AsyncLaw,
     type: 'persistent',
@@ -66,6 +60,12 @@ const routes = [
     component: AsyncDashboard,
     type: 'persistent',
     title: 'Home',
+  },
+  {
+    path: routesDictionary.aboutUs,
+    component: AsyncAboutUs,
+    type: 'persistent',
+    title: 'PocketLaw',
   },
 ];
 

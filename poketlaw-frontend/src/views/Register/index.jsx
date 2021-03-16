@@ -115,7 +115,7 @@ function Register({setLoginState}) {
         >
           <Grid item sm={10} md={6}>
             <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
-              Register Now
+              Registrarse
             </Typography>
             <form
               className={classes.root}
@@ -125,7 +125,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'First name'}
+                placeholder={'Nombre(s)'}
                 value={firstName}
                 error={errorForm['firstName']}
                 helperText={errorForm['firstName'] || ''}
@@ -154,7 +154,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'Last name'}
+                placeholder={'Apellidos'}
                 value={lastName}
                 onChange={(e) => {
                   setLastName(e.target.value);
@@ -183,7 +183,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'User email'}
+                placeholder={'Email'}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -214,7 +214,7 @@ function Register({setLoginState}) {
                 type="password"
                 required
                 value={password}
-                placeholder={'Password'}
+                placeholder={'Contraseña'}
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setErrorForm({
@@ -236,7 +236,7 @@ function Register({setLoginState}) {
                 type="password"
                 required
                 value={repeatPassword}
-                placeholder={'Repeat password'}
+                placeholder={'Repetir contraseña'}
                 onChange={(e) => {
                   setRepeatPassword(e.target.value);
                   setErrorForm({
@@ -273,7 +273,7 @@ function Register({setLoginState}) {
                 <FormHelperText>{errorForm['termsAndConditions']}</FormHelperText>
               </FormControl>
               <Button variant={'contained'} className={classes.button} onClick={submit}>
-                Register
+                Registrarse
               </Button>
               <Typography
                 variant={'body1'}
@@ -281,7 +281,7 @@ function Register({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.login)}
               >
-                Already registered? Sign in
+                Ya esta registrado? Iniciar Sesión
               </Typography>
             </form>
           </Grid>

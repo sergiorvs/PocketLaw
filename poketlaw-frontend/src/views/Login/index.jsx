@@ -78,7 +78,7 @@ function Login({setLoginState}) {
         >
           <Grid item sm={10} md={6}>
             <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
-              Log in
+              Iniciar Sesión
             </Typography>
             <form
               className={classes.root}
@@ -88,7 +88,7 @@ function Login({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'User'}
+                placeholder={'Email'}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -115,7 +115,7 @@ function Login({setLoginState}) {
                 type="password"
                 required
                 value={password}
-                placeholder={'Password'}
+                placeholder={'Contraseña'}
                 error={errorForm}
                 helperText={errorForm ? 'Error' : ''}
                 onChange={(e) => {
@@ -138,7 +138,7 @@ function Login({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.passwordReset)}
               >
-                Forget your Password ?
+                Olvidó su contraseña ?
               </Typography>
               <Typography
                 variant={'body1'}
@@ -146,7 +146,7 @@ function Login({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.register)}
               >
-                Register Now
+                Registrarse
               </Typography>
             </form>
           </Grid>
