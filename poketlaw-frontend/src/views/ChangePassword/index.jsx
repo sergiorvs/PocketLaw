@@ -18,17 +18,19 @@ import Presentation from '../../Components/Presentation';
 import Modal from '../../Components/Modal';
 import { useMutation } from "@apollo/client";
 import { PASSWORD_RESET } from "../../graphql/mutations/Users";
+import { useTranslation } from 'react-i18next';
 
 
 function ChangePassword() {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const [newPassword2, setRepeatPassword] = useState('');
   const [newPassword, setPassword] = useState('');
   const [errorForm, setErrorForm] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   const [changePassword] = useMutation(PASSWORD_RESET);
-  const errorMessage = 'Las contraseñas no son iguales, intente nuevamente';
+  const errorMessage = t('errorMessageChangePassword');
 
   const {uid, token} = useParams();
   const input = {
@@ -82,14 +84,14 @@ function ChangePassword() {
       >
         <Grid item sm={10} md={7}>
           <Typography color={"primary"} align={"center"} variant={"h3"} className={classes.marginBottom}>
-            Change Password
+            {t('changePassword')}
           </Typography>
           <form className={classes.resetForm} noValidate autoComplete="off">
             <TextField
               id="email-input"
               required
               type="password"
-              placeholder={"New Password"}
+              placeholder={t('newPassword')}
               value={newPassword}
               onChange={(e)=>{
                 setPassword(e.target.value);
@@ -108,7 +110,7 @@ function ChangePassword() {
               id="repeat-password-input"
               required
               type="password"
-              placeholder={"Repeat Password"}
+              placeholder={t('repeatPassword')}
               value={newPassword2}
               onChange={(e)=>{
                 setRepeatPassword(e.target.value);
@@ -124,7 +126,7 @@ function ChangePassword() {
               className={classes.textField}
             />
             <Button variant={"contained"} className={classes.button} onClick={()=>submit()}>
-              Send
+              {t('send')}
             </Button>
           </form>
         </Grid>

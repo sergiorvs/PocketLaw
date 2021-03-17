@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, } from '@material-ui/core';
 import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 
 const propTypes = {
@@ -13,6 +14,7 @@ const propTypes = {
 
 function Modal({type, message, setErrorSubmit, title}) {
   const classes = useStyles();
+  const {t} = useTranslation();
   const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
@@ -29,7 +31,7 @@ function Modal({type, message, setErrorSubmit, title}) {
       <DialogTitle id="alert-dialog-title" className={classes.alertDialogTitle}>
         <div
           className={type === 'success' ? classes.alertDialogTextTitleOk : classes.alertDialogTextTitle}>
-          {type === 'success' ? title : '¡ Alerta !'}
+          {type === 'success' ? title : t('alert')}
         </div>
       </DialogTitle>
       <DialogContent>
@@ -39,7 +41,7 @@ function Modal({type, message, setErrorSubmit, title}) {
       </DialogContent>
       <DialogActions className={classes.aceptBtn}>
         <Button onClick={handleClose} className={classes.aceptTextBtn}>
-          Aceptar
+          {t('accept')}
         </Button>
       </DialogActions>
     </Dialog>

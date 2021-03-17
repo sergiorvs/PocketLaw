@@ -11,6 +11,7 @@ import Presentation from '../../Components/Presentation';
 import routesDictionary from '../../routes/routesDict';
 import { isNull, setLoginTokens } from '../../utils/tools';
 import { LOGIN_VERIFICATION } from '../../graphql/mutations/Users';
+import { useTranslation } from 'react-i18next';
 
 
 const propTypes = {
@@ -23,12 +24,13 @@ const propTypes = {
 function Login({setLoginState}) {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const [errorLogin, setErrorLogin] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorForm, setErrorForm] = useState(false);
   const [addTodo] = useMutation(LOGIN_VERIFICATION);
-  const errorMessage = 'Usuario y contraseña incorrectos intente nuevamente';
+  const errorMessage = t('errorMessage');
 
   const submit = () => {
     addTodo({
@@ -78,7 +80,7 @@ function Login({setLoginState}) {
         >
           <Grid item sm={10} md={6}>
             <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
-              Iniciar Sesión
+              {t('login')}
             </Typography>
             <form
               className={classes.root}
@@ -130,7 +132,7 @@ function Login({setLoginState}) {
                 }}
               />
               <Button variant={'contained'} className={classes.button} onClick={() => submit()}>
-                Log in
+                {t('login')}
               </Button>
               <Typography
                 variant={'body1'}
@@ -138,7 +140,7 @@ function Login({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.passwordReset)}
               >
-                Olvidó su contraseña ?
+                {t('passwordForgotten')}
               </Typography>
               <Typography
                 variant={'body1'}
@@ -146,7 +148,7 @@ function Login({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.register)}
               >
-                Registrarse
+                {t('register')}
               </Typography>
             </form>
           </Grid>

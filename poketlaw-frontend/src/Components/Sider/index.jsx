@@ -5,16 +5,18 @@ import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import clsx from 'clsx';
 import { menuList } from './constants';
 import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 
 function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const {location = {}} = history;
 
   const [nestedList, setNestedList] = useState({
-      'about-us': true
-    });
+    'about-us': true
+  });
   const [subNestedList, setSubNestedList] = useState(() => {
     const {state = {}} = location;
     const {subItem = null} = state;
@@ -24,7 +26,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
 
   useEffect(() => {
     const {pathname, hash} = location;
-    if(pathname=== '/') {
+    if (pathname === '/') {
 
     } else {
       const path = pathname.replace(/\//g, '');
@@ -69,7 +71,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
             }}
             className={clsx(nestedList[item.id] && classes.activeItem, classes.itemList)}
           >
-            <ListItemText primary={item.title} className={classes.text} />
+            <ListItemText primary={t(item.title)} className={classes.text} />
             {CustomIcon &&
             <CustomIcon className={classes.icon} />
             }
@@ -102,7 +104,7 @@ function Sider({state, openDrawer, setOpenDrawer, setLoginState, isLogin}) {
                         </ListItemIcon>}
                         <ListItemText
                           disableTypography
-                          primary={subitem.title}
+                          primary={t(subitem.title)}
                           className={clsx(classes.text, subNestedList[subitem.id] && classes.activeSubItem)}
                         />
                       </ListItem>

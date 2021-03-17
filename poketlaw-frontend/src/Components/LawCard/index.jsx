@@ -11,10 +11,12 @@ import routesDictionary from '../../routes/routesDict';
 import { useHistory } from 'react-router-dom';
 import {useMutation} from "@apollo/client";
 import {ADD_TO_FAVORITES} from "../../graphql/mutations/Laws";
+import { useTranslation } from 'react-i18next';
 
 const LawCard = ({law, userSession}) => {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const [favorite, setFavorite] = useState(law.isFavorite);
   const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
 
@@ -64,7 +66,7 @@ const LawCard = ({law, userSession}) => {
               <Grid item container xs={12} className={classes.lawExtras}>
                 <DescriptionOutlinedIcon />
                 <Typography>
-                  Gratis
+                  {t('free')}
                 </Typography>
               </Grid>
             </Grid>

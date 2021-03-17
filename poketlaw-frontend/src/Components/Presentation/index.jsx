@@ -4,6 +4,8 @@ import { Grid, Typography, } from '@material-ui/core';
 import { ReactComponent as LOGO } from '../../media/logo.svg';
 import routesDictionary from '../../routes/routesDict';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import TranslationSelector from '../TranslationSelector';
 
 
 const propTypes = {};
@@ -11,6 +13,7 @@ const propTypes = {};
 function Presentation() {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
 
   return (
     <Grid
@@ -24,10 +27,11 @@ function Presentation() {
         <LOGO onClick={() => history.push(routesDictionary.dashboard)} />
       </Grid>
       <Grid item>
+        <TranslationSelector />
+      </Grid>
+      <Grid item>
         <Typography align={'center'} variant={'subtitle2'} className={classes.description}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-          labore
-          et dolore magna aliquyam
+          {t('description')}
         </Typography>
       </Grid>
     </Grid>

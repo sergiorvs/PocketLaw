@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { AntonioLight, BebasNeueRegular } from './fontFamily';
 
 const CreateTheme = () => {
   const PRIMARY_COLOR = '#FFFFFF';
@@ -17,7 +18,10 @@ const CreateTheme = () => {
       },
     },
     typography: {
-      fontFamily: 'Baloo Chettan 2',
+      fontFamily: [
+        'Bebas Neue', 'BebasNeueRegular',
+        "'Antonio Light', arial"
+      ].join(','),
       color: 'black',
 
       h1: {
@@ -62,15 +66,18 @@ const CreateTheme = () => {
       body1: {
         fontSize: '16px',
         color: 'black',
+        fontFamily: "'Antonio Light', arial"
       },
       body2: {
         fontSize: 15.5,
         fontWeight: 300,
         color: 'black',
+        fontFamily: "'Antonio Light', arial"
       },
       caption: {
         fontSize: 12.8,
         fontWeight: 'normal',
+        fontFamily: "'Antonio Light', arial"
       },
     },
     palette: {
@@ -111,6 +118,24 @@ const CreateTheme = () => {
       }
     },
     overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          '@font-face': [
+            BebasNeueRegular,
+            AntonioLight,
+          ],
+          '*': {
+            'scrollbar-width': '20px',
+          },
+          '*::-webkit-scrollbar': {
+            width: '2px',
+            height: '4px',
+          },
+          '*::-webkit-scrollbar-thumb': {
+            background: TERNARY_COLOR,
+          },
+        },
+      },
       MuiGrid: {
         container: {
           '&::-webkit': {
@@ -289,20 +314,6 @@ const CreateTheme = () => {
             },
           }
         }
-      },
-      MuiCssBaseline: {
-        '@global': {
-          '*': {
-            'scrollbar-width': '20px',
-          },
-          '*::-webkit-scrollbar': {
-            width: '2px',
-            height: '4px',
-          },
-          '*::-webkit-scrollbar-thumb': {
-            background: TERNARY_COLOR,
-          },
-        },
       },
       MuiStepConnector: {
         line: {

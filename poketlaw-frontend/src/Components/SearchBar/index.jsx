@@ -5,10 +5,12 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 
 export default function SearchBar({searchFilter, setSearchFilter}) {
   const classes = useStyles();
+  const {t} = useTranslation();
 
   const handleChange = (event) => {
     setSearchFilter(event.target.value);
@@ -25,7 +27,7 @@ export default function SearchBar({searchFilter, setSearchFilter}) {
           className={classes.input}
           onChange={handleChange}
           value={searchFilter}
-          placeholder="Búsqueda por categorías"
+          placeholder={t('search')}
           inputProps={{'aria-label': 'search google maps'}}
         />
       </Paper>

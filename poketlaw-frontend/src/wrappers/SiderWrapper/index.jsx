@@ -13,11 +13,13 @@ import {UPDATE_ACCOUNT, VERIFY_TOKEN} from '../../graphql/mutations/Users';
 import {getAuthTokenName, getImageUrl, isNull} from '../../utils/tools';
 import { GET_USER_SESSION } from '../../graphql/queries/User';
 import {AUTH_TOKEN} from "../../settings/constants";
+import { useTranslation } from 'react-i18next';
 
 
 export default function SiderWrapper({children, setLoginState, isLogin, userSession, setUserSession}) {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const client = useApolloClient();
   const token = localStorage.getItem(AUTH_TOKEN);
 
@@ -123,7 +125,7 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
         {isLogin ? (
           <Grid item xs={12} className={classes.logoutContainer}>
             <Typography align={'center'} onClick={logout} className={classes.logout}>
-              Logout
+              {t('logout')}
             </Typography>
           </Grid>
         ) : (
@@ -132,13 +134,13 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
               <Grid item xs={12}>
                 <Button variant={'contained'} className={classes.button}
                         onClick={() => history.push(routesDictionary.login)}>
-                  Iniciar Sesión
+                  {t('login')}
                 </Button>
               </Grid>
               <Grid item xs={12}>
                 <Button variant={'contained'} className={classes.button}
                         onClick={() => history.push(routesDictionary.register)}>
-                  Registrarse
+                  {t('register')}
                 </Button>
               </Grid>
             </Grid>

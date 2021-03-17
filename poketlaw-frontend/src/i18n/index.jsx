@@ -1,10 +1,10 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import resourceEN from './en';
-import resourceDE from './de';
+import resourceES from './es';
 
 export const BACKEND_FRONTEND_LANGUAGES = {
-  de: 'DE',
+  ES: 'ES',
   'en-us': 'EN',
 };
 
@@ -16,8 +16,8 @@ const resources = {
   EN: {
     translation: resourceEN,
   },
-  DE: {
-    translation: resourceDE,
+  ES: {
+    translation: resourceES,
   },
 };
 
@@ -25,7 +25,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: BACKEND_FRONTEND_LANGUAGES[defaultLanguage || 'de'],
+    lng: BACKEND_FRONTEND_LANGUAGES[defaultLanguage || 'ES'],
     keySeparator: false, // we do not use keys in form messages.welcome
     interpolation: {
       escapeValue: false, // react already safes from xss

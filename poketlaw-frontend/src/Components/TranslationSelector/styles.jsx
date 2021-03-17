@@ -36,5 +36,9 @@ export const useStyles = makeStyles(theme => ({
     width: 1,
     height: '100%',
     // margin: 'auto',
+  },
+  icon: {
+    width: 15,
+    height: 15,
   }
 }));

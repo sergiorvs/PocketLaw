@@ -7,11 +7,13 @@ import routesDictionary from '../../routes/routesDict';
 import Presentation from '../../Components/Presentation';
 import { useMutation } from '@apollo/client';
 import { ACTIVATE_ACCOUNT } from '../../graphql/mutations/Users';
+import { useTranslation } from 'react-i18next';
 
 
 function ActivateAccount() {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const [message, setMessage] = useState('');
   const [activateAccount] = useMutation(ACTIVATE_ACCOUNT);
 
@@ -65,13 +67,13 @@ function ActivateAccount() {
             <Grid item md={6} xs={12}>
               <Button variant={'contained'} className={classes.button}
                       onClick={() => history.push(routesDictionary.login)}>
-                Inicia Sesión
+                {t('login')}
               </Button>
             </Grid>
             <Grid item md={6} xs={12}>
               <Button variant={'contained'} className={classes.button}
                       onClick={() => history.push(routesDictionary.register)}>
-                Regístrate
+                {t('register')}
               </Button>
             </Grid>
           </Grid>

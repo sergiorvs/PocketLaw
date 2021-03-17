@@ -22,6 +22,7 @@ import Presentation from '../../Components/Presentation';
 import routesDictionary from '../../routes/routesDict';
 import { CREATE_USER } from '../../graphql/mutations/Users';
 import { isNull } from '../../utils/tools';
+import { useTranslation } from 'react-i18next';
 
 
 const propTypes = {
@@ -33,6 +34,7 @@ const propTypes = {
 
 function Register({setLoginState}) {
   const classes = useStyles();
+  const {t} = useTranslation();
   const history = useHistory();
   const [errorLogin, setErrorLogin] = useState({});
   const [email, setEmail] = useState('');
@@ -115,7 +117,7 @@ function Register({setLoginState}) {
         >
           <Grid item sm={10} md={6}>
             <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
-              Registrarse
+              {t('register')}
             </Typography>
             <form
               className={classes.root}
@@ -125,7 +127,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'Nombre(s)'}
+                placeholder={t('firstname')}
                 value={firstName}
                 error={errorForm['firstName']}
                 helperText={errorForm['firstName'] || ''}
@@ -154,7 +156,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'Apellidos'}
+                placeholder={t('lastname')}
                 value={lastName}
                 onChange={(e) => {
                   setLastName(e.target.value);
@@ -183,7 +185,7 @@ function Register({setLoginState}) {
               <TextField
                 id="user-input"
                 required
-                placeholder={'Email'}
+                placeholder={t('email')}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -214,7 +216,7 @@ function Register({setLoginState}) {
                 type="password"
                 required
                 value={password}
-                placeholder={'Contraseña'}
+                placeholder={t('password')}
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setErrorForm({
@@ -236,7 +238,7 @@ function Register({setLoginState}) {
                 type="password"
                 required
                 value={repeatPassword}
-                placeholder={'Repetir contraseña'}
+                placeholder={t('repeatPassword')}
                 onChange={(e) => {
                   setRepeatPassword(e.target.value);
                   setErrorForm({
@@ -266,14 +268,14 @@ function Register({setLoginState}) {
                         termsAndConditions: '',
                       });
                     }}
-                    label={<Typography color={'primary'}> Accepta los términos y condiciones de la página</Typography>}
+                    label={<Typography color={'primary'}>{t('terms')}</Typography>}
                     labelPlacement="left"
                   />
                 </FormGroup>
                 <FormHelperText>{errorForm['termsAndConditions']}</FormHelperText>
               </FormControl>
               <Button variant={'contained'} className={classes.button} onClick={submit}>
-                Registrarse
+                {t('register')}
               </Button>
               <Typography
                 variant={'body1'}
@@ -281,7 +283,7 @@ function Register({setLoginState}) {
                 className={classes.link}
                 onClick={() => history.push(routesDictionary.login)}
               >
-                Ya esta registrado? Iniciar Sesión
+                {t('alreadyRegistered')}
               </Typography>
             </form>
           </Grid>

@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: "Baloo Chettan 2";
   height: 100vh;
+  font-family: 'Bebas Neue', 'BebasNeueRegular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

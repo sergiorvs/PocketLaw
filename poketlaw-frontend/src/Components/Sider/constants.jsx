@@ -10,13 +10,13 @@ export const menuList = (isLogin) => {
   const sider = [
     {
       id: 'about-us',
-      title: 'About Us',
+      title: 'aboutUs',
       img: PeopleIcon,
       link: routesDictionary.aboutUs,
     },
     {
       id: 'laws',
-      title: 'Laws',
+      title: 'laws',
       img: GavelIcon,
       link: routesDictionary.laws,
     },
@@ -25,19 +25,19 @@ export const menuList = (isLogin) => {
   const siderLogin = [
     {
       id: 'pocket-bag',
-      title: 'Pocket Bag',
+      title: 'pocketBag',
       img: ShoppingCartIcon,
       link: routesDictionary.dashboard,
     },
     {
       id: 'categories',
-      title: 'Categories',
+      title: 'categories',
       img: CategoryIcon,
       link: routesDictionary.dashboard,
       submenu: [
         {
           id: 'inicio',
-          title: 'Inicio',
+          title: 'init',
           link: routesDictionary.dashboard,
         },
       ],

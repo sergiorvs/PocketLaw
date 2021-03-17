@@ -15,6 +15,7 @@ import Modal from '../../Components/Modal';
 import routesDictionary from '../../routes/routesDict';
 import { useStyles } from '../Login/styles';
 import { PASSWORD_RESET_LINK } from '../../graphql/mutations/Users';
+import { useTranslation } from 'react-i18next';
 
 
 const propTypes = {
@@ -27,11 +28,12 @@ const propTypes = {
 function PasswordReset() {
   const classes = useStyles();
   const history = useHistory();
+  const {t} = useTranslation();
   const [errorLogin, setErrorLogin] = useState(false);
   const [email, setEmail] = useState('');
   const [errorForm, setErrorForm] = useState(false);
   const [resetLink] = useMutation(PASSWORD_RESET_LINK);
-  const errorMessage = `Correo incorrecto ${email} intente nuevamente`;
+  const errorMessage = t('errorMessagePassword', { email });
 
   const submit = () => {
     resetLink({
@@ -71,13 +73,13 @@ function PasswordReset() {
       <Grid item container sm={5} justify={"flex-start"} alignContent={"center"} className={classes.resetPasswordContainer}>
         <Grid item sm={10} md={7}>
           <Typography color={"primary"} align={"center"} variant={"h3"} className={classes.marginBottom}>
-            Reestablecer Contraseña
+            {t('restartPassword')}
           </Typography>
           <form className={classes.resetForm} noValidate autoComplete="off">
             <TextField
               id="email-input"
               required
-              placeholder={"Email"}
+              placeholder={t('email')}
               value={email}
               onChange={(e)=>{
                 setEmail(e.target.value);
@@ -93,10 +95,10 @@ function PasswordReset() {
               className={classes.textField}
             />
             <Typography variant={"subtitle2"} className={classes.resetDescription}>
-              Le enviaremos un link para reestablecer su contraseña
+              {t('restartPasswordLink')}
             </Typography>
             <Button variant={"contained"} className={classes.button} onClick={()=>submit()}>
-              Enviar
+              {t('send')}
             </Button>
           </form>
         </Grid>
