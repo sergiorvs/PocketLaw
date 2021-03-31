@@ -24,6 +24,7 @@ graphene-django==2.13.0
 graphene-file-upload==1.2.2
 graphql-core==2.3.2
 graphql-relay==2.0.1
+gunicorn==20.1.0
 importlib-metadata==3.3.0
 kombu==4.6.11
 Markdown==3.3.3
