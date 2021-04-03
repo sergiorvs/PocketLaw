@@ -23,7 +23,8 @@ export function Footer() {
           <Logo />
         </Grid>
         <Grid item container justify={"center"} className={classes.politics} sm={12}>
-          <a href={`${BACKEND_URL}${data?.privacyPolitics}`}>
+          <a href={`${BACKEND_URL}${data?.privacyPolitics}`}
+             target={'_blank'} rel={'noreferrer'}>
             <Typography variant={"caption"} style={{borderBottom: '1px solid'}}>
               {t('privacy')}
             </Typography>
