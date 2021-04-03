@@ -4,6 +4,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import CategoryIcon from '@material-ui/icons/Category';
 import StarsIcon from '@material-ui/icons/Stars';
 import routesDictionary from '../../routes/routesDict';
+import StreetviewIcon from '@material-ui/icons/Streetview';
 
 
 export const menuList = (isLogin) => {
@@ -25,8 +26,8 @@ export const menuList = (isLogin) => {
   const siderLogin = [
     {
       id: 'pocket-bag',
-      title: 'pocketBag',
-      img: ShoppingCartIcon,
+      title: 'psychological',
+      img: StreetviewIcon,
       link: routesDictionary.dashboard,
     },
     {

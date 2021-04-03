@@ -5,7 +5,8 @@
 const resourceES = {
   aboutUs: 'Conócenos',
   laws: 'Leyes',
-  pocketBag: 'Carrito',
+  psychological: 'Soporte Psicológico',
+  privacy: 'Políticas de privacidad',
   categories: 'Categorias',
   init: 'Inicio',
   favorites: 'Favoritos',

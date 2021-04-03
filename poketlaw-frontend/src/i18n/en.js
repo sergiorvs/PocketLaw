@@ -5,7 +5,8 @@
 const resourceEn = {
   aboutUs: 'About Us',
   laws: 'Laws',
-  pocketBag: 'Pocket Bag',
+  psychological: 'Psychological Support',
+  privacy: 'Privacy Politics',
   categories: 'Categories',
   init: 'Init',
   favorites: 'Favorites',

@@ -14,4 +14,7 @@ export const useStyles = makeStyles(theme => ({
     objectFit: 'contain',
     width: '28rem',
   },
+  politics: {
+    cursor: 'pointer',
+  }
 }));
