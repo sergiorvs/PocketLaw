@@ -3,10 +3,14 @@ import React from 'react';
 import { useStyles } from './styles';
 import { Logo } from '../Logo';
 import {useTranslation} from "react-i18next";
+import {useQuery} from "@apollo/client";
+import {GET_PRIVACY_POLITICS} from "../../graphql/queries/Core";
+import {BACKEND_URL} from "../../settings/constants";
 
 export function Footer() {
   const classes = useStyles();
   const {t} = useTranslation();
+  const {data} = useQuery(GET_PRIVACY_POLITICS)
 
   return (
     <Grid
@@ -19,9 +23,11 @@ export function Footer() {
           <Logo />
         </Grid>
         <Grid item container justify={"center"} className={classes.politics} sm={12}>
-          <Typography variant={"caption"} style={{borderBottom: '1px solid'}}>
-            {t('privacy')}
-          </Typography>
+          <a href={`${BACKEND_URL}${data?.privacyPolitics}`}>
+            <Typography variant={"caption"} style={{borderBottom: '1px solid'}}>
+              {t('privacy')}
+            </Typography>
+          </a>
         </Grid>
       </Grid>
     </Grid>);
