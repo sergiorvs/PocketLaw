@@ -12,6 +12,7 @@ const resourceEn = {
   favorites: 'Favorites',
   errorMessage: 'User or passwordare wrong. Please, try again.',
   login: 'Login',
+  logout: 'Logout',
   passwordForgotten: 'Forgot password?',
   register: 'Register',
   lastname: 'Last Name',

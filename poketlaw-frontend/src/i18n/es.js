@@ -12,6 +12,7 @@ const resourceES = {
   favorites: 'Favoritos',
   errorMessage: 'Usuario y contraseña incorrectos intente nuevamente',
   login: 'Iniciar Sesión',
+  logout: 'Cerrar Sesión',
   passwordForgotten: 'Olvidó su contraseña ?',
   register: 'Registrarse',
   lastname: 'Apellidos',

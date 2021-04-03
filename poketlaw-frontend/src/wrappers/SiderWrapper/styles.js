@@ -7,9 +7,18 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: '0 19px 19px 19px',
     alignContent: 'flex-start',
   },
+  wrapper: {
+    height: '100vh',
+    width: '100%'
+  },
+  container: {
+    flex: 1,
+    height: '100%',
+  },
   siderBackground: {
     backgroundColor: theme.palette.general.main,
-    height: '100%',
+    // maxHeight: '100%',
+    flex: 1
   },
   siderHeader: {
     padding: '1rem',
@@ -83,6 +92,7 @@ export const useStyles = makeStyles(theme => ({
     padding: '1rem 2rem',
   },
   content: {
+    maxHeight: '100%',
     height: '100%',
     background: '#eff5f8'
   }

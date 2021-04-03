@@ -1,6 +1,5 @@
 import PeopleIcon from '@material-ui/icons/People';
 import GavelIcon from '@material-ui/icons/Gavel';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import CategoryIcon from '@material-ui/icons/Category';
 import StarsIcon from '@material-ui/icons/Stars';
 import routesDictionary from '../../routes/routesDict';
