@@ -1,16 +1,12 @@
 """
 Account graphql query
 """
-from urllib import request
-
 from graphene import (
     ObjectType,
     String,
 )
 
 from django.contrib.staticfiles.storage import staticfiles_storage
-
-from pocketLaw_back_end.settings import BACKEND_URL
 
 
 class Query(ObjectType):
