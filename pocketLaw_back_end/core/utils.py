@@ -31,7 +31,10 @@ def get_domain(request: WSGIRequest) -> str:
     :param request: request
     :return: current domain
     """
-    return request.META.get('HTTP_ORIGIN', '') + '/'
+    domain = request.META.get('HTTP_ORIGIN', '')
+    if not domain:
+        return ''
+    return domain + '/'
 
 
 def get_paginator(

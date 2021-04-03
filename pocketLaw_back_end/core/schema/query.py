@@ -19,4 +19,5 @@ class Query(ObjectType):
 
     @staticmethod
     def resolve_privacy_politics(self, info):
-        return f'{get_domain(info.context)}{staticfiles_storage.url("documents/privacity_politics.pdf")}'
+        return f'{get_domain(info.context)}' \
+               f'{staticfiles_storage.url("documents/privacity_politics.pdf")}'
