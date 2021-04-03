@@ -1,6 +1,8 @@
 """
 Account graphql query
 """
+from urllib import request
+
 from graphene import (
     ObjectType,
     String,
@@ -8,7 +10,7 @@ from graphene import (
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 
-from core.utils import get_domain
+from pocketLaw_back_end.settings import BACKEND_URL
 
 
 class Query(ObjectType):
@@ -19,5 +21,4 @@ class Query(ObjectType):
 
     @staticmethod
     def resolve_privacy_politics(self, info):
-        return f'{get_domain(info.context)}' \
-               f'{staticfiles_storage.url("documents/privacity_politics.pdf")}'
+        return staticfiles_storage.url("documents/privacity_politics.pdf")
