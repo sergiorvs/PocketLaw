@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='user',
-            name='terms_and_conditions',
+            name='documents',
             field=models.BooleanField(default=False, verbose_name='Terms and Conditions'),
         ),
     ]

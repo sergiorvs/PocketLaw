@@ -15,6 +15,7 @@ from account.schema.types import UserType
 from account.schema import Mutation as AccountMutations
 from account.schema import Query as AccountQueries
 from laws.schema import Query as LawsQueries
+from core.schema import Query as CoreQueries
 
 
 class ObtainJSONWebToken(JSONWebTokenMutation):
@@ -25,7 +26,7 @@ class ObtainJSONWebToken(JSONWebTokenMutation):
         return cls(user=info.context.user)
 
 
-class Query(LawsQueries, AccountQueries):
+class Query(LawsQueries, CoreQueries, AccountQueries):
     hello = String(default_value="Hi!")
 
 

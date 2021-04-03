@@ -64,8 +64,8 @@ class RegisterSerializer(serializers.ModelSerializer):
     def validate_terms_and_conditions(terms_and_conditions):
         """
         Check if the 'term and conditions' are correct
-        :param terms_and_conditions: terms_and_conditions input
-        :return: terms_and_conditions
+        :param terms_and_conditions: documents input
+        :return: documents
         """
         if not terms_and_conditions:
 
