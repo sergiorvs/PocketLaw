@@ -190,7 +190,7 @@ class RestorePasswordRequest(BaseMutation):
             domain=domain,
         )
 
-        return RestorePasswordRequest(message=MessageType(
+        return RestorePasswordRequest(success=True, message=MessageType(
             title='RESTORE_PASSWORD_EMAIL_TITLE',
             description='RESTORE_PASSWORD_EMAIL',
             type=SUCCESS_MESSAGE_TYPE
