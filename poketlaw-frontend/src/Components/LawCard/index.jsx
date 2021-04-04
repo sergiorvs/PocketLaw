@@ -2,15 +2,15 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStyles } from './styles';
 import { getImageUrl } from '../../utils/tools';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import routesDictionary from '../../routes/routesDict';
 import { useHistory } from 'react-router-dom';
-import {useMutation} from "@apollo/client";
-import {ADD_TO_FAVORITES} from "../../graphql/mutations/Laws";
+import { useMutation } from '@apollo/client';
+import { ADD_TO_FAVORITES } from '../../graphql/mutations/Laws';
 import { useTranslation } from 'react-i18next';
 
 const LawCard = ({law, userSession}) => {
@@ -20,9 +20,9 @@ const LawCard = ({law, userSession}) => {
   const [favorite, setFavorite] = useState(law.isFavorite);
   const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
 
-  useEffect(()=>{
-    setFavorite(law.isFavorite)
-  }, [law])
+  useEffect(() => {
+    setFavorite(law.isFavorite);
+  }, [law]);
 
   const handleFavorite = (lawId) => {
     setFavorite(!favorite);
@@ -30,27 +30,27 @@ const LawCard = ({law, userSession}) => {
       variables: {
         lawId: lawId
       }
-    })
+    });
   };
 
   return (
-    <Card className={classes.root} >
+    <Card className={classes.root}>
       <CardContent className={classes.cardContent}>
-        <Grid item xs={11} container onClick={() => history.push(routesDictionary.lawDetail(law.id))}>
-          <Grid item container className={classes.imageLaw} alignItems={'center'} xs={2}>
+        <Grid item container md={11} sm={12} onClick={() => history.push(routesDictionary.lawDetail(law.id))}>
+          <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={12}>
             <img
               alt={'lawImage'}
               src={getImageUrl(law.image)}
               className={classes.lawImage}
             />
           </Grid>
-          <Grid item container className={classes.title} xs={3} justify={'flex-end'}>
+          <Grid item container className={classes.title} md={3} sm={12} justify={'flex-end'}>
             <Grid item container xs={12}>
               <Typography variant={'subtitle1'} className={classes.lawTitle}>
                 {law.title}
               </Typography>
             </Grid>
-            <Grid item container xs={10}>
+            <Grid item container md={10}>
               <Grid item container xs={12} className={classes.lawExtras}>
                 <LocalOfferOutlinedIcon />
                 <Typography>
@@ -74,7 +74,7 @@ const LawCard = ({law, userSession}) => {
           <Grid item>
             <Divider orientation="vertical" className={classes.divider} />
           </Grid>
-          <Grid item className={classes.descriptionLaw} xs={6}>
+          <Grid item className={classes.descriptionLaw} md={6}>
             <Typography>
               {law.description}
             </Typography>
@@ -85,9 +85,9 @@ const LawCard = ({law, userSession}) => {
           <Grid item xs={1} container alignItems={'center'} justify={'center'}>
             {favorite
               ? <FavoriteIcon
-                onClick={()=>handleFavorite(law.id)}
+                onClick={() => handleFavorite(law.id)}
               /> :
-              <FavoriteBorderIcon onClick={()=>handleFavorite(law.id)} />}
+              <FavoriteBorderIcon onClick={() => handleFavorite(law.id)} />}
           </Grid>
         }
       </CardContent>

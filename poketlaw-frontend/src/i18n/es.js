@@ -34,7 +34,9 @@ const resourceES = {
     'labore et dolore magna aliquyam',
   accept: 'Aceptar',
   alert: '¡ Alerta !',
-  free: 'Gratis'
+  free: 'Gratis',
+  emailField: 'Nombre de usuario o dirección de correo',
+  passwordField: 'Password'
 };
 
 export default resourceES;

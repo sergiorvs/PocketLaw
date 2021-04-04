@@ -74,8 +74,8 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: 'normal',
     textTransform: 'none',
     margin: '2rem 0',
-    color: theme.palette.secondary.dark,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.primary.main,
   },
   link: {
     color: theme.palette.secondary.light,
@@ -97,5 +97,12 @@ export const useStyles = makeStyles(theme => ({
   resetDescription: {
     padding: '0 .5rem',
     paddingTop: '1.5rem',
+  },
+  root: {
+    textAlign: 'left',
+  },
+  label: {
+    color: theme.palette.primary.dark,
+    paddingBottom: '.5rem'
   },
 }));

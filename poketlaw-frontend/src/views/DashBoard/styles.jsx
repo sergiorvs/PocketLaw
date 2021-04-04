@@ -26,5 +26,8 @@ export const useStyles = makeStyles(theme => ({
     padding: '2rem 3rem',
     margin: 'auto',
     justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: '1rem',
+    },
   },
 }));

@@ -2,6 +2,9 @@ import {makeStyles} from "@material-ui/core";
 
 
 export const useStyles = makeStyles(theme => ({
+  h100: {
+    height: '100%'
+  },
   baseContainer: {
     backgroundImage: theme.palette.banner.background,
     width: '100%',
@@ -30,9 +33,18 @@ export const useStyles = makeStyles(theme => ({
     }
   },
   loginContainer: {
+    background: theme.palette.border.light,
+    width: '100%',
+    height: '100%',
+    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
     }
+  },
+  paper: {
+    padding: theme.spacing(5),
+    display: 'flex',
+    flexDirection: 'column'
   },
   logoContainer: {
     alignSelf: 'center',
@@ -62,11 +74,11 @@ export const useStyles = makeStyles(theme => ({
   textField: {
     width: '100%',
     marginBottom: '1.5rem',
-    background: 'transparent',
-    borderBottomColor: theme.palette.primary.main,
-    '& .MuiInput-underline:after': {
-      borderBottomColor: theme.palette.primary.main,
-    },
+    // background: 'transparent',
+    // borderBottomColor: theme.palette.primary.main,
+    // '& .MuiInput-underline:after': {
+    //   borderBottomColor: theme.palette.primary.main,
+    // },
   },
   button: {
     width: '100%',
@@ -74,8 +86,8 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: 'normal',
     textTransform: 'none',
     margin: '2rem 0',
-    color: theme.palette.secondary.dark,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.primary.main,
   },
   link: {
     color: theme.palette.secondary.light,
@@ -98,4 +110,16 @@ export const useStyles = makeStyles(theme => ({
     padding: '0 .5rem',
     paddingTop: '1.5rem',
   },
+  root: {
+    textAlign: 'left',
+  },
+  label: {
+    color: theme.palette.primary.dark,
+    paddingBottom: '.5rem'
+  },
+  icon: {
+    fontSize: 30,
+    margin: '1rem 0 0',
+    cursor: 'pointer'
+  }
 }));

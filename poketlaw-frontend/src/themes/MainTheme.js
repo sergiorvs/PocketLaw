@@ -20,7 +20,7 @@ const CreateTheme = () => {
     typography: {
       fontFamily: [
         'Bebas Neue', 'BebasNeueRegular',
-        "'Antonio Light', arial"
+        '\'Antonio Light\', arial'
       ].join(','),
       color: 'black',
 
@@ -61,23 +61,23 @@ const CreateTheme = () => {
       subtitle2: {
         fontSize: 16,
         lineHeight: '20px',
-        color: PRIMARY_COLOR,
+        color: SECONDARY_COLOR,
       },
       body1: {
         fontSize: '16px',
         color: 'black',
-        fontFamily: "'Antonio Light', arial"
+        fontFamily: '\'Antonio Light\', arial'
       },
       body2: {
         fontSize: 15.5,
         fontWeight: 300,
         color: 'black',
-        fontFamily: "'Antonio Light', arial"
+        fontFamily: '\'Antonio Light\', arial'
       },
       caption: {
         fontSize: 12.8,
         fontWeight: 'normal',
-        fontFamily: "'Antonio Light', arial"
+        fontFamily: '\'Antonio Light\', arial'
       },
     },
     palette: {
@@ -115,6 +115,9 @@ const CreateTheme = () => {
       },
       modal: {
         btn: 'rgb(4, 8, 38)'
+      },
+      border: {
+        light: '#F5F5F7'
       }
     },
     overrides: {
@@ -175,42 +178,39 @@ const CreateTheme = () => {
         },
       },
       /* Input */
-      MuiInput: {
+      MuiOutlinedInput: {
         root: {
-          padding: '0.2rem 0.2rem',
-          color: PRIMARY_COLOR,
-          fontSize: '20px',
-        },
-        input: {
-          '&::placeholder': {
-            opacity: 1,
-          },
-          '&:-webkit-autofill': {
-            backgroundColor: 'blue',
-            background: 'red',
-            '&:hover': {
-              backgroundColor: 'blue',
-              webkitBoxShadow: '0 0 0 30px blue inset !important'
-            },
-            '&:focus': {
-              backgroundColor: 'blue',
-              webkitBoxShadow: '0 0 0 30px blue inset !important'
-            },
-            '&:active': {
-              backgroundColor: 'blue',
-              webkitBoxShadow: '0 0 0 30px blue inset !important'
-            },
+          '&$focused': {
+            border: 'gray solid 1px'
+            // boxShadow: `gray 0 0 0 1px`,
           },
         },
-        underline: {
-          '&::before': {
-            borderBottom: `solid 2px ${PRIMARY_COLOR}`,
-          },
-          '&:hover:not($disabled):before': {
-            borderBottomColor: PRIMARY_COLOR,
-            opacity: 0.5,
-          },
-        },
+        // input: {
+        //   '&::placeholder': {
+        //     opacity: 1,
+        //   },
+        //   '&:-webkit-autofill': {
+        //     backgroundColor: 'blue',
+        //     background: 'red',
+        //     '&:hover': {
+        //       backgroundColor: 'blue',
+        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
+        //     },
+        //     '&$focused': {
+        //       borderColor: 'blue',
+        //       boxShadow: `blue 0 0 0 2px`,
+        //     },
+        //     '&:focus': {
+        //       backgroundColor: 'blue',
+        //
+        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
+        //     },
+        //     '&:active': {
+        //       backgroundColor: 'blue',
+        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
+        //     },
+        //   },
+        // },
       },
       MuiPickersDatePickerRoot: {
         toolbar: {
@@ -230,28 +230,6 @@ const CreateTheme = () => {
           color: TERNARY_COLOR,
         }
       },
-      MuiPickersStaticWrapper: {
-        staticWrapperRoot: {
-          minWidth: '10%',
-          maxWidth: '95%',
-        }
-      },
-      MuiPickersDay: {
-        day: {
-          color: TERNARY_COLOR,
-          maxWidth: '31px',
-        },
-        daySelected: {
-          '&:hover': {
-            backgroundColor: '#14294e'
-          },
-          color: '#76f8f1',
-          backgroundColor: '#14294e',
-        },
-        current: {
-          color: TERNARY_COLOR,
-        }
-      },
       MuiDivider: {
         root: {
           backgroundColor: 'rgb(15, 21, 62)',
@@ -262,101 +240,7 @@ const CreateTheme = () => {
           fontSize: '18px'
         }
       },
-      MuiPickersBasePicker: {
-        pickerView: {
-          minWidth: 'None',
-          maxWidth: 'None',
-          width: '100%',
-        },
-      },
-      MuiPickersClock: {
-        pin: {
-          backgroundColor: TERNARY_COLOR,
-        }
-      },
-      MuiPickersClockPointer: {
-        pointer: {
-          backgroundColor: TERNARY_COLOR,
-        },
-        thumb: {
-          border: `14px solid ${SECONDARY_COLOR}`,
-        }
-      },
-      MuiPickersCalendarHeader: {
-        dayLabel: {
-          maxWidth: '31px'
-        }
-      },
-      PrivateTabIndicator: {
-        colorSecondary: {
-          backgroundColor: `${SECONDARY_COLOR}`,
-        }
-      },
-      MuiNativeSelect: {
-        icon: {
-          top: '45%',
-          right: '5px',
-          color: TERNARY_COLOR
-        },
-        select: {
-          '&:focus': {
-            backgroundColor: 'transparent',
-          },
-          borderBottom: '1px solid',
-          borderBottomColor: TERNARY_COLOR,
-          padding: '0.5rem',
-          '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-          },
-          option: {
-            '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            },
-          }
-        }
-      },
-      MuiStepConnector: {
-        line: {
-          borderColor: PRIMARY_COLOR
-        },
-        alternativeLabel: {
-          top: '16px',
-        },
-      },
-      MuiStepper: {
-        alternativeLabel: {
-          background: 'transparent',
-        }
-      },
-      MuiStep: {
-        alternativeLabel: {
-          padding: '0 50px',
-        }
-      },
-      MuiStepIcon: {
-        root: {
-          color: 'rgba(256, 256, 256, 0.38)',
-          display: 'block',
-          fontSize: '26pt',
-        },
-        text: {
-          color: 'rgb(15, 21, 62)',
-          fill: null,
-        }
-      },
-      MuiIconButton: {
-        root: {
-          '&:hover': {
-            backgroundColor: null,
-          }
-        }
-      },
-      MuiCheckbox: {
-        root: {
-          color: PRIMARY_COLOR
-        }
-      }
-    }
+    },
   });
 };
 

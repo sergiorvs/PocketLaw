@@ -15,11 +15,15 @@ export const useStyles = makeStyles(theme => ({
     height: '10rem',
     marginBottom: '3rem',
     cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      height: '20rem',
+    },
   },
   imageLaw: {
     background: 'transparent',
     width: 'fit-content',
     height: '100%',
+    maxHeight: '9rem'
   },
   lawImage: {
     width: '100%',
@@ -30,6 +34,7 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '40px',
     letterSpacing: '1px',
     padding: '0 1rem',
+    width: 'max-content'
   },
   lawTitle: {
     fontWeight: 'bold',
@@ -45,17 +50,22 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       width: '1px',
       height: '100%',
+      // display: 'none'
     },
     [theme.breakpoints.down('xs')]: {
       width: '100%',
       height: '1px',
       margin: '3rem 0',
+      display: 'none'
     }
   },
   descriptionLaw: {
     marginLeft: '7px',
     height: '100%',
     overflow: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '1rem'
+    },
   },
   icon: {
     cursor: 'pointer',

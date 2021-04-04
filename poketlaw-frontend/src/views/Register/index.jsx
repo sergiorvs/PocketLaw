@@ -4,12 +4,10 @@ import { useStyles } from './styles';
 import {
   Button,
   Checkbox,
-  Divider,
   FormControl,
   FormControlLabel,
   FormGroup,
   FormHelperText,
-  Grid,
   TextField,
   Typography
 } from '@material-ui/core';
@@ -91,211 +89,202 @@ function Register({setLoginState}) {
   };
 
   return (
-    <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>
-      <Grid item container justify={'center'} alignContent={'center'}>
-        <Grid
-          item
-          container
-          sm={5}
-          md={5}
-          justify={'flex-end'}
-          alignContent={'center'}
-          className={classes.presentationContainer}>
-          <Presentation />
-        </Grid>
-        <Grid item sm={1} md={2} container justify={'center'}>
-          <Divider orientation="vertical" className={classes.divider} />
-        </Grid>
-        <Grid
-          item
-          container
-          sm={5}
-          md={5}
-          justify={'flex-start'}
-          alignContent={'center'}
-          className={classes.loginContainer}
+    <Presentation>
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete="off"
+      >
+        <Typography variant={'body2'} gutterBottom className={classes.label}>
+          {t('firstname')}
+        </Typography>
+        <TextField
+          id="user-input"
+          required
+          // placeholder={t('firstname')}
+          value={firstName}
+          error={errorForm['firstName']}
+          variant={'outlined'}
+          helperText={errorForm['firstName'] || ''}
+          onChange={(e) => {
+            setFirstName(e.target.value);
+            setErrorForm({
+              ...errorForm,
+              firstName: '',
+            });
+          }}
+          InputProps={{
+            startAdornment: (
+              <PermIdentityOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+            autocomplete: 'new-password',
+            form: {
+              autocomplete: 'off',
+            },
+          }}
+          autoComplete='no'
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <Typography variant={'body2'} gutterBottom className={classes.label}>
+          {t('lastname')}
+        </Typography>
+        <TextField
+          id="user-input"
+          required
+          // placeholder={t('lastname')}
+          value={lastName}
+          variant={'outlined'}
+          onChange={(e) => {
+            setLastName(e.target.value);
+            setErrorForm({
+              ...errorForm,
+              lastName: '',
+            });
+          }}
+          error={errorForm['lastName']}
+          helperText={errorForm['lastName'] || ''}
+          InputProps={{
+            startAdornment: (
+              <PermIdentityOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+            autocomplete: 'new-password',
+            form: {
+              autocomplete: 'off',
+            },
+          }}
+          autoComplete='no'
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <Typography variant={'body2'} gutterBottom className={classes.label}>
+          {t('email')}
+        </Typography>
+        <TextField
+          id="user-input"
+          required
+          // placeholder={t('email')}
+          value={email}
+          variant={'outlined'}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrorForm({
+              ...errorForm,
+              email: '',
+            });
+          }}
+          error={errorForm['email']}
+          helperText={errorForm['email'] || ''}
+          InputProps={{
+            startAdornment: (
+              <PermIdentityOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+            autocomplete: 'new-password',
+            form: {
+              autocomplete: 'off',
+            },
+          }}
+          autoComplete='no'
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <Typography variant={'body2'} gutterBottom className={classes.label}>
+          {t('password')}
+        </Typography>
+        <TextField
+          id="password-input"
+          type="password"
+          required
+          value={password}
+          variant={'outlined'}
+          // placeholder={t('password')}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setErrorForm({
+              ...errorForm,
+              password: '',
+            });
+          }}
+          error={errorForm['password']}
+          helperText={errorForm['password'] || ''}
+          className={classes.textField}
+          InputProps={{
+            startAdornment: (
+              <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+          }}
+        />
+
+        <Typography variant={'body2'} gutterBottom className={classes.label}>
+          {t('repeatPassword')}
+        </Typography>
+        <TextField
+          id="new-password-input"
+          type="password"
+          required
+          variant={'outlined'}
+          value={repeatPassword}
+          // placeholder={t('repeatPassword')}
+          onChange={(e) => {
+            setRepeatPassword(e.target.value);
+            setErrorForm({
+              ...errorForm,
+              repeatPassword: '',
+            });
+          }}
+          error={errorForm['repeatPassword']}
+          helperText={errorForm['repeatPassword'] || ''}
+          className={classes.textField}
+          InputProps={{
+            startAdornment: (
+              <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+          }}
+        />
+        <FormControl required error={errorForm['termsAndConditions']} component="fieldset">
+          <FormGroup aria-label="position" row>
+            <FormControlLabel
+              value="top"
+              control={<Checkbox color="secondary" />}
+              checked={termsAndConditions}
+              onChange={(e) => {
+                setTermsAndConditions(e.target.checked);
+                setErrorForm({
+                  ...errorForm,
+                  termsAndConditions: '',
+                });
+              }}
+              label={<Typography variant={'caption'} className={classes.label}>{t('terms')}</Typography>}
+              labelPlacement="left"
+            />
+          </FormGroup>
+          <FormHelperText>{errorForm['termsAndConditions']}</FormHelperText>
+        </FormControl>
+        <Button variant={'contained'} className={classes.button} onClick={submit}>
+          {t('register')}
+        </Button>
+        <Typography
+          variant={'body1'}
+          align={'center'}
+          className={classes.link}
+          onClick={() => history.push(routesDictionary.login)}
         >
-          <Grid item sm={10} md={6}>
-            <Typography color={'primary'} align={'center'} variant={'h3'} className={classes.marginBottom}>
-              {t('register')}
-            </Typography>
-            <form
-              className={classes.root}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="user-input"
-                required
-                placeholder={t('firstname')}
-                value={firstName}
-                error={errorForm['firstName']}
-                helperText={errorForm['firstName'] || ''}
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                  setErrorForm({
-                    ...errorForm,
-                    firstName: '',
-                  });
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <PermIdentityOutlinedIcon color={'primary'} className={classes.inputIcon} />
-                  ),
-                  autocomplete: 'new-password',
-                  form: {
-                    autocomplete: 'off',
-                  },
-                }}
-                autoComplete='no'
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                id="user-input"
-                required
-                placeholder={t('lastname')}
-                value={lastName}
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                  setErrorForm({
-                    ...errorForm,
-                    lastName: '',
-                  });
-                }}
-                error={errorForm['lastName']}
-                helperText={errorForm['lastName'] || ''}
-                InputProps={{
-                  startAdornment: (
-                    <PermIdentityOutlinedIcon color={'primary'} className={classes.inputIcon} />
-                  ),
-                  autocomplete: 'new-password',
-                  form: {
-                    autocomplete: 'off',
-                  },
-                }}
-                autoComplete='no'
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                id="user-input"
-                required
-                placeholder={t('email')}
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setErrorForm({
-                    ...errorForm,
-                    email: '',
-                  });
-                }}
-                error={errorForm['email']}
-                helperText={errorForm['email'] || ''}
-                InputProps={{
-                  startAdornment: (
-                    <PermIdentityOutlinedIcon color={'primary'} className={classes.inputIcon} />
-                  ),
-                  autocomplete: 'new-password',
-                  form: {
-                    autocomplete: 'off',
-                  },
-                }}
-                autoComplete='no'
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                id="password-input"
-                type="password"
-                required
-                value={password}
-                placeholder={t('password')}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setErrorForm({
-                    ...errorForm,
-                    password: '',
-                  });
-                }}
-                error={errorForm['password']}
-                helperText={errorForm['password'] || ''}
-                className={classes.textField}
-                InputProps={{
-                  startAdornment: (
-                    <LockOutlinedIcon color={'primary'} className={classes.inputIcon} />
-                  ),
-                }}
-              />
-              <TextField
-                id="new-password-input"
-                type="password"
-                required
-                value={repeatPassword}
-                placeholder={t('repeatPassword')}
-                onChange={(e) => {
-                  setRepeatPassword(e.target.value);
-                  setErrorForm({
-                    ...errorForm,
-                    repeatPassword: '',
-                  });
-                }}
-                error={errorForm['repeatPassword']}
-                helperText={errorForm['repeatPassword'] || ''}
-                className={classes.textField}
-                InputProps={{
-                  startAdornment: (
-                    <LockOutlinedIcon color={'primary'} className={classes.inputIcon} />
-                  ),
-                }}
-              />
-              <FormControl required error={errorForm['termsAndConditions']} component="fieldset">
-                <FormGroup aria-label="position" row>
-                  <FormControlLabel
-                    value="top"
-                    control={<Checkbox color="primary" />}
-                    checked={termsAndConditions}
-                    onChange={(e) => {
-                      setTermsAndConditions(e.target.checked);
-                      setErrorForm({
-                        ...errorForm,
-                        termsAndConditions: '',
-                      });
-                    }}
-                    label={<Typography color={'primary'}>{t('terms')}</Typography>}
-                    labelPlacement="left"
-                  />
-                </FormGroup>
-                <FormHelperText>{errorForm['termsAndConditions']}</FormHelperText>
-              </FormControl>
-              <Button variant={'contained'} className={classes.button} onClick={submit}>
-                {t('register')}
-              </Button>
-              <Typography
-                variant={'body1'}
-                align={'center'}
-                className={classes.link}
-                onClick={() => history.push(routesDictionary.login)}
-              >
-                {t('alreadyRegistered')}
-              </Typography>
-            </form>
-          </Grid>
-        </Grid>
+          {t('alreadyRegistered')}
+        </Typography>
         {Boolean(Object.keys(errorLogin).length) &&
         <Modal setErrorSubmit={() => {
           setErrorLogin({});
           history.push(routesDictionary.login);
         }} message={errorLogin.description} title={errorLogin.title}
                type={errorLogin.type} />}
-      </Grid>
-    </Grid>
+      </form>
+    </Presentation>
   );
 }
 

@@ -73,7 +73,8 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
               container
               alignContent={'center'}
               justify={'center'}
-            >{isLogin && (
+            >
+              {isLogin && (
               <React.Fragment>
                 <Grid item container className={classes.siderHeader}>
                   <Grid item xs={12} className={classes.logoContainer}>
@@ -149,7 +150,7 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
               </Grid>
             )}
           </Grid>
-          <Grid item xs={10} className={classes.content}>
+          <Grid item md={10} sm={12} className={classes.content}>
             {children}
           </Grid>
         </Grid>

@@ -5,13 +5,14 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     backgroundColor: '#eff5f8',
     width: '100%',
-    minHeight: '100%',
+    // minHeight: '100%',
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
     flexDirection: 'column',
     padding: '3rem 4rem',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-end',
+      padding: '2rem 1rem',
     },
   },
   goBackButton: {

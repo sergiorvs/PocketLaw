@@ -18,7 +18,10 @@ export const useStyles = makeStyles(theme => ({
   siderBackground: {
     backgroundColor: theme.palette.general.main,
     // maxHeight: '100%',
-    flex: 1
+    flex: 1,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   siderHeader: {
     padding: '1rem',
