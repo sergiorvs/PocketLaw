@@ -7,6 +7,12 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: '0 19px 19px 19px',
     alignContent: 'flex-start',
   },
+  drawer: {
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: '18rem',
+  },
   wrapper: {
     height: '100vh',
     width: '100%'

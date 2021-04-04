@@ -1,8 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Grid, Paper, } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Logo } from '../Logo';
 
 
@@ -10,8 +8,6 @@ const propTypes = {};
 
 function Presentation({children}) {
   const classes = useStyles();
-  const history = useHistory();
-  const {t} = useTranslation();
 
   return (
     <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>
@@ -34,16 +30,16 @@ function Presentation({children}) {
             </Paper>
           </Grid>
         </Grid>
-        <Grid
-          item
-          container
-          md={6}
-          sm={0}
-          justify={'flex-end'}
-          alignContent={'center'}
-          className={classes.presentationContainer}>
-          <Grid item xs={12} />
-        </Grid>
+        {/*<Grid*/}
+        {/*  item*/}
+        {/*  container*/}
+        {/*  md={6}*/}
+        {/*  sm={0}*/}
+        {/*  justify={'flex-end'}*/}
+        {/*  alignContent={'center'}*/}
+        {/*  className={classes.presentationContainer}>*/}
+        {/*  <Grid item xs={12} />*/}
+        {/*</Grid>*/}
       </Grid>
     </Grid>
   );

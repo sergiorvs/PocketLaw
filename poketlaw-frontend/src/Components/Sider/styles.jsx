@@ -7,9 +7,6 @@ export const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     padding: '2rem',
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
   },
   siderMenu: {
     margin: 'auto',

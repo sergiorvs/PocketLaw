@@ -7,6 +7,15 @@ export const useStyles = makeStyles(theme => ({
     maxHeight: '10rem',
     padding: '1rem',
   },
+  menu: {
+    top: '2.5%',
+    color: theme.palette.primary.main,
+    left: '0.425rem',
+    [theme.breakpoints.up('sm')]: {display: 'none'
+    },
+    [theme.breakpoints.down('sm')]: {display: 'inline'
+    },
+  },
   logoContainer:{
     objectFit: 'contain',
     width: '28rem',
