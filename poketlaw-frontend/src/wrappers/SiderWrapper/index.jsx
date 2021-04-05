@@ -158,10 +158,10 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
 
   return (
     <Grid container alignItems={'flex-start'} className={classes.wrapperContent}>
-      <Grid direction={'column'} className={classes.wrapper}>
+      <Grid item container direction={'column'} className={classes.wrapper}>
         <Header isLogin={isLogin} setOpenDrawer={setOpenDrawer}/>
-        <Grid xs={12} container className={classes.container}>
-          <Grid item xs={2} className={classes.siderBackground}>
+        <Grid xs={12} item container className={classes.container}>
+          <Grid item container xs={2} className={classes.siderBackground}>
             {SIDER_CONTENT}
           </Grid>
           <Drawer

@@ -12,9 +12,11 @@ export const useStyles = makeStyles(theme => ({
   },
   drawerPaper: {
     width: '18rem',
+    height: '100%',
+    display: 'block'
   },
   wrapper: {
-    height: '100vh',
+    minHeight: '100vh',
     width: '100%'
   },
   container: {
@@ -25,6 +27,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.general.main,
     // maxHeight: '100%',
     flex: 1,
+    display: 'block',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -103,6 +106,7 @@ export const useStyles = makeStyles(theme => ({
   content: {
     maxHeight: '100%',
     height: '100%',
+    width: '100%',
     background: '#eff5f8'
   }
 }));

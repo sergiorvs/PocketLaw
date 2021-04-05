@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
-import {
-  useHistory,
-  useParams
-} from 'react-router-dom';
-import {
-  Button,
-  Divider,
-  Grid,
-  TextField,
-  Typography
-} from '@material-ui/core';
+import { useHistory, useParams } from 'react-router-dom';
+import { Button, TextField } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 import { useStyles } from '../Login/styles';
 import routesDictionary from '../../routes/routesDict';
 import Presentation from '../../Components/Presentation';
 import Modal from '../../Components/Modal';
-import { useMutation } from "@apollo/client";
-import { PASSWORD_RESET } from "../../graphql/mutations/Users";
+import { useMutation } from '@apollo/client';
+import { PASSWORD_RESET } from '../../graphql/mutations/Users';
 import { useTranslation } from 'react-i18next';
 
 
@@ -46,93 +37,75 @@ function ChangePassword() {
         newPassword2
       }
     }).then(response => {
-      const { data } = response;
-      const { restorePassword } = data;
+      const {data} = response;
+      const {changePassword} = data;
 
-      if(restorePassword && !restorePassword.success) {
+      if (changePassword && !changePassword.success) {
         setErrorForm(true);
         setErrorPassword(true);
       } else {
-        history.push(routesDictionary.login)
+        history.push(routesDictionary.login);
       }
     });
-  }
+  };
 
   return (
-    <Grid container justify={"center"} alignContent={"center"} className={classes.baseContainer}>
-      <Grid
-        item
-        container
-        sm={5}
-        xs={12}
-        justify={"flex-end"}
-        alignContent={"center"}
-        className={classes.presentationContainer}
-      >
-        <Presentation />
-      </Grid>
-      <Grid item sm={1} md={2} container justify={"center"}>
-        <Divider orientation="vertical" className={classes.divider} />
-      </Grid>
-      <Grid
-        item
-        container
-        sm={5}
-        justify={"flex-start"}
-        alignContent={"center"}
-        className={classes.resetPasswordContainer}
-      >
-        <Grid item sm={10} md={7}>
-          <Typography color={"primary"} align={"center"} variant={"h3"} className={classes.marginBottom}>
-            {t('changePassword')}
-          </Typography>
-          <form className={classes.resetForm} noValidate autoComplete="off">
-            <TextField
-              id="email-input"
-              required
-              type="password"
-              placeholder={t('newPassword')}
-              value={newPassword}
-              onChange={(e)=>{
-                setPassword(e.target.value);
-                setErrorForm(false);
-              }}
-              InputProps={{
-                startAdornment: (
-                  <LockOutlinedIcon color={"primary"} className={classes.inputIcon} />
-                ),
-              }}
-              error={errorForm}
-              helperText={errorForm ? "Error" : ''}
-              className={classes.textField}
-            />
-            <TextField
-              id="repeat-password-input"
-              required
-              type="password"
-              placeholder={t('repeatPassword')}
-              value={newPassword2}
-              onChange={(e)=>{
-                setRepeatPassword(e.target.value);
-                setErrorForm(false);
-              }}
-              InputProps={{
-                startAdornment: (
-                  <LockOutlinedIcon color={"primary"} className={classes.inputIcon}/>
-                ),
-              }}
-              error={errorForm}
-              helperText={errorForm ? "Error" : ''}
-              className={classes.textField}
-            />
-            <Button variant={"contained"} className={classes.button} onClick={()=>submit()}>
-              {t('send')}
-            </Button>
-          </form>
-        </Grid>
-      </Grid>
+    <Presentation>
+      <form className={classes.resetForm} noValidate autoComplete="off">
+        <TextField
+          id="email-input"
+          required
+          type="password"
+          placeholder={t('newPassword')}
+          value={newPassword}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setErrorForm(false);
+          }}
+          onKeyUp={(event) => {
+            if (event.key === 'Enter') {
+              submit();
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+          }}
+          error={errorForm}
+          helperText={errorForm ? 'Error' : ''}
+          className={classes.textField}
+        />
+        <TextField
+          id="repeat-password-input"
+          required
+          type="password"
+          placeholder={t('repeatPassword')}
+          value={newPassword2}
+          onChange={(e) => {
+            setRepeatPassword(e.target.value);
+            setErrorForm(false);
+          }}
+          onKeyUp={(event) => {
+            if (event.key === 'Enter') {
+              submit();
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
+            ),
+          }}
+          error={errorForm}
+          helperText={errorForm ? 'Error' : ''}
+          className={classes.textField}
+        />
+        <Button variant={'contained'} className={classes.button} onClick={() => submit()}>
+          {t('send')}
+        </Button>
+      </form>
       {errorPassword && <Modal setErrorSubmit={setErrorPassword} message={errorMessage} />}
-    </Grid>
+    </Presentation>
   );
 }
 

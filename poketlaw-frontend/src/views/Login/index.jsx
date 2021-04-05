@@ -74,6 +74,11 @@ function Login({setLoginState}) {
             setEmail(e.target.value);
             setErrorForm(false);
           }}
+          onKeyUp={(event) => {
+            if (event.key === 'Enter') {
+              submit();
+            }
+          }}
           InputProps={{
             startAdornment: (
               <PermIdentityOutlinedIcon color={'secondary'} className={classes.inputIcon} />
@@ -105,6 +110,11 @@ function Login({setLoginState}) {
           onChange={(e) => {
             setPassword(e.target.value);
             setErrorForm(false);
+          }}
+          onKeyUp={(event) => {
+            if (event.key === 'Enter') {
+              submit();
+            }
           }}
           className={classes.textField}
           InputProps={{

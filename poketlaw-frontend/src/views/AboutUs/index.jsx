@@ -11,7 +11,7 @@ import icon6 from '../../media/icon6.svg';
 import icon7 from '../../media/icon7.svg';
 import icon8 from '../../media/icon8.svg';
 import logo from '../../media/aboutUs.svg';
-import background from '../../media/background.svg';
+import background from '../../media/background.png';
 import { ReactComponent as People } from '../../media/people.svg';
 
 function AboutUs() {
@@ -19,11 +19,11 @@ function AboutUs() {
 
   return (
     <Container className={classes.baseContainer}>
-      <Grid container>
-        <Grid item sm={3} xs={12}>
+      <Grid item container className={classes.baseContainer}>
+        <Grid item lg={3} md={12}>
           <People className={classes.people} />
         </Grid>
-        <Grid item sm={9} xs={12}>
+        <Grid item lg={9} md={12}>
           <div className={classes.circleContainer}>
             <div className={classes.logoContainer}>
               <img src={logo} className={classes.logo} alt={'logo'} />

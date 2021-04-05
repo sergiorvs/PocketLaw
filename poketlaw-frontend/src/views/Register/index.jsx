@@ -113,6 +113,11 @@ function Register({setLoginState}) {
               firstName: '',
             });
           }}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
+          }}
           InputProps={{
             startAdornment: (
               <PermIdentityOutlinedIcon color={'secondary'} className={classes.inputIcon} />
@@ -143,6 +148,11 @@ function Register({setLoginState}) {
               ...errorForm,
               lastName: '',
             });
+          }}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
           }}
           error={errorForm['lastName']}
           helperText={errorForm['lastName'] || ''}
@@ -176,6 +186,11 @@ function Register({setLoginState}) {
               ...errorForm,
               email: '',
             });
+          }}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
           }}
           error={errorForm['email']}
           helperText={errorForm['email'] || ''}
@@ -211,6 +226,11 @@ function Register({setLoginState}) {
               password: '',
             });
           }}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
+          }}
           error={errorForm['password']}
           helperText={errorForm['password'] || ''}
           className={classes.textField}
@@ -231,6 +251,11 @@ function Register({setLoginState}) {
           variant={'outlined'}
           value={repeatPassword}
           // placeholder={t('repeatPassword')}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
+          }}
           onChange={(e) => {
             setRepeatPassword(e.target.value);
             setErrorForm({

@@ -36,8 +36,8 @@ function PasswordReset() {
       }
     }).then(response => {
       const {data} = response;
-      const {sendResetPassword} = data;
-      const {success} = sendResetPassword;
+      const {restorePassword} = data;
+      const {success} = restorePassword;
 
       if (!success) {
         setErrorLogin(true);
@@ -62,6 +62,11 @@ function PasswordReset() {
           onChange={(e) => {
             setEmail(e.target.value);
             setErrorForm(false);
+          }}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              submit();
+            }
           }}
           InputProps={{
             startAdornment: (

@@ -219,7 +219,7 @@ const CreateTheme = () => {
       },
       MuiFormHelperText: {
         root: {
-          color: 'rgb(118, 248, 241)',
+          color: SECONDARY_COLOR,
           '&$error': {
             color: '#cc6054'
           }
