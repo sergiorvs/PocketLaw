@@ -23,7 +23,7 @@ function AboutUs() {
         <Grid item lg={3} md={12}>
           <People className={classes.people} />
         </Grid>
-        <Grid item lg={9} md={12}>
+        <Grid item lg={9} md={12} sm={12}>
           <div className={classes.circleContainer}>
             <div className={classes.logoContainer}>
               <img src={logo} className={classes.logo} alt={'logo'} />

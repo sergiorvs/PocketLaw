@@ -12,7 +12,7 @@ export const useStyles = makeStyles(theme => ({
     // flexDirection: 'column',
     padding: '5rem 4rem',
     [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
+      flexDirection: 'column-reverse',
       padding: '1rem 1rem',
     },
     [theme.breakpoints.down('sm')]: {
@@ -28,8 +28,17 @@ export const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
     margin: '1.75em auto 0',
     [theme.breakpoints.down('md')]: {
+      margin: '3.75em auto',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '20rem',
+      height: '20rem',
+      margin: '2.75em -13em',
+    },
+    [theme.breakpoints.down('xs')]: {
       width: '14rem',
       height: '14rem',
+      margin: '2.75em auto',
     },
   },
   item: {
@@ -46,7 +55,12 @@ export const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: fade('#BAB4E2', 0.5),
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      width: '6em',
+      height: '6em',
+      margin: 0, /* 2em = 4em/2 */ /* half the width */
+    },
+    [theme.breakpoints.down('xs')]: {
       width: '4em',
       height: '4em',
       margin: '-2em', /* 2em = 4em/2 */ /* half the width */
@@ -54,49 +68,73 @@ export const useStyles = makeStyles(theme => ({
   },
   deg0: {
     transform: 'translate(18em)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'translate(13em)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'translate(7em)',
     },
   }, /* 12em = half the width of the wrapper */
   deg25: {
     transform: 'rotate(90deg) translate(18em) rotate(-90deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(90deg) translate(13em) rotate(-90deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(90deg) translate(7em) rotate(-90deg)',
     },
   },
   deg90: {
     transform: 'rotate(-90deg) translate(18em) rotate(90deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(-90deg) translate(13em) rotate(90deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(-90deg) translate(7em) rotate(90deg)',
     },
   },
   deg45: {
     transform: 'rotate(45deg) translate(18em) rotate(-45deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(45deg) translate(13em) rotate(-45deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(45deg) translate(7em) rotate(-45deg)',
     },
   },
   deg135: {
     transform: 'rotate(135deg) translate(18em) rotate(-135deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(135deg) translate(13em) rotate(-135deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(135deg) translate(7em) rotate(-135deg)',
     },
   },
   deg180: {
     transform: 'translate(-18em)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'translate(-13em)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'translate(-7em)',
     },
   },
   deg225: {
     transform: 'rotate(225deg) translate(18em) rotate(-225deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(225deg) translate(13em) rotate(-225deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(225deg) translate(7em) rotate(-225deg)',
     },
   },
   deg315: {
     transform: 'rotate(315deg) translate(18em) rotate(-315deg)',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      transform: 'rotate(315deg) translate(13em) rotate(-315deg)',
+    },
+    [theme.breakpoints.down('xs')]: {
       transform: 'rotate(315deg) translate(7em) rotate(-315deg)',
     },
   },
@@ -106,7 +144,13 @@ export const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '12%',
     left: '12%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      width: '20rem',
+      height: '20rem',
+      top: '13%',
+      left: '14%',
+    },
+    [theme.breakpoints.down('xs')]: {
       width: '10rem',
       height: '10rem',
       top: '14%',
@@ -123,7 +167,15 @@ export const useStyles = makeStyles(theme => ({
     left: '-3%',
     width: '115%',
     height: '101%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
+      top: '1%',
+      left: '0%',
+      width: '143%',
+      height: '131%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '115%',
+      height: '101%',
       top: '4%',
       left: '-4%',
     }
@@ -144,6 +196,16 @@ export const useStyles = makeStyles(theme => ({
     marginBottom: 0,
     marginTop: 'auto',
     [theme.breakpoints.down('md')]: {
+      width: '50%',
+      margin: 0,
+      marginBottom: '1rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '60%',
+      margin: 0,
+      marginBottom: '1rem',
+    },
+    [theme.breakpoints.down('xs')]: {
       width: '100%',
       margin: 0,
       marginBottom: '1rem',
