@@ -15,6 +15,12 @@ export const useStyles = makeStyles(theme => ({
     height: '10rem',
     marginBottom: '3rem',
     cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      height: '20rem',
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '30rem',
+    },
   },
   imageLaw: {
     background: 'yellow',

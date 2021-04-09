@@ -17,7 +17,7 @@ export default function SearchBar({searchFilter, setSearchFilter}) {
   };
 
   return (
-    <Grid item container justify={'flex-end'} xs={8}
+    <Grid item container justify={'flex-end'} sm={8} xs={12}
           className={classes.searchBarContainer}>
       <Paper component="form" className={classes.root}>
         <IconButton type="submit" className={classes.iconButton} aria-label="search">

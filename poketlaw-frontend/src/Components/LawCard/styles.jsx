@@ -18,6 +18,9 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       height: '20rem',
     },
+    [theme.breakpoints.down('xs')]: {
+      height: '30rem',
+    },
   },
   imageLaw: {
     background: 'transparent',

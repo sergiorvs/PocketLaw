@@ -11,6 +11,7 @@ export const BACKEND_FRONTEND_LANGUAGES = {
 export const APP_LANGUAGE = 'language';
 
 const defaultLanguage = localStorage.getItem(APP_LANGUAGE) === 'undefined' ? null : localStorage.getItem(APP_LANGUAGE);
+console.log('defaultLanguage::', defaultLanguage)
 
 const resources = {
   EN: {

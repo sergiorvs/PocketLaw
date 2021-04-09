@@ -2,7 +2,8 @@
 export default (theme) => ({
   baseContainer: {
     minHeight: '100%',
-    height: '100%',
+    // flex: 1,
+    overflow: 'auto',
   },
   baseContainerLogin: {
     // minHeight: 'calc(100vh - 16.3rem)',

@@ -3,16 +3,19 @@ import {makeStyles} from "@material-ui/core";
 
 export const useStyles = makeStyles(theme => ({
   h100: {
-    height: '100%'
+    height: '100%',
+    [theme.breakpoints.down('xs')]: {
+      height: 'max-content',
+    }
   },
   baseContainer: {
     backgroundImage: theme.palette.banner.background,
     width: '100%',
-    height: '100%',
+    // height: '100%',
     minHeight: '100vh',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       justifyContent: 'center',
-      padding: '4rem'
+      padding: '1rem'
     },
   },
   divider: {
@@ -39,12 +42,20 @@ export const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
+      padding: '3rem 2rem',
+    },
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+      padding: '3rem 1rem',
     }
   },
   paper: {
     padding: theme.spacing(5),
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(3),
+    }
   },
   logoContainer: {
     alignSelf: 'center',
@@ -55,7 +66,11 @@ export const useStyles = makeStyles(theme => ({
     height: '7rem',
     margin: 'auto',
     marginBottom: '1rem',
-    maxWidth: '100%'
+    maxWidth: '100%',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      height: 'min-content',
+    }
   },
   title: {
     lineHeight: '40px',

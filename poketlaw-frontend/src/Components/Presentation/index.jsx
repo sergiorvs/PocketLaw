@@ -11,7 +11,7 @@ function Presentation({children}) {
 
   return (
     <Grid container justify={'center'} alignContent={'center'} className={classes.baseContainer}>
-      <Grid item container justify={'center'} alignContent={'center'} className={classes.h100}>
+      {/*<Grid item container justify={'center'} alignContent={'center'} className={classes.h100}>*/}
         <Grid
           item
           container
@@ -21,7 +21,7 @@ function Presentation({children}) {
           alignContent={'center'}
           className={classes.loginContainer}
         >
-          <Grid item sm={10} md={6}>
+          <Grid item lg={8} sm={10}>
             <div className={classes.logo}>
               <Logo />
             </div>
@@ -40,7 +40,7 @@ function Presentation({children}) {
         {/*  className={classes.presentationContainer}>*/}
         {/*  <Grid item xs={12} />*/}
         {/*</Grid>*/}
-      </Grid>
+      {/*</Grid>*/}
     </Grid>
   );
 }

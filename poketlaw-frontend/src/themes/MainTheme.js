@@ -173,7 +173,9 @@ const CreateTheme = () => {
         input: {
           '&:-webkit-autofill': {
             backgroundColor: 'red',
-            webkitBoxShadow: '0 0 0 30px blue inset !important'
+          },
+          '&:focus': {
+            outline: 'none',
           }
         },
       },
@@ -181,36 +183,12 @@ const CreateTheme = () => {
       MuiOutlinedInput: {
         root: {
           '&$focused': {
-            border: 'gray solid 1px'
+            // border: 'gray solid 1px'
             // boxShadow: `gray 0 0 0 1px`,
+            borderColor: 'blue'
           },
         },
-        // input: {
-        //   '&::placeholder': {
-        //     opacity: 1,
-        //   },
-        //   '&:-webkit-autofill': {
-        //     backgroundColor: 'blue',
-        //     background: 'red',
-        //     '&:hover': {
-        //       backgroundColor: 'blue',
-        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
-        //     },
-        //     '&$focused': {
-        //       borderColor: 'blue',
-        //       boxShadow: `blue 0 0 0 2px`,
-        //     },
-        //     '&:focus': {
-        //       backgroundColor: 'blue',
-        //
-        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
-        //     },
-        //     '&:active': {
-        //       backgroundColor: 'blue',
-        //       webkitBoxShadow: '0 0 0 30px blue inset !important'
-        //     },
-        //   },
-        // },
+
       },
       MuiPickersDatePickerRoot: {
         toolbar: {
