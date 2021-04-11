@@ -36,7 +36,11 @@ const LawCard = ({law, userSession}) => {
   return (
     <Card className={classes.root}>
       <CardContent className={classes.cardContent}>
-        <Grid item container md={11} sm={12} onClick={() => history.push(routesDictionary.lawDetail(law.id))}>
+        <Grid item container
+              md={11} sm={12}
+              className={classes.content}
+              onClick={() => history.push(routesDictionary.lawDetail(law.id))}
+        >
           <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6}>
             <img
               alt={'lawImage'}
@@ -74,7 +78,7 @@ const LawCard = ({law, userSession}) => {
           <Grid item>
             <Divider orientation="vertical" className={classes.divider} />
           </Grid>
-          <Grid item className={classes.descriptionLaw} md={6} sm={12}>
+          <Grid item className={classes.descriptionLaw} md={6} xs={12}>
             <Typography>
               {law.description}
             </Typography>

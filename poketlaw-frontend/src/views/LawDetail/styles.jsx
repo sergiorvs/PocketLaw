@@ -25,6 +25,11 @@ export const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(5),
     width: '100%',
   },
+  heading:{
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+  },
   lawsQuestionContainer: {
     height: '3rem',
     width: '100%',

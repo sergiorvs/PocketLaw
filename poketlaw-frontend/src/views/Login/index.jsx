@@ -68,6 +68,7 @@ function Login({setLoginState}) {
         <TextField
           id="user-input"
           required
+          placeholder={t('Email')}
           value={email}
           variant={'outlined'}
           onChange={(e) => {
@@ -103,6 +104,7 @@ function Login({setLoginState}) {
           id="password-input"
           type="password"
           required
+          placeholder={t('Password')}
           variant={'outlined'}
           value={password}
           error={errorForm}
