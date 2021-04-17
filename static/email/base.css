@@ -1,0 +1,138 @@
+html {
+    background-color: #FAFAFA;
+}
+
+.main {
+    background-color: #FAFAFA;
+}
+
+.title-message {
+    font: normal normal bold 26px/24px Arial;
+    color: #525461;
+    letter-spacing: 0;
+    text-align: left;
+    opacity: 1;
+}
+
+.small-message {
+    font-variant: small-caps;
+}
+
+.body-style {
+    font-family: Roboto, Arial, sans-serif;
+    color: #525461;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+header {
+    padding: 20px 20px 30px 20px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    width: 49%;
+    float: left;
+    margin-top: 0.5rem;
+}
+
+header .link {
+    width: 49%;
+    float: right;
+    text-align: right;
+    font-size: 12px;
+}
+
+article {
+    padding: 30px 40px 50px 40px;
+}
+
+section p {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #525461;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.my-0 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.button-section {
+    text-align: center;
+    margin-bottom: 36px;
+    margin-top: 36px;
+}
+
+.button-section button {
+    width: 200px;
+    height: 38px;
+    background-color: #3C4B9E;
+    color: #FFFFFF;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+section.content p {
+    margin-bottom: 30px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #525461;
+    font-size: 16px;
+}
+
+footer {
+    border-top: solid 1px #EAEDF3;
+    padding: 20px 20px 30px 20px;
+    text-align: center;
+    font-size: 12px;
+    background-color: white;
+}
+
+footer .title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #525461;
+}
+
+footer .footer-content p {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 18px;
+    font-family: Roboto, Arial, sans-serif;
+    color: #525461;
+}
+
+.user_inputs {
+    text-align: left;
+    margin-left: 5px;
+}
+th {
+    font-weight: normal;
+}
+.bold{
+    font-weight: bold;
+    text-align: right;
+    padding-right: 8px;
+}
+
+{% block extra_styles %}
+{% endblock %}
