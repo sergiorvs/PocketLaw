@@ -79,7 +79,7 @@ target/
 __pycache__/
 
 ## Configuration and temporary DB ##
-.env
+#.env
 *.sqlite3
 
 ## Editors ##
