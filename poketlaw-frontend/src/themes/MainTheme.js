@@ -182,13 +182,21 @@ const CreateTheme = () => {
       /* Input */
       MuiOutlinedInput: {
         root: {
-          '&$focused': {
-            // border: 'gray solid 1px'
+          '&$focus': {
+            border: '1px solid pink'
             // boxShadow: `gray 0 0 0 1px`,
-            borderColor: 'blue'
+          //   borderColor: 'blue'
           },
+          // '&.Mui-focused': {
+          //   border: `1px solid ${SECONDARY_COLOR}`
+          // }
         },
-
+        focused: {
+          border: '1px solid #4A90E2'
+        },
+        notchedOutline: {
+          border: '1px solid #4A90E2'
+        },
       },
       MuiPickersDatePickerRoot: {
         toolbar: {

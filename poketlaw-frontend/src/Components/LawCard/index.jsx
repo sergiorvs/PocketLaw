@@ -37,14 +37,14 @@ const LawCard = ({law, userSession}) => {
     <Card className={classes.root}>
       <CardContent className={classes.cardContent}>
         <Grid item container md={11} sm={12} onClick={() => history.push(routesDictionary.lawDetail(law.id))}>
-          <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6}>
+          <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6} xs={12}>
             <img
               alt={'lawImage'}
               src={getImageUrl(law.image)}
               className={classes.lawImage}
             />
           </Grid>
-          <Grid item container className={classes.title} md={3} xs={6} justify={'flex-end'}>
+          <Grid item container className={classes.title} md={3} sm={6} xs={12} justify={'flex-end'}>
             <Grid item container xs={12}>
               <Typography variant={'subtitle1'} className={classes.lawTitle}>
                 {law.title}

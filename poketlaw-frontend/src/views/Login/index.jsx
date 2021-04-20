@@ -62,7 +62,7 @@ function Login({setLoginState}) {
         noValidate
         autoComplete="off"
       >
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('emailField')}
         </Typography>
         <TextField
@@ -96,7 +96,7 @@ function Login({setLoginState}) {
           }}
         />
 
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('passwordField')}
         </Typography>
         <TextField
@@ -116,11 +116,18 @@ function Login({setLoginState}) {
               submit();
             }
           }}
-          className={classes.textField}
+          // className={classes.textField}
           InputProps={{
             startAdornment: (
               <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
             ),
+            // classes: {
+            //   notchedOutline: classes.notchedOutline
+            // }
+          }}
+          classes={{
+            root: classes.notchedOutline,
+            focused: classes.notchedOutline
           }}
         />
         <Button variant={'contained'} className={classes.button} onClick={() => submit()}>

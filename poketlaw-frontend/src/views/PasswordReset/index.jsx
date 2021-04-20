@@ -51,7 +51,7 @@ function PasswordReset() {
   return (
     <Presentation>
       <form className={classes.resetForm} noValidate autoComplete="off">
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('emailField')}
         </Typography>
         <TextField
