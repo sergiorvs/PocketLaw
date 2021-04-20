@@ -5,7 +5,108 @@
   "fields": {
     "question": "¿Cómo puedo registrar mi marca?",
     "answer": "Para poder hacerlo vas a tener que llenar un formulario de solicitud, donde señalaras tus datos. Si eres una persona vas a consignar tu número de DNI, pasaporte o Carné de Extranjería.\r\nEn caso de que fueras una persona jurídica, es decir una empresa, startup u otro, deberás consignar el número del Registro Único de Contribuyente o como lo llaman comúnmente tu RUC.\r\nSi fueras a registrar a nombre de otra persona, es decir, si fueras un representante, deberás indicar tus datos de identificación y un documento de poder.",
-    "law": 1
+    "law": 1,
+    "status": -1,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 2,
+  "fields": {
+    "question": "¿Para qué registro mi marca?",
+    "answer": "Para otorgarle distinción y poder oponerte en caso de que alguien quiera utilizarla o querer copiarla.",
+    "law": 1,
+    "status": 1,
+    "simple_answer": "si"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 3,
+  "fields": {
+    "question": "¿Tengo que pagar algo?",
+    "answer": "Sí, deberás pagar el 13.90% de la Unidad Impositiva Tributaria (UIT) por una clase solicitada. Este año es S/. 534.99 Nuevos Soles, tu voucher debe ser adjuntado con tu formulario. El pago lo deberás realizar en cualquier sede del Banco de la Nación o a través de la página pagalo.pe",
+    "law": 1,
+    "status": 0,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 4,
+  "fields": {
+    "question": "¿Qué debo hacer para solicitar la reserva de nombre?",
+    "answer": "1.        Deberás buscar en el Directorio Nacional de Personas jurídicas los nombres ya existentes, pues no puedes usarlos debido a que ya están registrados. A la fecha esto puede hacerse de manera virtual a través de https://www.sunarp.gob.pe/bus-personas-juridicas.asp ; 2.    Luego podrás ingresar a través de la página web de Sunarp https://enlinea.sunarp.gob.pe/sunarpweb/pages/acceso/frmReservaNombre.faces para poder hacer tu reserva de nombre, con la finalidad de evitar observaciones se le va a solicitar que completa hasta cinco nombres en el formulario 3.        Finalmente debe pagar la tasa registral de S/20.00",
+    "law": 2,
+    "status": 0,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 5,
+  "fields": {
+    "question": "¿Es necesario que me registre como persona jurídica?",
+    "answer": "No es necesario pero si recomendable",
+    "law": 3,
+    "status": 1,
+    "simple_answer": "no"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 6,
+  "fields": {
+    "question": "¿Qué es una elaboración de una minuta?",
+    "answer": "\"Una minuta es un documento en el cual el titular de la empresa o los miembros de la sociedad manifiestan su voluntad de constituir la persona jurídica.\r\nEn él se contiene el pacto social, los estatutos y se nombra a los administradores.\r\n\"",
+    "law": 3,
+    "status": 0,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 7,
+  "fields": {
+    "question": "¿La minuta debe elevarse a escritura pública?",
+    "answer": "Sí, una vez que se ha redactado el acto constitutivo va a ser necesario que se lleve ante un notario público para que este lo registre y lo eleve a Escritura Pública. Este documento debe estar firmado y sellado por el notario y debe tener la firma del titular o los socios.",
+    "law": 3,
+    "status": -1,
+    "simple_answer": "si"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 8,
+  "fields": {
+    "question": "¿Cómo inscribo en Sunarp a mi empresa?",
+    "answer": "Deberá ir a Sunarp donde obtendrá un asiento registral de inscripción de la empresa o sociedad como persona jurídica",
+    "law": 3,
+    "status": 0,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 9,
+  "fields": {
+    "question": "¿Cómo obtengo mi RUC?",
+    "answer": "\"Para obtenerlo debes acudir a la Sunat en caso de ser persona jurídica para eso necesitarás tres cosas:\r\n\r\n    1.        Documento de identidad del representante legal.\r\n    2.        Recibo de algún tipo de servicios o autovalúo para que pueda sustentar el domicilio fiscal\r\n    3.        Partida Registral certificada por Registros Públicos.\r\nEn caso tuvieras un establecimiento anexo deberás llevar documentos que sustenten el domicilio del local anexo en original y copia simple.\r\n\"",
+    "law": 4,
+    "status": 0,
+    "simple_answer": "-"
+  }
+},
+{
+  "model": "laws.question",
+  "pk": 10,
+  "fields": {
+    "question": "¿Cómo solicito mis boletas de compra?",
+    "answer": "\"Necesitas ser contribuyente con RUC ACTIVO y con domicilio fiscal HABIDO.\r\n•        Tener registrados los tributos correspondientes (régimen tributario) a los comprobantes de pago que requieras.\r\n•        Confirmar o actualizar tu número de teléfono celular y dirección de correo electrónico, los cuales serán validados con el código de verificación. Si no estás afecto a rentas de tercera categoría, debes haber comunicado en el RUC, tu número de celular o correo electrónico.\r\n•        Haber presentado las declaraciones pago correspondientes de los últimos seis meses vencidos.\r\n•        Haber generado el Registro de Ventas e Ingresos y Registro de Compras de manera electrónica de los últimos 12 meses inclusive si no ha tenido operaciones, siempre que se encuentre obligado.\r\n•        Haber presentado la Declaración Jurada Anual del Impuesto a la Renta por rentas de tercera categoría del último ejercicio vencido, de estar obligado.\r\n\"",
+    "law": 4,
+    "status": 0,
+    "simple_answer": "-"
   }
 }
 ]

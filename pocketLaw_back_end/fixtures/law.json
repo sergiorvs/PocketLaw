@@ -5,7 +5,47 @@
   "fields": {
     "title": "Marca",
     "description": "Es todo aquel signo que nos va a permitir reconocer un producto o servicio de otros en el mercado, gracias a sus características podremos diferenciarlo de otros. Ello quiere decir que vamos a poder usar juegos de palabras, números, imágenes, símbolos, colores, incluso sonidos y los olores.",
-    "image": "marca__logo-generica_YVMmq8Q.jpg",
+    "image": "WhatsApp_Image_2021-04-01_at_19.19.36.jpeg",
+    "tag": 1
+  }
+},
+{
+  "model": "laws.law",
+  "pk": 2,
+  "fields": {
+    "title": "Reserva de nombre",
+    "description": "\"Es un procedimiento a través del cual puedes proteger por 30 días una denominación o razón social elegida hasta que terminen los trámites para constituir la empresa o modificar sus estatutos.\r\nEsto es recomendable para que la inscripción de una sociedad en el Registro de Personas Jurídicas sea mucho más fácil.\r\n\"",
+    "image": "WhatsApp_Image_2021-04-01_at_19.20.23_1_CPaV9e8.jpeg",
+    "tag": 1
+  }
+},
+{
+  "model": "laws.law",
+  "pk": 3,
+  "fields": {
+    "title": "Constitución de empresa",
+    "description": "La constitución de una empresa es el proceso de registrar una empresa por parte de una o más personas ante el estado a fin de lograr formalidad y determinados beneficios.",
+    "image": "WhatsApp_Image_2021-04-01_at_19.19.11.jpeg",
+    "tag": 1
+  }
+},
+{
+  "model": "laws.law",
+  "pk": 4,
+  "fields": {
+    "title": "RUC",
+    "description": "El Registro Único Tributario es un mecanismo de la DIAN para identificar y clasificar las personas y entidades contribuyentes y no contribuyentes declarantes de ingresos y patrimonio.",
+    "image": "WhatsApp_Image_2021-04-01_at_19.19.57.jpeg",
+    "tag": 1
+  }
+},
+{
+  "model": "laws.law",
+  "pk": 5,
+  "fields": {
+    "title": "Random",
+    "description": "Random lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom lawRandom law",
+    "image": "WhatsApp_Image_2021-04-01_at_19.20.23_1.jpeg",
     "tag": 1
   }
 }
