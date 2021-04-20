@@ -32,8 +32,6 @@ kombu==4.6.11
 Markdown==3.3.3
 Pillow==8.0.1
 promise==2.3
-psycopg2==2.7.4
-psycopg2-binary==2.8.6
 PyJWT==1.7.1
 pynliner==0.8.0
 python-dateutil==2.8.1
