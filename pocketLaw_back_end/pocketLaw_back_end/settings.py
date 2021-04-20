@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import environ
+import django_heroku
 
 from datetime import timedelta
 from pathlib import Path
@@ -76,11 +77,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pocketLaw_back_end.urls'
+FRONTEND_DIR = 'poketlaw-frontend'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            os.path.join(BASE_DIR, '../', FRONTEND_DIR, 'build'),
+            os.path.join(BASE_DIR,  '../', FRONTEND_DIR, 'build', 'static'),
             os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
@@ -144,7 +148,6 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_USER_MODEL = 'account.User'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
@@ -153,6 +156,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), 'static',
+    os.path.join(BASE_DIR, '../', FRONTEND_DIR, 'build'),
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -188,3 +192,6 @@ import dj_database_url
 
 prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+
+django_heroku.settings(locals())

@@ -1,1 +1,1 @@
-web: gunicorn pocketLaw_back_end.wsgi
+web: gunicorn django_tasklist.wsgi --log-file -
