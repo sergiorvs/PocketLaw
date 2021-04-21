@@ -11,6 +11,7 @@ const resourceEn = {
   init: 'Init',
   favorites: 'Favorites',
   welcome: 'Welcome...',
+  welcomeParagraph: 'This tab is intended to provide you with the psychological support you need so that you can feel confident about your undertaking, we assure you that all the information will be supportive for you, we will give you guidelines about the competencies and emotional intelligence, the selection process, the human talent, strategic planning of human resources, etc.',
   errorMessage: 'User or passwordare wrong. Please, try again.',
   login: 'Login',
   logout: 'Logout',

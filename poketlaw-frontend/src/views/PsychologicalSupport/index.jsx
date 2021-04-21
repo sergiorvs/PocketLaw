@@ -19,11 +19,7 @@ function PsychologicalSupport() {
         </Grid>
         <Grid item container xs={12} justify={"center"} className={classes.paragraph}>
           <Typography variant={'h6'} color={'secondary'} align={'center'}>
-            {'Esta pestaña está destinada a brindarte el apoyo psicológico que necesario para que'}
-            {'puedas sentirte seguro de tu emprendimiento, te aseguramos que toda la'}
-            {'infomración será de apoyo para ti, te daremos pautas acerca de las competencias y'}
-            {'La inteligencia emocional, el proceso de selección, el talento humano, planificación'}
-            {'estratégica de recursos humanos, etc.'}
+            {t('welcomeParagraph')}
           </Typography>
         </Grid>
         <Grid item xs={12} className={classes.carrouselContainer}>

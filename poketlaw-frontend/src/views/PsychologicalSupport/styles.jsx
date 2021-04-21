@@ -30,6 +30,7 @@ export const useStyles = makeStyles(theme => ({
     width: '13rem',
     height: '13rem',
     background: 'rgba(0.25, 0.25, 0.25, 0.25)',
+    cursor: 'pointer',
     [theme.breakpoints.down('sm')]: {
       width: '8rem',
       height: '8rem',
