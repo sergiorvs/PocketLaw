@@ -12,12 +12,14 @@ import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_TO_FAVORITES } from '../../graphql/mutations/Laws';
 import { useTranslation } from 'react-i18next';
+import noPhoto from '../../media/noPhoto.jpeg';
 
 const LawCard = ({law, userSession}) => {
   const classes = useStyles();
   const history = useHistory();
   const {t} = useTranslation();
   const [favorite, setFavorite] = useState(law.isFavorite);
+  const [image, setImage] = useState(getImageUrl(law.image));
   const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
 
   useEffect(() => {
@@ -36,12 +38,17 @@ const LawCard = ({law, userSession}) => {
   return (
     <Card className={classes.root}>
       <CardContent className={classes.cardContent}>
-        <Grid item container md={11} sm={12} onClick={() => history.push(routesDictionary.lawDetail(law.id))}>
-          <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6} xs={12}>
+        <Grid item container
+              md={11} sm={12}
+              className={classes.content}
+              onClick={() => history.push(routesDictionary.lawDetail(law.id))}
+        >
+          <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6}>
             <img
               alt={'lawImage'}
-              src={getImageUrl(law.image)}
+              src={image}
               className={classes.lawImage}
+              onError={() => setImage(noPhoto)}
             />
           </Grid>
           <Grid item container className={classes.title} md={3} sm={6} xs={12} justify={'flex-end'}>
@@ -74,7 +81,7 @@ const LawCard = ({law, userSession}) => {
           <Grid item>
             <Divider orientation="vertical" className={classes.divider} />
           </Grid>
-          <Grid item className={classes.descriptionLaw} md={6} sm={12}>
+          <Grid item className={classes.descriptionLaw} md={6} xs={12}>
             <Typography>
               {law.description}
             </Typography>

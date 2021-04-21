@@ -56,6 +56,7 @@ function PasswordReset() {
         </Typography>
         <TextField
           id="email-input"
+          placeholder={t('Email')}
           required
           value={email}
           variant={'outlined'}

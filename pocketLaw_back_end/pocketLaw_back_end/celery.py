@@ -14,7 +14,7 @@ app = Celery('pocketLaw_back_end')
 # pickle the object when using Windows.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
-app.conf.update(
-    BROKER_URL=settings.CELERY_BROKER_URL
-)
-app.conf.timezone = settings.TIME_ZONE
+# app.conf.update(
+#     BROKER_URL=settings.CELERY_BROKER_URL
+# )
+# app.conf.timezone = settings.TIME_ZONE

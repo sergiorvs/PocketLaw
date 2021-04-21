@@ -14,6 +14,7 @@ import { isNull, setLoginTokens } from '../../utils/tools';
 import { LOGIN_VERIFICATION } from '../../graphql/mutations/Users';
 import { useTranslation } from 'react-i18next';
 import Presentation from '../../Components/Presentation';
+import { Facebook } from '@material-ui/icons';
 
 
 const propTypes = {
@@ -68,6 +69,7 @@ function Login({setLoginState}) {
         <TextField
           id="user-input"
           required
+          placeholder={t('Email')}
           value={email}
           variant={'outlined'}
           onChange={(e) => {
@@ -103,6 +105,7 @@ function Login({setLoginState}) {
           id="password-input"
           type="password"
           required
+          placeholder={t('Password')}
           variant={'outlined'}
           value={password}
           error={errorForm}
@@ -154,6 +157,13 @@ function Login({setLoginState}) {
             className={classes.icon}
             onClick={() => {
               const win = window.open('https://www.instagram.com/pocketlaw_/', '_blank');
+              win.focus();
+            }}
+          />
+          <Facebook
+            className={classes.icon}
+            onClick={() => {
+              const win = window.open('https://www.facebook.com/Pocket-Law-540348193549400', '_blank');
               win.focus();
             }}
           />

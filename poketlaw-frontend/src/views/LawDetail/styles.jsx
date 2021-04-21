@@ -25,6 +25,11 @@ export const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(5),
     width: '100%',
   },
+  heading:{
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+  },
   lawsQuestionContainer: {
     height: '3rem',
     width: '100%',
@@ -34,23 +39,23 @@ export const useStyles = makeStyles(theme => ({
     margin: '0.25rem',
   },
   simpleAnswerFab: {
-    background: theme.palette.ternary.neutral,
+    background: `${theme.palette.ternary.neutral} !important`,
     "&:hover": {
-      backgroundColor: theme.palette.ternary.neutral,
+      backgroundColor: `${theme.palette.ternary.neutral} !important`,
       opacity: '0.65'
     },
   },
   simpleAnswerFabPositive: {
-    background: theme.palette.ternary.positive,
+    background: `${theme.palette.ternary.positive} !important`,
     "&:hover": {
-      backgroundColor: theme.palette.ternary.positive,
+      backgroundColor: `${theme.palette.ternary.positive} !important`,
       opacity: '0.65'
     },
   },
   simpleAnswerFabNegative: {
-    background: theme.palette.ternary.bad,
+    background: `${theme.palette.ternary.bad} !important`,
     "&:hover": {
-      backgroundColor: theme.palette.ternary.bad,
+      backgroundColor: `${theme.palette.ternary.bad} !important`,
       opacity: '0.65'
     },
   },

@@ -16,8 +16,12 @@ export function Header({setOpenDrawer}) {
       className={classes.headerContainer}
     >
       <Grid item xs={6} container alignItems={"center"}>
-        <MenuOpenIcon className={classes.menu} onClick={()=>setOpenDrawer(true)}/>
-        <TranslationSelector />
+        <Grid item xs={1} container className={classes.menu}>
+          <MenuOpenIcon className={classes.menu} onClick={()=>setOpenDrawer(true)}/>
+        </Grid>
+        <Grid item xs={11} container>
+          <TranslationSelector />
+        </Grid>
       </Grid>
       <Grid item container justify={'flex-end'} alignItems={'center'} xs={4}>
         <Grid item className={classes.logoContainer}>

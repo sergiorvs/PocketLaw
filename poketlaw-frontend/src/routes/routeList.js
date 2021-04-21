@@ -10,6 +10,7 @@ const AsyncDashboard = asyncComponent(() => import('../views/DashBoard'));
 const AsyncAboutUs = asyncComponent(() => import('../views/AboutUs'));
 const AsyncLaw = asyncComponent(() => import('../views/LawDetail'));
 const AsyncFavorites = asyncComponent(() => import('../views/Favorites'))
+const AsyncAmigra = asyncComponent(() => import('../views/Amigra'))
 
 
 const routes = [
@@ -18,6 +19,12 @@ const routes = [
     component: AsyncLaw,
     type: 'persistent',
     title: 'Law',
+  },
+  {
+    path: routesDictionary.amigra,
+    component: AsyncAmigra,
+    type: 'persistent',
+    title: 'Amigra',
   },
   {
     path: routesDictionary.favorites,

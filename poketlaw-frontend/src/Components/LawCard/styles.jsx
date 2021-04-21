@@ -10,6 +10,9 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     height: '100%',
   },
+  content: {
+    overflow: 'auto',
+  },
   lawsDescription: {
     width: '100%',
     height: '10rem',
@@ -26,11 +29,17 @@ export const useStyles = makeStyles(theme => ({
     background: 'transparent',
     width: 'fit-content',
     height: '100%',
-    maxHeight: '9rem'
+    maxHeight: '9rem',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
+    },
   },
   lawImage: {
     width: '100%',
     height: '100%',
+    [theme.breakpoints.down('sm')]: {
+      width: '70%',
+    },
   },
   title: {
     // background: 'red',
@@ -53,7 +62,9 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       width: '1px',
       height: '100%',
-      // display: 'none'
+    },
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
     },
     [theme.breakpoints.down('xs')]: {
       width: '100%',
@@ -67,7 +78,8 @@ export const useStyles = makeStyles(theme => ({
     height: '100%',
     overflow: 'auto',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '1rem'
+      marginTop: '1rem',
+      height: 'fit-content',
     },
   },
   icon: {

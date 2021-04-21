@@ -36,7 +36,8 @@ const resourceES = {
   alert: '¡ Alerta !',
   free: 'Gratis',
   emailField: 'Nombre de usuario o dirección de correo',
-  passwordField: 'Password'
+  passwordField: 'Password',
+  followUs: 'Síguenos en nuestras redes sociales'
 };
 
 export default resourceES;
