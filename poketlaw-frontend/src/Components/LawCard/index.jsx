@@ -12,12 +12,14 @@ import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_TO_FAVORITES } from '../../graphql/mutations/Laws';
 import { useTranslation } from 'react-i18next';
+import noPhoto from '../../media/noPhoto.jpeg';
 
 const LawCard = ({law, userSession}) => {
   const classes = useStyles();
   const history = useHistory();
   const {t} = useTranslation();
   const [favorite, setFavorite] = useState(law.isFavorite);
+  const [image, setImage] = useState(getImageUrl(law.image));
   const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
 
   useEffect(() => {
@@ -44,11 +46,12 @@ const LawCard = ({law, userSession}) => {
           <Grid item container className={classes.imageLaw} alignItems={'center'} md={2} sm={6}>
             <img
               alt={'lawImage'}
-              src={getImageUrl(law.image)}
+              src={image}
               className={classes.lawImage}
+              onError={() => setImage(noPhoto)}
             />
           </Grid>
-          <Grid item container className={classes.title} md={3} xs={6} justify={'flex-end'}>
+          <Grid item container className={classes.title} md={3} sm={6} xs={12} justify={'flex-end'}>
             <Grid item container xs={12}>
               <Typography variant={'subtitle1'} className={classes.lawTitle}>
                 {law.title}
