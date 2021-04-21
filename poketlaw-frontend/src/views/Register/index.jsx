@@ -95,7 +95,7 @@ function Register({setLoginState}) {
         noValidate
         autoComplete="off"
       >
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('firstname')}
         </Typography>
         <TextField
@@ -133,7 +133,7 @@ function Register({setLoginState}) {
             shrink: true,
           }}
         />
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('lastname')}
         </Typography>
         <TextField
@@ -171,7 +171,7 @@ function Register({setLoginState}) {
             shrink: true,
           }}
         />
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('email')}
         </Typography>
         <TextField
@@ -209,7 +209,7 @@ function Register({setLoginState}) {
             shrink: true,
           }}
         />
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('password')}
         </Typography>
         <TextField
@@ -241,7 +241,7 @@ function Register({setLoginState}) {
           }}
         />
 
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('repeatPassword')}
         </Typography>
         <TextField

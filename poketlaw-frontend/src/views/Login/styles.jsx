@@ -1,4 +1,4 @@
-import {makeStyles} from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 
 export const useStyles = makeStyles(theme => ({
@@ -79,6 +79,23 @@ export const useStyles = makeStyles(theme => ({
     // '& .MuiInput-underline:after': {
     //   borderBottomColor: theme.palette.primary.main,
     // },
+    // '&$focused': {
+    //   // border: 'gray solid 1px'
+    //   // boxShadow: `gray 0 0 0 1px`,
+    //   border: '1px solid blue'
+    // },
+  },
+  notchedOutline: {
+    borderColor: 'yellow',
+    '& $notchedOutline': {
+      borderColor: 'red'
+    },
+    '&:hover $notchedOutline': {
+      borderColor: 'blue'
+    },
+    '&$focused $notchedOutline': {
+      borderColor: 'green'
+    }
   },
   button: {
     width: '100%',

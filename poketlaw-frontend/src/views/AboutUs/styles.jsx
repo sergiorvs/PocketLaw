@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     // flexDirection: 'column',
-    padding: '5rem 4rem',
+    padding: '2rem 4rem',
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column-reverse',
       padding: '1rem 1rem',

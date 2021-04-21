@@ -1,5 +1,6 @@
 const routesDictionary = {
   aboutUs: '/',
+  amigra: '/amigra/',
   lawDetail: (id) => `/law/${id}/`,
   law: '/law/:id/',
   activateAccount: '/activate/account/:uid/:token/',

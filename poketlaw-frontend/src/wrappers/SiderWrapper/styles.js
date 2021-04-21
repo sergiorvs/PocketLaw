@@ -105,7 +105,7 @@ export const useStyles = makeStyles(theme => ({
   },
   content: {
     maxHeight: '100%',
-    height: '100%',
+    // height: '100%',
     width: '100%',
     background: '#eff5f8'
   }

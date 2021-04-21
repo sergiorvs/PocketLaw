@@ -1,13 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {
-  Avatar,
-  Badge,
-  Button,
-  Divider,
-  Drawer,
-  Grid,
-  Typography,
-} from '@material-ui/core';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Avatar, Badge, Button, Divider, Drawer, Grid, Typography, } from '@material-ui/core';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Sider from '../../Components/Sider';
 import LOGO from '../../media/logo.png';
@@ -22,6 +14,7 @@ import { getAuthTokenName, getImageUrl, isNull } from '../../utils/tools';
 import { GET_USER_SESSION } from '../../graphql/queries/User';
 import { AUTH_TOKEN } from '../../settings/constants';
 import { useTranslation } from 'react-i18next';
+import noPhoto from '../../media/noPhoto.jpeg';
 
 
 export default function SiderWrapper({children, setLoginState, isLogin, userSession, setUserSession}) {
@@ -30,6 +23,7 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
   const {t} = useTranslation();
   const client = useApolloClient();
   const token = localStorage.getItem(AUTH_TOKEN);
+  const [image, setImage] = useState(getImageUrl(userSession?.profilePicture) || LOGO);
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -100,16 +94,18 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
                     />
                     <label htmlFor="icon-button-file">
                       <div id="dashboard_admin_span_icon" className={classes.changePhoto}>
-                        <AddAPhotoIcon color={'inherit'} /></div>
+                        <AddAPhotoIcon color={'inherit'} />
+                      </div>
                     </label>
                   </>
                 }
               >
                 <Avatar
                   alt="User photo"
-                  src={getImageUrl(userSession?.profilePicture) || LOGO}
+                  src={getImageUrl(userSession?.profilePicture) || noPhoto}
                   className={classes.avatar}
                   imgProps={{className: classes.avatarImg}}
+                  onError={() => setImage(noPhoto)}
                 />
               </Badge>
             </Grid>
@@ -154,12 +150,12 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
         </Grid>
       </Grid>
     )}
-  </>
+  </>;
 
   return (
     <Grid container alignItems={'flex-start'} className={classes.wrapperContent}>
       <Grid item container direction={'column'} className={classes.wrapper}>
-        <Header isLogin={isLogin} setOpenDrawer={setOpenDrawer}/>
+        <Header isLogin={isLogin} setOpenDrawer={setOpenDrawer} />
         <Grid xs={12} item container className={classes.container}>
           <Grid item container xs={2} className={classes.siderBackground}>
             {SIDER_CONTENT}

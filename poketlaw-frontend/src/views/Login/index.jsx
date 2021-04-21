@@ -14,6 +14,7 @@ import { isNull, setLoginTokens } from '../../utils/tools';
 import { LOGIN_VERIFICATION } from '../../graphql/mutations/Users';
 import { useTranslation } from 'react-i18next';
 import Presentation from '../../Components/Presentation';
+import { Facebook } from '@material-ui/icons';
 
 
 const propTypes = {
@@ -62,7 +63,7 @@ function Login({setLoginState}) {
         noValidate
         autoComplete="off"
       >
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('emailField')}
         </Typography>
         <TextField
@@ -97,7 +98,7 @@ function Login({setLoginState}) {
           }}
         />
 
-        <Typography variant={'body2'} gutterBottom className={classes.label}>
+        <Typography variant={'body2'} className={classes.label}>
           {t('passwordField')}
         </Typography>
         <TextField
@@ -118,11 +119,18 @@ function Login({setLoginState}) {
               submit();
             }
           }}
-          className={classes.textField}
+          // className={classes.textField}
           InputProps={{
             startAdornment: (
               <LockOutlinedIcon color={'secondary'} className={classes.inputIcon} />
             ),
+            // classes: {
+            //   notchedOutline: classes.notchedOutline
+            // }
+          }}
+          classes={{
+            root: classes.notchedOutline,
+            focused: classes.notchedOutline
           }}
         />
         <Button variant={'contained'} className={classes.button} onClick={() => submit()}>
@@ -149,6 +157,13 @@ function Login({setLoginState}) {
             className={classes.icon}
             onClick={() => {
               const win = window.open('https://www.instagram.com/pocketlaw_/', '_blank');
+              win.focus();
+            }}
+          />
+          <Facebook
+            className={classes.icon}
+            onClick={() => {
+              const win = window.open('https://www.facebook.com/Pocket-Law-540348193549400', '_blank');
               win.focus();
             }}
           />

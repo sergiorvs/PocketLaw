@@ -32,6 +32,16 @@ export const useStyles = makeStyles(theme => ({
       borderBottomRightRadius: 'inherit',
     },
   },
+  active: {
+    backgroundColor: fade(theme.palette.secondary.dark, 0.4),
+    borderTopLeftRadius: 'inherit',
+    borderBottomLeftRadius: 'inherit',
+  },
+  activeB: {
+    backgroundColor: fade(theme.palette.secondary.dark, 0.4),
+    borderTopRightRadius: 'inherit',
+    borderBottomRightRadius: 'inherit',
+  },
   divider: {
     width: 1,
     height: '100%',

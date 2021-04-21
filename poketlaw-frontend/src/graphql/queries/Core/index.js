@@ -5,3 +5,9 @@ query{
   privacyPolitics
 }
 `
+
+export const GET_COMPLAIN_BOOK = gql`
+query{
+  complaintsBook
+}
+`

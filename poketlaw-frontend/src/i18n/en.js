@@ -37,7 +37,8 @@ const resourceEn = {
   alert: 'Alert !',
   free: 'Free',
   emailField: 'Username or email address',
-  passwordField: 'Contraseña'
+  passwordField: 'Contraseña',
+  followUs: 'Follow us on all our social networks'
 };
 
 export default resourceEn;

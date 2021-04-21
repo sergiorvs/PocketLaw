@@ -16,10 +16,10 @@ export const useStyles = makeStyles(theme => ({
     marginBottom: '3rem',
     cursor: 'pointer',
     [theme.breakpoints.down('sm')]: {
-      height: '20rem',
+      height: '15rem',
     },
     [theme.breakpoints.down('xs')]: {
-      height: '30rem',
+      height: '23rem',
     },
   },
   imageLaw: {

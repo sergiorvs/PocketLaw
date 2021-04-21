@@ -11,6 +11,7 @@ const AsyncAboutUs = asyncComponent(() => import('../views/AboutUs'));
 const AsyncLaw = asyncComponent(() => import('../views/LawDetail'));
 const AsyncPsychologicalSupport = asyncComponent(() => import('../views/PsychologicalSupport'))
 const AsyncFavorites = asyncComponent(() => import('../views/Favorites'))
+const AsyncAmigra = asyncComponent(() => import('../views/Amigra'))
 
 
 const routes = [
@@ -25,6 +26,12 @@ const routes = [
     component: AsyncPsychologicalSupport,
     type: 'private',
     title: 'Soporte',
+  },
+  {
+    path: routesDictionary.amigra,
+    component: AsyncAmigra,
+    type: 'persistent',
+    title: 'Amigra',
   },
   {
     path: routesDictionary.favorites,

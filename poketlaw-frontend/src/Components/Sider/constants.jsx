@@ -20,6 +20,11 @@ export const menuList = (isLogin) => {
       img: GavelIcon,
       link: routesDictionary.laws,
     },
+    {
+      id: 'amigra',
+      title: 'Amigra',
+      link: routesDictionary.amigra,
+    },
   ];
 
   const siderLogin = [
