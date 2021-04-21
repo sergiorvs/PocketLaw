@@ -24,10 +24,10 @@ export const menuList = (isLogin) => {
 
   const siderLogin = [
     {
-      id: 'pocket-bag',
+      id: 'psychological-support',
       title: 'psychological',
       img: StreetviewIcon,
-      link: routesDictionary.dashboard,
+      link: routesDictionary.psychologicalSupport,
     },
     {
       id: 'categories',

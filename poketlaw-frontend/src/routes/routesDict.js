@@ -6,6 +6,7 @@ const routesDictionary = {
   passwordResetConfirmation: '/reset/password/:uid/:token/',
   passwordReset: '/reset/password/',
   register: '/register/',
+  psychologicalSupport: '/psychological-support/',
   favorites: '/favorites/',
   login: '/login/',
   error: '/404',

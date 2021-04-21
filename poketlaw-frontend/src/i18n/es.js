@@ -10,6 +10,7 @@ const resourceES = {
   categories: 'Categorias',
   init: 'Inicio',
   favorites: 'Favoritos',
+  welcome: 'Bienvenidos...',
   errorMessage: 'Usuario y contraseña incorrectos intente nuevamente',
   login: 'Iniciar Sesión',
   logout: 'Cerrar Sesión',

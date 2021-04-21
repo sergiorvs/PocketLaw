@@ -10,6 +10,7 @@ const resourceEn = {
   categories: 'Categories',
   init: 'Init',
   favorites: 'Favorites',
+  welcome: 'Welcome...',
   errorMessage: 'User or passwordare wrong. Please, try again.',
   login: 'Login',
   logout: 'Logout',
