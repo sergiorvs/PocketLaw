@@ -42,7 +42,13 @@ const resourceES = {
   amigraText: 'A ti que quieres emprender y eres extranjero, el primer paso es conocer tu estatus migratorio. Para ello te recomendamos visitar nuestra plataforma aliada Amigra',
   amigraPanel: 'Somos parte de tu camino',
   amigraPanelText: 'Es un proyecto Social Legal - Tech, que busca brindarte información migratoria, mantenerte al tanto y acompañarte en el proceso.',
-  followUs: 'Contáctanos con nuestras redes sociales'
+  followUs: 'Contáctanos con nuestras redes sociales',
+  daniela: 'Encargada de la recopilación de las normas y enfoque legal',
+  sergio: 'Encargado de la programación del sitio web',
+  mariana: 'Encargada del área de soporte psicológico',
+  danielaSubtitle: 'Área del Derecho',
+  sergioSubtitle: 'Ciencias de la Computación',
+  marianaSubtitle: 'Área de la Psicología',
 };
 
 export default resourceES;

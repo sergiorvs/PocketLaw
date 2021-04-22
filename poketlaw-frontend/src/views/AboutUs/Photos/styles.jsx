@@ -35,9 +35,22 @@ export const useStyles = makeStyles(theme => ({
   logoContainer: {
     margin: '1rem'
   },
+  title: {
+    maxWidth: '13rem',
+    margin: 'auto',
+    paddingTop: '1.5rem',
+    color: theme.palette.secondary.dark,
+  },
+  subtitle: {
+    maxWidth: '13rem',
+    margin: 'auto',
+    paddingTop: '0.5rem',
+    lineHeight: '1em',
+    fontSize: '18px',
+  },
   description: {
     maxWidth: '13rem',
     margin: 'auto',
-    paddingTop: '1.5rem'
+    paddingTop: '0.5rem'
   }
 }));
