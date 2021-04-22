@@ -69,7 +69,7 @@ export function Footer() {
       <Grid item md={2} className={classes.book}>
         <a href={`${BACKEND_URL}${complainBook?.complaintsBook}`}
            target={'_blank'} rel={'noreferrer'}>
-          <img src={book} alt={'Libro de reclamaciones'} className={classes.book} />
+          <img src={book} alt={'Libro de reclamaciones'} className={classes.bookImage} />
         </a>
       </Grid>
     </Grid>

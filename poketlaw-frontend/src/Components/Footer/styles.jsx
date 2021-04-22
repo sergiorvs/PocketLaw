@@ -19,9 +19,15 @@ export const useStyles = makeStyles(theme => ({
     marginTop: '1rem'
   },
   book: {
-    // height: '80%',
-    // maxHeight: 'inherit'
-    width: '14rem',
+    maxWidth: '18rem',
+    cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      order: 2,
+      margin: '1rem 0'
+    },
+  },
+  bookImage: {
+    width: '100%',
     cursor: 'pointer',
     [theme.breakpoints.down('sm')]: {
       order: 2,
