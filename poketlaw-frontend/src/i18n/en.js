@@ -39,10 +39,10 @@ const resourceEn = {
   free: 'Free',
   emailField: 'Username or email address',
   passwordField: 'Contraseña',
-  followUs: 'Follow us on all our social networks',
   amigraText: 'A ti que quieres emprender y eres extranjero, el primer paso es conocer tu estatus migratorio. Para ello te recomendamos visitar nuestra plataforma aliada Amigra',
   amigraPanel: 'Somos parte de tu camino',
   amigraPanelText: 'Es un proyecto Social Legal -Tech, que busca brindarte información migratoria, mantenerte al tanto y acompañarte en el proceso.',
+  followUs: 'Contact us on our social networks'
 };
 
 export default resourceEn;
