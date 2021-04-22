@@ -128,6 +128,7 @@ function Login({setLoginState}) {
             //   notchedOutline: classes.notchedOutline
             // }
           }}
+          className={classes.textField}
           classes={{
             root: classes.notchedOutline,
             focused: classes.notchedOutline

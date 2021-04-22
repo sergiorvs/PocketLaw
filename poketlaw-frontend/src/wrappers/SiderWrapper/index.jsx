@@ -23,7 +23,11 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
   const {t} = useTranslation();
   const client = useApolloClient();
   const token = localStorage.getItem(AUTH_TOKEN);
-  const [image, setImage] = useState(getImageUrl(userSession?.profilePicture) || LOGO);
+  const [image, setImage] = useState(noPhoto);
+
+  useEffect(() => {
+    setImage(getImageUrl(userSession?.profilePicture))
+  }, [userSession])
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -45,6 +49,8 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
         const {data} = response;
         const {me = {}} = data;
         setUserSession(me);
+        setImage(getImageUrl(userSession?.profilePicture))
+        console.log('2')
       });
     });
   };
@@ -65,6 +71,8 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
       });
     }
   }, [client, logout, token]);
+
+  console.log('image..........', image)
 
   const SIDER_CONTENT = <>
     <Grid
@@ -102,10 +110,15 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
               >
                 <Avatar
                   alt="User photo"
-                  src={getImageUrl(userSession?.profilePicture) || noPhoto}
+                  src={image}
                   className={classes.avatar}
-                  imgProps={{className: classes.avatarImg}}
-                  onError={() => setImage(noPhoto)}
+                  imgProps={{
+                    className: classes.avatarImg,
+                    onError: () => {
+                      setImage(noPhoto);
+                      console.log('no photo')
+                    }
+                  }}
                 />
               </Badge>
             </Grid>
