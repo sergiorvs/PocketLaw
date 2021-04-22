@@ -10,6 +10,8 @@ import book from '../../media/libro-de-reclamaciones.png';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { Facebook } from '@material-ui/icons';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import MailIcon from '@material-ui/icons/Mail';
+
 
 export function Footer() {
   const classes = useStyles();
@@ -48,6 +50,13 @@ export function Footer() {
             className={classes.icon}
             onClick={() => {
               const win = window.open(' https://www.linkedin.com/company/pocket-law/', '_blank');
+              win.focus();
+            }}
+          />
+          <MailIcon
+            className={classes.icon}
+            onClick={() => {
+              const win = window.open(' https://mail.google.com/mail/u/0/?fs=1&to=pocketlaw19@gmail.com&tf=cm', '_blank');
               win.focus();
             }}
           />

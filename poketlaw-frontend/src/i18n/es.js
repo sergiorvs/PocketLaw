@@ -39,7 +39,7 @@ const resourceES = {
   free: 'Gratis',
   emailField: 'Nombre de usuario o dirección de correo',
   passwordField: 'Password',
-  followUs: 'Síguenos en nuestras redes sociales'
+  followUs: 'Contáctanos con nuestras redes sociales'
 };
 
 export default resourceES;
