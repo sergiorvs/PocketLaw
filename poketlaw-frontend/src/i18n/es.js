@@ -11,7 +11,7 @@ const resourceES = {
   init: 'Inicio',
   favorites: 'Favoritos',
   welcome: 'Bienvenidos...',
-  welcomeParagraph: 'Esta pestaña está destinada a brindarte el apoyo psicológico que necesario para que puedas sentirte seguro de tu emprendimiento, te aseguramos que toda la infomración será de apoyo para ti, te daremos pautas acerca de las competencias y La inteligencia emocional, el proceso de selección, el talento humano, planificación estratégica de recursos humanos, etc.',
+  welcomeParagraph: 'Esta pestaña está destinada a brindarte el apoyo psicológico que es necesario para que puedas sentirte seguro de tu emprendimiento, te aseguramos que toda la información será de apoyo para ti, te daremos pautas acerca de las competencias y La inteligencia emocional, el proceso de selección, el talento humano, planificación estratégica de recursos humanos, etc.',
   errorMessage: 'Usuario y contraseña incorrectos intente nuevamente',
   login: 'Iniciar Sesión',
   logout: 'Cerrar Sesión',
