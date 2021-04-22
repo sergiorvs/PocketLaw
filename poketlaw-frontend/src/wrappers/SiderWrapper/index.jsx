@@ -15,6 +15,7 @@ import { GET_USER_SESSION } from '../../graphql/queries/User';
 import { AUTH_TOKEN } from '../../settings/constants';
 import { useTranslation } from 'react-i18next';
 import noPhoto from '../../media/noPhoto.jpeg';
+import TranslationSelector from '../../Components/TranslationSelector';
 
 
 export default function SiderWrapper({children, setLoginState, isLogin, userSession, setUserSession}) {
@@ -50,7 +51,6 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
         const {me = {}} = data;
         setUserSession(me);
         setImage(getImageUrl(userSession?.profilePicture))
-        console.log('2')
       });
     });
   };
@@ -71,8 +71,6 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
       });
     }
   }, [client, logout, token]);
-
-  console.log('image..........', image)
 
   const SIDER_CONTENT = <>
     <Grid
@@ -116,7 +114,6 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
                     className: classes.avatarImg,
                     onError: () => {
                       setImage(noPhoto);
-                      console.log('no photo')
                     }
                   }}
                 />
@@ -137,6 +134,9 @@ export default function SiderWrapper({children, setLoginState, isLogin, userSess
         </React.Fragment>)
       }
       <Sider isLogin={isLogin} />
+    </Grid>
+    <Grid item container justify={'center'} className={classes.translate}>
+      <TranslationSelector />
     </Grid>
     <Divider orientation="horizontal" className={classes.divider} />
     {isLogin ? (

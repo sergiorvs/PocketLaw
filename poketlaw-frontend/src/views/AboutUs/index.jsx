@@ -10,7 +10,7 @@ function AboutUs() {
 
   return (
     <Container className={classes.container}>
-      <Carousel itemsToShow={1} isRTL={false}>
+      <Carousel itemsToShow={1} isRTL={false} className={classes.carousel}>
         <Photos />
         <Team />
       </Carousel>

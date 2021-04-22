@@ -18,9 +18,6 @@ export const useStyles = makeStyles(theme => ({
   goBackButton: {
     cursor: 'pointer',
   },
-  lawsContainer:{
-    height: '10rem',
-  },
   questionContainer: {
     paddingTop: theme.spacing(5),
     width: '100%',

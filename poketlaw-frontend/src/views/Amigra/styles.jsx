@@ -44,8 +44,29 @@ export const useStyles = makeStyles(theme => ({
     marginTop: '2rem'
   },
   gridContainer: {
+    background: 'radial-gradient(circle, rgba(255,255,255,1) 14%, rgba(219,243,243,1) 51%, rgba(168,226,227,1) 88%)',
+    padding: '1rem 2rem',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: '1rem',
     }
+  },
+  amigraTitle: {
+    order: 0,
+    padding: '1rem',
+    [theme.breakpoints.down('md')]: {
+      order: 1,
+    }
+  },
+  amigra: {
+
+  },
+  amigraLineHeight: {
+    lineHeight: '1.7em',
+  },
+  amigraText: {
+    background: 'radial-gradient(circle, rgba(255,255,255,1) 14%, rgba(219,243,243,1) 51%, rgba(168,226,227,1) 88%)',
   }
 }));

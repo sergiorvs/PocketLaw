@@ -15,6 +15,7 @@ export const useStyles = makeStyles(theme => ({
     padding: '1rem 0',
     cursor: 'pointer',
     width: '49.5%',
+    color: 'black',
     '&:hover': {
       backgroundColor: fade(theme.palette.secondary.dark, 0.5),
       borderTopLeftRadius: 'inherit',
@@ -26,6 +27,7 @@ export const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     padding: '1rem 0',
     cursor: 'pointer',
+    color: 'black',
     '&:hover': {
       backgroundColor: fade(theme.palette.secondary.dark, 0.5),
       borderTopRightRadius: 'inherit',

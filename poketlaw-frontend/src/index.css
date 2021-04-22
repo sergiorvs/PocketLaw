@@ -5,3 +5,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
+@media (max-width:400px) {
+  .rec-arrow-left {
+    display: none;
+  }
+  .rec-arrow-right {
+    display: none;
+  }
+}
+
+.rec.rec-carousel-item.rec-carousel-item-0.rec-carousel-item-visible {
+  display: flex;
+}
+
+.rec-carousel-item {
+  display: flex;
+  align-items: center;
+}

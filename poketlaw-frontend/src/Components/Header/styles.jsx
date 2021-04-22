@@ -6,21 +6,34 @@ export const useStyles = makeStyles(theme => ({
     width: '100%',
     maxHeight: '10rem',
     padding: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center'
+    },
   },
   menu: {
     top: '2.5%',
     color: theme.palette.primary.main,
     left: '0.425rem',
-    [theme.breakpoints.up('sm')]: {display: 'none'
+    [theme.breakpoints.up('sm')]: {
+      display: 'none'
     },
-    [theme.breakpoints.down('sm')]: {display: 'inline'
+    [theme.breakpoints.down('sm')]: {
+      display: 'inline'
     },
   },
-  logoContainer:{
+  logoContainer: {
     objectFit: 'contain',
     width: '28rem',
   },
   translateContainer: {
-    width: 'min-content'
+    display: 'inline',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+  menuContainer: {
+    position: 'absolute',
+    left: '1.5rem',
+    width: 'fit-content',
   }
 }));

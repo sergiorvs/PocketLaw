@@ -15,15 +15,15 @@ export function Header({setOpenDrawer}) {
       justify={'space-between'}
       className={classes.headerContainer}
     >
-      <Grid item xs={6} container alignItems={"center"}>
-        <Grid item xs={1} container className={classes.menu}>
-          <MenuOpenIcon className={classes.menu} onClick={()=>setOpenDrawer(true)}/>
-        </Grid>
-        <Grid item xs={11} container>
+      <Grid item container className={classes.menuContainer}>
+        <MenuOpenIcon className={classes.menu} onClick={()=>setOpenDrawer(true)}/>
+      </Grid>
+      <Grid item md={6} xs={2} container alignItems={"center"} className={classes.translateContainer}>
+        <Grid item sm={11} container>
           <TranslationSelector />
         </Grid>
       </Grid>
-      <Grid item container justify={'flex-end'} alignItems={'center'} xs={4}>
+      <Grid item container justify={'flex-end'} alignItems={'center'} md={4} xs={8}>
         <Grid item className={classes.logoContainer}>
           <Logo />
         </Grid>

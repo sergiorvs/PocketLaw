@@ -63,7 +63,8 @@ export const useStyles = makeStyles(theme => ({
   },
   avatar: {
     width: '100%',
-    height: '7rem',
+    height: '8rem',
+    boxShadow: '0 0 10px  rgba(0,0,0,0.4)',
   },
   avatarImg: {
     width: '100%',
@@ -108,5 +109,12 @@ export const useStyles = makeStyles(theme => ({
     // height: '100%',
     width: '100%',
     background: '#eff5f8'
+  },
+  translate: {
+    margin: '1rem 0 3rem',
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+    },
   }
 }));

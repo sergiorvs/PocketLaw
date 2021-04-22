@@ -20,8 +20,11 @@ const LawCard = ({law, userSession}) => {
   const {t} = useTranslation();
   const [favorite, setFavorite] = useState(law.isFavorite);
   const [image, setImage] = useState(getImageUrl(law.image));
-  console.log('image................', image)
   const [addToFavorites] = useMutation(ADD_TO_FAVORITES);
+
+  useEffect(() => {
+    setImage(getImageUrl(law.image));
+  }, [law]);
 
   useEffect(() => {
     setFavorite(law.isFavorite);

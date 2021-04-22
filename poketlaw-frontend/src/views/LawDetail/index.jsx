@@ -24,7 +24,7 @@ class ExpandMoreIcon extends React.Component {
   }
 }
 
-function LawDetail() {
+function LawDetail({userSession}) {
   const classes = useStyles();
   const {id} = useParams();
   const history = useHistory();
@@ -56,7 +56,7 @@ function LawDetail() {
           />
         </Grid>
         <Grid item xs={11} container className={classes.lawsContainer}>
-          <LawCard law={law} />
+          <LawCard law={law} userSession={userSession} />
         </Grid>
       </Grid>
       <Grid item xs={10} container className={classes.questionContainer}>

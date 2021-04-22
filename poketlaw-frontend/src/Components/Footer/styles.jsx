@@ -13,6 +13,9 @@ export const useStyles = makeStyles(theme => ({
   logoContainer: {
     objectFit: 'contain',
     width: '28rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '16rem',
+    },
   },
   politics: {
     cursor: 'pointer',
@@ -23,7 +26,8 @@ export const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     [theme.breakpoints.down('sm')]: {
       order: 2,
-      margin: '1rem 0'
+      margin: '1rem 0',
+      maxWidth: '14rem',
     },
   },
   bookImage: {
