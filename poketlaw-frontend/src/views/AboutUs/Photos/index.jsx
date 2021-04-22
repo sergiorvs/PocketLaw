@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Avatar, Badge, Grid } from '@material-ui/core';
-import image from '../../../media/logo_amigra_Vector_Editable.svg';
+import daniela from '../../../media/daniela_pic.jpeg';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 function Photos() {
@@ -22,8 +22,8 @@ function Photos() {
                 <LinkedInIcon
                   className={classes.icon}
                   onClick={() => {
-                    // const win = window.open(' https://www.linkedin.com/company/pocket-law/', '_blank');
-                    // win.focus();
+                    const win = window.open(' https://www.linkedin.com/in/daniela-zamalloa-saavedra-a024471a3/', '_blank');
+                    win.focus();
                   }}
                 />
               </>
@@ -31,15 +31,8 @@ function Photos() {
           >
             <Avatar
               alt="User photo"
-              src={image}
+              src={daniela}
               className={classes.avatar}
-              // imgProps={{
-              //   className: classes.avatarImg,
-              //   onError: () => {
-              //     setImage(noPhoto);
-              //     console.log('no photo')
-              //   }
-              // }}
             />
           </Badge>
         </Grid>
